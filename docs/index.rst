@@ -26,6 +26,7 @@ The Contributor Guide
 
    contributing
    authors
+   history
 
 Indices and tables
 ==================
