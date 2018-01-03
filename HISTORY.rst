@@ -2,6 +2,10 @@
 History
 =======
 
+1.99.24.6 (2018-01-02)
+----------------------
+* Protocol details about realtime and full movie upload LED modes.
+
 1.99.24.5 (2018-01-02)
 ----------------------
 * Improve documentation for contributors.
