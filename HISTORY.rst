@@ -2,6 +2,13 @@
 History
 =======
 
+1.99.24.8 (2018-11-18)
+----------------------
+* Fix typos.
+* Fix formatting.
+* In private API repeat warning about private API.
+* Remove uncertainty about real time mode.
+
 1.99.24.7 (2018-11-12)
 ----------------------
 * Minor formatting improvements.
