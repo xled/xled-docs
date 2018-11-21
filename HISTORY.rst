@@ -2,6 +2,10 @@
 History
 =======
 
+1.99.24.9 (2018-11-21)
+----------------------
+* Describe private API for uploading movies.
+
 1.99.24.8 (2018-11-18)
 ----------------------
 * Fix typos.
