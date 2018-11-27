@@ -5,7 +5,7 @@ Smart LED Christmas lights
 Unofficial API documentation for Twinkly - Smart Decoration LED lights for
 Christmas.
 
-Description of Twinkly on `project page of Kickstarter`:
+Description of Twinkly on `project page of Kickstarter`_:
 
     Twinkly is a Christmas tree light string, controlled via smartphone:
     "internet of things" meets extraordinary light effects! Created by ledworks
@@ -27,8 +27,8 @@ seconds) to the hardware. I wasn't able to control anything at all. Later I
 wanted to connect it to my local WiFi network. But popup dialog that shouldn't
 have appear never did so.
 
-Public API was `promised around Christmas 2016` for next season. Later update
-from October 2016 it seems `API won't be available any time soon`:
+Public API was `promised around Christmas 2016`_ for next season. Later update
+from October 2016 it seems `API won't be available any time soon`_:
 
     API for external control are on our dev check list, we definitely need some
     feedback from the community to understand which could be a proper core set
