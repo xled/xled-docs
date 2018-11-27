@@ -39,6 +39,9 @@ The API may return application status as `code` value of JSON. Returned will not
 1103
     Error - value too long?
 
+1104
+    Error - malformed JSON on input?
+
 1105
     Invalid argument key
 

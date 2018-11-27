@@ -2,6 +2,11 @@
 History
 =======
 
+1.99.24.10 (2018-11-27)
+-----------------------
+
+* New return value - 1104
+
 1.99.24.9 (2018-11-21)
 ----------------------
 * Describe private API for uploading movies.

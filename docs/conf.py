@@ -61,7 +61,7 @@ copyright = u"2017, Pavol Babinčák"
 # the built documents.
 #
 # The short X.Y version.
-version = '1.99.24.9'
+version = '1.99.24.10'
 # The full version, including alpha/beta/rc tags.
 release = version
 
