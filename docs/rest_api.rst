@@ -1,11 +1,11 @@
-=============================
-Twinkly private API reference
-=============================
+==================================
+Twinkly private rest API reference
+==================================
 
 Overview
 --------
 
-Twinkly API is primary way to get information about the device, configure network and modes of the device. It is a HTTP 1.1 based API sent over TCP port 80.
+Twinkly rest API is primary way to get information about the device, configure network and modes of the device. It is a HTTP 1.1 based API sent over TCP port 80.
 
 This API is used by mobile applications. It haven't been made public yet so it may change at any time.
 
@@ -44,6 +44,12 @@ The API may return application status as `code` value of JSON. Returned will not
 
 1105
     Invalid argument key
+
+1107
+    Ok?
+
+1108
+    Ok?
 
 
 Authentication
@@ -207,6 +213,8 @@ The response will be an object.
 	(string), right three bytes of mac address encoded as hexadecimal digits prefixed with 00.
 `mac`
 	(string) MAC address as six groups of two hexadecimal digits separated by colons (:).
+`uuid`
+	(string) UUID of the device. Since firmware version: 2.0.22-mqtt.
 `max_supported_led`
 	(number), e.g. 180
 `base_leds_number`
@@ -837,6 +845,84 @@ Reset LED
 HTTP request
 ````````````
 `GET /xled/v1/led/reset`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+    Application return code.
+
+
+Get MQTT configuration
+----------------------
+
+Since firmware version: 2.0.22-mqtt
+
+HTTP request
+````````````
+`GET /xled/v1/mqtt/config`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+    Application return code.
+
+`broker_host`
+	(string), hostname of broker. By default `mqtt.twinkly.com`.
+
+`broker_port`
+    (integer), destination port of broker. By default "1883".
+
+`client_id`
+	(string), by default hex string of length 12 derived from MAC address of the device as uppercased hexadecimal digits.
+
+`encryption_key_set`
+    (bool), by default "False"
+
+`keep_alive_interval`
+    (integer), by default "180".
+
+`user`
+    (string), by default "twinkly_noauth"
+
+
+Set MQTT configuration
+----------------------
+
+Since firmware version: 2.0.22-mqtt
+
+HTTP request
+````````````
+`POST /xled/v1/mqtt/config`
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`broker_host`
+	(string), hostname of broker
+
+`broker_port`
+    (integer), destination port of broker
+
+`client_id`
+	(string)
+
+`encryption_key`
+    (string), length exactly 16 characters?
+
+`keep_alive_interval`
+    cannot be set?
+
+`user`
+    (string)
+
 
 Response
 ````````

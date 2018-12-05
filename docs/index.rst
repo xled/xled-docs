@@ -15,6 +15,7 @@ Twinkly private protocol
    :maxdepth: 2
 
    protocol_details
+   msqtt_api
    rest_api
 
 
