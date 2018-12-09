@@ -21,14 +21,22 @@ Messages
 ````````
 
   * `online`
+
+    * `ip` - IP address. Added in firmware 2.1.0.
+    * `ssid` - SSID to which device is connected. Added in firmware 2.1.0.
+
   * `offline`
 
 Example
 ```````
 
-Online::
+Online (firmware 2.0.22-mqtt)::
 
     {"status": "online"}
+
+Online (since firmware 2.1.0)::
+
+    {"status": "online", "ip": "192.168.4.1", "ssid": "home"}
 
 Offline::
 

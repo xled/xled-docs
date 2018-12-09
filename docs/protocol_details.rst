@@ -33,6 +33,7 @@ I have seen these two versions only so this page describes its behaviour:
 - 1.99.20
 - 1.99.24
 - 2.0.22-mqtt
+- 2.1.0
 
 
 Device name
