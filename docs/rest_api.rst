@@ -207,6 +207,8 @@ The response will be an object.
 	(string), e.g. "TW105SEUP06"
 `device_name`
 	(string), by default consists of `Twinkly_` prefix and uppercased `hw_id` (see bellow)
+`rssi`
+	(number), Received signal strength indication. Since firmware version: 2.1.0.
 `uptime`
 	(string) number as a string, e.g. "60"
 `hw_id`
