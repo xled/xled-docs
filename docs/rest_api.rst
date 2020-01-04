@@ -632,6 +632,106 @@ The response will be an object.
 `code`
     Application return code.
 
+Get current brightness
+----------------------
+
+Gets the current brightness level.
+
+HTTP request
+````````````
+
+`GET /xled/v1/led/out/brightness`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+    Application return code.
+`mode`
+    (string) One of "enabled" or "disabled".
+`value`
+    (integer) Brightness value, 1..100
+
+Mode string displays if the dimming is applied. The led shines at full
+brightness regardless of what value is set if the `mode` is `disabled`.
+
+
+Example
+```````
+
+Request::
+
+	GET /xled/v1/led/out/brightness HTTP/1.1
+	Host: 192.168.4.1
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 37
+	Content-Type: application/json
+
+	{"value":"100,"mode":"enabled","code":1000}
+
+Set brightness
+--------------
+
+HTTP request
+````````````
+
+`POST /xled/v1/led/out/brightness`
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`mode`:
+    (string) one of "enabled", "disabled"
+`type`:
+    (string) always "A"
+`value`:
+    (integer) brighness level in range of 0..100
+
+When `mode` is "disabled" no dimming is applied and the led works at full
+brightness. It is not necessary to submit all the parameters, basicly it would
+work if only `value` or `mode` is supplied. `type` parameter can be omitted,
+and the only value seen on the wire was "A"
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+    Application return code.
+
+Example
+```````
+
+Set the brightness level to 10%:
+
+Request::
+
+	POST /xled/v1/led/out/brightness HTTP/1.1
+	Host: 192.168.4.1
+	X-Auth-Token: 5jPe+ONhwUY=
+	Content-Type: application/json
+	Content-Length: 45
+
+	{"mode":"enabled","type": "A","value": "100"}
+
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 13
+
+	{"code":1000}
 
 
 
