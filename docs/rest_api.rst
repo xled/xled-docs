@@ -650,9 +650,9 @@ The response will be an object.
 `code`
     Application return code.
 `mode`
-    (string) One of "enabled" or "disabled".
+    (string) one of "enabled" or "disabled".
 `value`
-    (integer) Brightness value, 1..100
+    (integer) brightness level in range of 0..255
 
 Mode string displays if the dimming is applied. The led shines at full
 brightness regardless of what value is set if the `mode` is `disabled`.
@@ -694,12 +694,12 @@ Parameters as JSON object.
 `type`:
     (string) always "A"
 `value`:
-    (integer) brighness level in range of 0..100
+    (integer) brighness level in range of 0..255
 
 When `mode` is "disabled" no dimming is applied and the led works at full
-brightness. It is not necessary to submit all the parameters, basicly it would
-work if only `value` or `mode` is supplied. `type` parameter can be omitted,
-and the only value seen on the wire was "A"
+brightness. It is not necessary to submit all the parameters, basically it
+would work if only `value` or `mode` is supplied. `type` parameter can be
+omitted, and the only value seen on the wire was "A".
 
 Response
 ````````
