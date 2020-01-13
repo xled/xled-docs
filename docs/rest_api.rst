@@ -656,6 +656,8 @@ The response will be an object.
 
 Mode string displays if the dimming is applied. The led shines at full
 brightness regardless of what value is set if the `mode` is `disabled`.
+Brightness level value seems to represent percent so 0 is dark and maximum
+meaningful value is 100. Greater values doesn't seem to have any effect.
 
 
 Example
@@ -699,7 +701,9 @@ Parameters as JSON object.
 When `mode` is "disabled" no dimming is applied and the led works at full
 brightness. It is not necessary to submit all the parameters, basically it
 would work if only `value` or `mode` is supplied. `type` parameter can be
-omitted, and the only value seen on the wire was "A".
+omitted, and the only value seen on the wire was "A". Brightness level value
+seems to represent percent so 0 is dark and maximum meaningful value is 100.
+Greater values doesn't seem to have any effect.
 
 Response
 ````````
