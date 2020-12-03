@@ -635,7 +635,8 @@ The response will be an object.
 Get current brightness
 ----------------------
 
-Gets the current brightness level.
+Gets the current brightness level. Since firmware version: 2.3.5.
+
 
 HTTP request
 ````````````
@@ -680,6 +681,8 @@ Response::
 
 Set brightness
 --------------
+
+Since firmware version: 2.3.5.
 
 HTTP request
 ````````````

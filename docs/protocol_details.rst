@@ -28,12 +28,13 @@ Firmware info
 -------------
 Firmware can be upgraded over the network. I have actually used strings from the firmware to find secret keys, encryption algorithms and some API calls that I haven't seen on the network. It consists of two files. First image format is according to https://github.com/espressif/esptool in version: 1.
 
-I have seen these two versions only so this page describes its behaviour:
+So far I have seen these versions of firmware so it describes their behavior:
 
 - 1.99.20
 - 1.99.24
 - 2.0.22-mqtt
 - 2.1.0
+- 2.3.5
 
 
 Device name
