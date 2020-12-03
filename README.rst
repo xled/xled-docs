@@ -38,12 +38,6 @@ It turned out that application uses HTTP to control lights. I ended up with
 capturing network traffic and documented this private API. In the end I'm able
 to configure the device pretty easilly.
 
-Credits
----------
-
-This package was created with Cookiecutter_ and the
-`audreyr/cookiecutter-pypackage`_ project template.
-
 .. _`project page of Kickstarter`: https://www.kickstarter.com/projects/twinkly/twinkly-smart-decoration-for-your-christmas
 .. _`promised around Christmas 2016`: https://www.kickstarter.com/projects/twinkly/twinkly-smart-decoration-for-your-christmas/comments?cursor=15497325#comment-15497324
 .. _`API won't be available any time soon`: https://www.kickstarter.com/projects/twinkly/twinkly-smart-decoration-for-your-christmas/comments?cursor=14619713#comment-14619712
