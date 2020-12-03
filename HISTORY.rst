@@ -2,6 +2,18 @@
 History
 =======
 
+2.3.5.0 (2020-12-03)
+-----------------------
+
+* Brightness can be set and read through MQTT
+* Fix typo in filename: msqtt_api.rst -> mqtt_api.rst
+* Brightness is available since firmware 2.3.5
+* Remove Cookiecutter_credits - it wasn't used in this project
+* Brightness is most likely percent so improve its description
+* Improve LED brightness REST endpoint
+* Contribute myself to the list of authors
+* Describe led brightness REST endpoint
+
 2.1.0.2 (2018-12-15)
 -----------------------
 
