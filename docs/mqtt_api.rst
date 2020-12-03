@@ -70,6 +70,32 @@ Rainbow::
     {"appstatus": "rainbow"}
 
 
+Parameters
+----------
+
+Parameters published by a device to broker.
+
+Topic
+`````
+
+`xled/params/` followed by client ID
+
+Messages
+````````
+
+`brightness`
+    (number), brightness value in percent
+`filters`
+    (list), contains a string "brightness" if brightness is set.
+
+Example
+```````
+
+::
+
+    {"brightness": 50, "filters": ["brightness"]}
+
+
 Command messages to device
 --------------------------
 
@@ -101,6 +127,11 @@ Messages
     switches off the device
 `switchon`
     switches on the device
+`setbrightnessdelta`
+    changes brightness by amount set by `value`. Parameter `value` is signed number.
+`setbrightness`
+    changes brightness to `value`. Parameter `value` is a number between 0..255 but only up to 100 has a dimming effect.
+
 
 Example
 ```````
@@ -108,3 +139,7 @@ Example
 Switch on::
 
     {"command": "switchon"}
+
+Lower brightness value by 20 percents::
+
+    {"command": "setbrightnessdelta", "value", -20}
