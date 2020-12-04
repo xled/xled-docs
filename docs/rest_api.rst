@@ -524,6 +524,51 @@ Response::
 	{"code":1000}
 
 
+Get LED operation mode
+-------------------------
+
+Gets current LED operation mode.
+
+HTTP request
+````````````
+
+`GET /xled/v1/led/mode`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	Application return code.
+`mode`
+	(string) mode of operation.
+
+Mode can be one of:
+
+* `off` - lights are turned off
+* `demo` - in demo mode
+* `movie` - plays predefined or uploaded effect
+* `rt` - receive effect in real time
+
+Example
+```````
+
+Request::
+
+	GET /xled/v1/led/mode HTTP/1.1
+	Host: 192.168.4.1
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 OK
+	Connection: close
+	Content-Length: 28
+	Content-Type: application/json
+
+	{"mode":"movie","code":1000}
+
 Change LED operation mode
 -------------------------
 
