@@ -10,8 +10,6 @@ Description of Twinkly on `project page of Kickstarter`_:
     Twinkly is a Christmas tree light string, controlled via smartphone:
     "internet of things" meets extraordinary light effects! Created by ledworks
 
-* Free software: MIT license
-
 Documentation is available online at https://xled-docs.readthedocs.io.
 
 Why?
@@ -37,6 +35,12 @@ from October 2016 it seems `API won't be available any time soon`_:
 It turned out that application uses HTTP to control lights. I ended up with
 capturing network traffic and documented this private API. In the end I'm able
 to configure the device pretty easilly.
+
+License
+-------
+
+Documentation is available under MIT license.
+
 
 .. _`project page of Kickstarter`: https://www.kickstarter.com/projects/twinkly/twinkly-smart-decoration-for-your-christmas
 .. _`promised around Christmas 2016`: https://www.kickstarter.com/projects/twinkly/twinkly-smart-decoration-for-your-christmas/comments?cursor=15497325#comment-15497324
