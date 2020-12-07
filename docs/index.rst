@@ -8,13 +8,24 @@ Contents:
 
    readme
 
-Twinkly private protocol
-------------------------
+Guides
+------
 
 .. toctree::
    :maxdepth: 2
 
+   hardware
+   firmware
    protocol_details
+
+.. _api-reference:
+
+API reference
+-------------
+
+.. toctree::
+   :maxdepth: 2
+
    mqtt_api
    rest_api
 

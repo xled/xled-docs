@@ -3,40 +3,6 @@ Twinkly private protocol details
 
 This page describes hardware, modes of operation and some private procols or algorithms used by Twinkly application.
 
-
-My hardware
------------
-
-I have model TW105S-EU. That's 105 RGB LED model from 2017.
-
-Hardware consists of two circuit boards:
-
-- Module ESP-01 with microcontroller ESP8266 by Espressif Systems.
-- Custom-made LED driver module
-
-API exposes these details:
-
-- Product version: 2
-- Hardware version: 6
-- Flash size: 16
-- LED Type: 6
-- LED Version: 1
-- Product code: TW105SEUP06
-
-
-Firmware info
--------------
-Firmware can be upgraded over the network. I have actually used strings from the firmware to find secret keys, encryption algorithms and some API calls that I haven't seen on the network. It consists of two files. First image format is according to https://github.com/espressif/esptool in version: 1.
-
-So far I have seen these versions of firmware so it describes their behavior:
-
-- 1.99.20
-- 1.99.24
-- 2.0.22-mqtt
-- 2.1.0
-- 2.3.5
-
-
 Device name
 -----------
 
