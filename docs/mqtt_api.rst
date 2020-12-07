@@ -5,7 +5,7 @@ Twinkly private messaging API reference
 Overview
 --------
 
-Since firmware version 2.0.22-mqtt device sends messages with its states to a
+Since firmware version 2.0.22 device sends messages with its states to a
 broker with MQTT. By default broker is set to mqtt.twinkly.com.
 
 Last topic levels are always client ID which are by default derived from MAC address of the device as uppercased hexadecimal digits.
@@ -30,7 +30,7 @@ Messages
 Example
 ```````
 
-Online (firmware 2.0.22-mqtt)::
+Online (firmware 2.0.22)::
 
     {"status": "online"}
 

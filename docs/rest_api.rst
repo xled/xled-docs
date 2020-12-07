@@ -216,7 +216,7 @@ The response will be an object.
 `mac`
 	(string) MAC address as six groups of two hexadecimal digits separated by colons (:).
 `uuid`
-	(string) UUID of the device. Since firmware version: 2.0.22-mqtt.
+	(string) UUID of the device. Since firmware version: 2.0.22.
 `max_supported_led`
 	(number), e.g. 180
 `base_leds_number`
@@ -1012,7 +1012,7 @@ The response will be an object.
 Get MQTT configuration
 ----------------------
 
-Since firmware version: 2.0.22-mqtt
+Since firmware version: 2.0.22
 
 HTTP request
 ````````````
@@ -1048,7 +1048,7 @@ The response will be an object.
 Set MQTT configuration
 ----------------------
 
-Since firmware version: 2.0.22-mqtt
+Since firmware version: 2.0.22
 
 HTTP request
 ````````````
