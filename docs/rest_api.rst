@@ -327,14 +327,10 @@ Request::
 	POST /xled/v1/device_name HTTP/1.1
 	Host: 192.168.4.1
 	Content-Type: application/json
-	X-Auth-Token: WnqOTdKzTlU=
+	X-Auth-Token: 5jPe+ONhwUY=
 	Content-Length: 26
 
 	{"name": "Twinkly_33AAFF"}
-
-	GET /xled/v1/device_name HTTP/1.1
-	Host: 192.168.4.1
-	X-Auth-Token: 5jPe+ONhwUY=
 
 Response::
 
