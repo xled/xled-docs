@@ -32,15 +32,15 @@ Example
 
 Online (firmware 2.0.22)::
 
-    {"status": "online"}
+	{"status": "online"}
 
 Online (since firmware 2.1.0)::
 
-    {"status": "online", "ip": "192.168.4.1", "ssid": "home"}
+	{"status": "online", "ip": "192.168.4.1", "ssid": "home"}
 
 Offline::
 
-    {"status": "offline"}
+	{"status": "offline"}
 
 
 Application status from device
@@ -67,7 +67,7 @@ Example
 
 Rainbow::
 
-    {"appstatus": "rainbow"}
+	{"appstatus": "rainbow"}
 
 
 Parameters
@@ -84,16 +84,16 @@ Messages
 ````````
 
 `brightness`
-    (number), brightness value in percent
+	(number), brightness value in percent
 `filters`
-    (list), contains a string "brightness" if brightness is set.
+	(list), contains a string "brightness" if brightness is set.
 
 Example
 ```````
 
 ::
 
-    {"brightness": 50, "filters": ["brightness"]}
+	{"brightness": 50, "filters": ["brightness"]}
 
 
 Command messages to device
@@ -110,27 +110,27 @@ Messages
 ````````
 
 `changeeffect`
-    each message switches to next of default effects or movie. Same as pressing the button on the device.
+	each message switches to next of default effects or movie. Same as pressing the button on the device.
 `setmovie`
-    sets to uploaded movie effect
+	sets to uploaded movie effect
 `setcollision`
-    sets default effect "collision"
+	sets default effect "collision"
 `setrainbow`
-    sets default effect "rainbow"
+	sets default effect "rainbow"
 `setsnake`
-    sets default effect "snake"
+	sets default effect "snake"
 `settwinkle`
-    sets default effect "twinkle"
+	sets default effect "twinkle"
 `setwaves`
-    sets default effect "waves"
+	sets default effect "waves"
 `switchoff`
-    switches off the device
+	switches off the device
 `switchon`
-    switches on the device
+	switches on the device
 `setbrightnessdelta`
-    changes brightness by amount set by `value`. Parameter `value` is signed number.
+	changes brightness by amount set by `value`. Parameter `value` is signed number.
 `setbrightness`
-    changes brightness to `value`. Parameter `value` is a number between 0..255 but only up to 100 has a dimming effect.
+	changes brightness to `value`. Parameter `value` is a number between 0..255 but only up to 100 has a dimming effect.
 
 
 Example
@@ -138,8 +138,8 @@ Example
 
 Switch on::
 
-    {"command": "switchon"}
+	{"command": "switchon"}
 
 Lower brightness value by 20 percents::
 
-    {"command": "setbrightnessdelta", "value", -20}
+	{"command": "setbrightnessdelta", "value", -20}

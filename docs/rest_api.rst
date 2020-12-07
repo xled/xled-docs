@@ -16,10 +16,10 @@ HTTP Responses
 The HTTP response can be used to determine if the request was successful, and if not, whether the request should be retried.
 
 200 Success
-    The request was successful.
+	The request was successful.
 
 401 Unauthenticated
-    Request requires authentication but authorization failed. Application didn't handle the request.
+	Request requires authentication but authorization failed. Application didn't handle the request.
 
 
 Application responses
@@ -28,28 +28,28 @@ Application responses
 The API may return application status as `code` value of JSON. Returned will not necessarily "correspond" with the HTTP status code. For example, a HTTP status code 200 OK returned with an error application code indicates that the request successfully reached the server, but application cannot process the request.
 
 1100
-    Ok
+	Ok
 
 1101
-    Invalid argument value
+	Invalid argument value
 
 1102
-    Error
+	Error
 
 1103
-    Error - value too long?
+	Error - value too long?
 
 1104
-    Error - malformed JSON on input?
+	Error - malformed JSON on input?
 
 1105
-    Invalid argument key
+	Invalid argument key
 
 1107
-    Ok?
+	Ok?
 
 1108
-    Ok?
+	Ok?
 
 
 Authentication
@@ -84,7 +84,7 @@ Parameters
 Parameters as JSON object.
 
 `challenge`
-    Random 32 byte string encoded with base64.
+	Random 32 byte string encoded with base64.
 
 
 Response
@@ -93,13 +93,13 @@ Response
 The response will be an object.
 
 `authentication_token`
-    Access token in format: 8 byte string base64 encoded. First authenticated API with this token must be Verify.
+	Access token in format: 8 byte string base64 encoded. First authenticated API with this token must be Verify.
 
 `challenge-response`
-    41 byte string ([0-9a-h])
+	41 byte string ([0-9a-h])
 
 `code`
-    Application return code.
+	Application return code.
 
 `authentication_token_expires_in`: integer. All the time 14400?
 
@@ -109,12 +109,12 @@ Example
 
 Request::
 
-    POST /xled/v1/login HTTP/1.1
-    Host: 192.168.4.1
-    Content-Type: application/json
-    Content-Length: 61
+	POST /xled/v1/login HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+	Content-Length: 61
 
-    {"challenge": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8="}
+	{"challenge": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8="}
 
 Response::
 
@@ -142,7 +142,7 @@ Parameters
 Parameters as JSON object.
 
 `challenge-response`
-    (optional) value returned by login request.
+	(optional) value returned by login request.
 
 Response
 ````````
@@ -150,7 +150,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 
 Example
@@ -232,7 +232,7 @@ The response will be an object.
 `copyright`
 	(string) "LEDWORKS 2017"
 `code`
-    Application return code.
+	Application return code.
 
 Example
 ````````
@@ -271,7 +271,7 @@ The response will be an object.
 	(string) Device name.
 
 `code`
-    Application return code.
+	Application return code.
 
 Example
 ````````
@@ -316,7 +316,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code. `1103` if too long.
+	Application return code. `1103` if too long.
 
 
 Example
@@ -362,7 +362,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 Example
 ````````
@@ -490,7 +490,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 Example
 ````````
@@ -682,7 +682,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 Example
 ````````
@@ -723,7 +723,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 `frames_number`
 	(integer) number of received frames
 
@@ -753,7 +753,7 @@ The response will be an object.
 `sync`
 	(object)
 `code`
-    Application return code.
+	Application return code.
 
 Contents of object `sync`:
 
@@ -810,7 +810,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 Get current brightness
 ----------------------
@@ -829,11 +829,11 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 `mode`
-    (string) one of "enabled" or "disabled".
+	(string) one of "enabled" or "disabled".
 `value`
-    (integer) brightness level in range of 0..255
+	(integer) brightness level in range of 0..255
 
 Mode string displays if the dimming is applied. The led shines at full
 brightness regardless of what value is set if the `mode` is `disabled`.
@@ -875,11 +875,11 @@ Parameters
 Parameters as JSON object.
 
 `mode`:
-    (string) one of "enabled", "disabled"
+	(string) one of "enabled", "disabled"
 `type`:
-    (string) always "A"
+	(string) always "A"
 `value`:
-    (integer) brighness level in range of 0..255
+	(integer) brighness level in range of 0..255
 
 When `mode` is "disabled" no dimming is applied and the led works at full
 brightness. It is not necessary to submit all the parameters, basically it
@@ -894,7 +894,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 Example
 ```````
@@ -938,10 +938,10 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 `version`
-    (string)
+	(string)
 
 Example
 ````````
@@ -994,7 +994,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 Example
 ````````
@@ -1035,7 +1035,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 `sha1sum`
 	SHA1 digest of uploaded firmware.
@@ -1057,7 +1057,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 `sha1sum`
 	SHA1 digest of uploaded firmware.
@@ -1077,7 +1077,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 
 Get results of WiFi network scan
@@ -1094,7 +1094,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 `networks`
 	Array of objects
@@ -1141,7 +1141,7 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 
 Get MQTT configuration
@@ -1159,25 +1159,25 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
 
 `broker_host`
 	(string), hostname of broker. By default `mqtt.twinkly.com`.
 
 `broker_port`
-    (integer), destination port of broker. By default "1883".
+	(integer), destination port of broker. By default "1883".
 
 `client_id`
 	(string), by default hex string of length 12 derived from MAC address of the device as uppercased hexadecimal digits.
 
 `encryption_key_set`
-    (bool), by default "False"
+	(bool), by default "False"
 
 `keep_alive_interval`
-    (integer), by default "180".
+	(integer), by default "180".
 
 `user`
-    (string), by default "twinkly_noauth"
+	(string), by default "twinkly_noauth"
 
 
 Set MQTT configuration
@@ -1198,19 +1198,19 @@ Parameters as JSON object.
 	(string), hostname of broker
 
 `broker_port`
-    (integer), destination port of broker
+	(integer), destination port of broker
 
 `client_id`
 	(string)
 
 `encryption_key`
-    (string), length exactly 16 characters?
+	(string), length exactly 16 characters?
 
 `keep_alive_interval`
-    cannot be set?
+	cannot be set?
 
 `user`
-    (string)
+	(string)
 
 
 Response
@@ -1219,4 +1219,4 @@ Response
 The response will be an object.
 
 `code`
-    Application return code.
+	Application return code.
