@@ -2,6 +2,11 @@
 History
 =======
 
+2.4.21.0 (2020-12-07)
+-----------------------
+
+* Introduce generation II and improve introduction
+
 2.3.5.0 (2020-12-03)
 -----------------------
 
