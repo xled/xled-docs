@@ -387,6 +387,71 @@ Response::
 	{"code":1000}
 
 
+Get network status
+------------------
+
+Getes network mode operation.
+
+HTTP request
+````````````
+
+`GET /xled/v1/network/status`
+
+Response
+````````
+The response will be an object.
+
+`mode`
+	(enum) 1 or 2
+`station`
+	(object)
+`ap`
+	(object)
+`code`
+	Application return code.
+
+Contents of object `station`:
+
+`ssid`
+	(string), SSID of a WiFi network to connect to
+`ip`
+	(string), IP address of the device
+`gw`
+	(string), IP address of the gateway
+`mask`
+	(string), subnet mask
+`status`
+	(integer), status of the network connection
+
+Contents of object `ap`:
+
+`ssid`
+	(string), SSID of the device
+`channel`
+	(integer), channel number
+`ip`
+	(string), IP address
+`enc`
+	(integer)
+
+Example
+````````
+
+Request::
+
+	GET /xled/v1/network/status HTTP/1.1
+	Host: 192.168.1.2
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 187
+	Content-Type: application/json
+
+	{"mode":1,"station":{"ssid":"home","ip":"192.168.1.2","gw":"192.168.1.1","mask":"255.255.255.0","status":5},"ap":{"ssid":"Twinkly_33AAFF","channel":11,"ip":"0.0.0.0","enc":0},"code":1000}
+
 Set network status
 ------------------
 
@@ -476,6 +541,23 @@ The response will be an object.
 `time_off`
 	(number) time when to turn lights off in seconds after midnight. -1 if not set
 
+Example
+```````
+
+Request::
+
+	GET /xled/v1/timer HTTP/1.1
+	Host: 192.168.4.1
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 45
+	Content-Type: application/json
+
+	{"time_now":17083,"time_on":-1,"time_off":-1}
 
 Set timer
 ---------
@@ -646,6 +728,59 @@ The response will be an object.
 	(integer) number of received frames
 
 
+
+Get LED movie config
+--------------------
+
+HTTP request
+````````````
+
+`GET /xled/v1/led/movie/config`
+
+Response
+````````
+
+The response will be an object.
+
+`frame_delay`
+	(integer)
+`leds_number`
+	(integer) seems to be total number of LEDs to use
+`loop_type`
+	(integer), e.g. 0
+`frames_number`
+	(integer)
+`sync`
+	(object)
+`code`
+    Application return code.
+
+Contents of object `sync`:
+
+`mode`
+	(string), e.g. "none"
+`slave_id`
+	(string), e.g. ""
+`master_id`
+	(string), e.g. ""
+
+Example
+```````
+
+Request::
+
+	GET /xled/v1/led/movie/config HTTP/1.1
+	Host: 192.168.4.1
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 134
+	Content-Type: application/json
+
+	{"frame_delay":40,"leds_number":105,"loop_type":0,"frames_number":325,"sync":{"mode":"none","slave_id":"","master_id":""},"code":1000}
 
 Set LED movie config
 --------------------
