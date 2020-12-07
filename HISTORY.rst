@@ -2,6 +2,13 @@
 History
 =======
 
+2.4.21.1 (2020-12-07)
+-----------------------
+
+* Use tab for indentation consistently
+* Add corresponding GET calls and one more example
+* Rename firmware 2.0.22-mqtt to 2.0.22.
+
 2.4.21.0 (2020-12-07)
 -----------------------
 
