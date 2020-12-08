@@ -1,5 +1,5 @@
-Twinkly private protocol details
-================================
+Protocol details
+================
 
 This page describes hardware, modes of operation and some private protocols or algorithms used by Twinkly application.
 

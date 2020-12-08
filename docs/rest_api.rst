@@ -1,5 +1,5 @@
-Twinkly private rest API reference
-==================================
+RESTful API reference
+=====================
 
 Overview
 --------

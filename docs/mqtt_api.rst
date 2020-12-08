@@ -1,6 +1,5 @@
-=======================================
-Twinkly private messaging API reference
-=======================================
+Messaging API reference
+=======================
 
 Overview
 --------
