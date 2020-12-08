@@ -171,6 +171,47 @@ Response::
 	{"code":1000}
 
 
+Logout
+------
+
+Probably invalidate access token. Doesn't work.
+
+HTTP request
+````````````
+
+`POST /xled/v1/logout`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	Application return code.
+
+Example
+````````
+
+Request::
+
+	POST /xled/v1/logout HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+	X-Auth-Token: 5jPe+ONhwUY=
+	Content-Length: 2
+
+	{}
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 13
+	Content-Type: application/json
+
+	{"code":1000}
+
+
 Device details
 --------------
 
@@ -335,47 +376,6 @@ Response::
 	Content-Type: application/json
 
 	{"name":"Twinkly_33AAFF","code":1000}
-
-
-Logout
-------
-
-Probably invalidate access token. Doesn't work.
-
-HTTP request
-````````````
-
-`POST /xled/v1/logout`
-
-Response
-````````
-
-The response will be an object.
-
-`code`
-	Application return code.
-
-Example
-````````
-
-Request::
-
-	POST /xled/v1/logout HTTP/1.1
-	Host: 192.168.4.1
-	Content-Type: application/json
-	X-Auth-Token: 5jPe+ONhwUY=
-	Content-Length: 2
-
-	{}
-
-Response::
-
-	HTTP/1.1 200 Ok
-	Connection: close
-	Content-Length: 13
-	Content-Type: application/json
-
-	{"code":1000}
 
 
 Get network status
