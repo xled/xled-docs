@@ -1,4 +1,3 @@
-==================================
 Twinkly private rest API reference
 ==================================
 
@@ -10,8 +9,20 @@ Twinkly rest API is primary way to get information about the device, configure n
 This API is used by mobile applications. It haven't been made public yet so it may change at any time.
 
 
+Request Authentication
+``````````````````````
+
+Most API requests require valid authentication token. Except of:
+
+* login
+* gestalt
+* fw version
+
+If API requires authentication but valid token wasn't passed server returns HTTP status code 401 Unauthenticated and string `Invalid Token.` in the response body.
+
+
 HTTP Responses
---------------
+``````````````
 
 The HTTP response can be used to determine if the request was successful, and if not, whether the request should be retried.
 
@@ -23,7 +34,7 @@ The HTTP response can be used to determine if the request was successful, and if
 
 
 Application responses
----------------------
+`````````````````````
 
 The API may return application status as `code` value of JSON. Returned will not necessarily "correspond" with the HTTP status code. For example, a HTTP status code 200 OK returned with an error application code indicates that the request successfully reached the server, but application cannot process the request.
 
@@ -50,22 +61,6 @@ The API may return application status as `code` value of JSON. Returned will not
 
 1108
 	Ok?
-
-
-Authentication
---------------
-
-Most API calls require valid authentication token. Except of:
-
-* login
-* gestalt
-* fw version
-
-If API requires authentication but valid token wasn't passed server returns HTTP status code 401 Unauthenticated and string `Invalid Token.` in the response body.
-
-
-API calls
----------
 
 
 Login

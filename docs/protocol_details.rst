@@ -1,7 +1,7 @@
 Twinkly private protocol details
 ================================
 
-This page describes hardware, modes of operation and some private procols or algorithms used by Twinkly application.
+This page describes hardware, modes of operation and some private protocols or algorithms used by Twinkly application.
 
 Device name
 -----------
