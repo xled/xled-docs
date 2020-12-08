@@ -642,8 +642,8 @@ Response::
 
 	{"mode":"movie","code":1000}
 
-Change LED operation mode
--------------------------
+Set LED operation mode
+----------------------
 
 Changes LED operation mode.
 
