@@ -381,7 +381,7 @@ Response::
 Get network status
 ------------------
 
-Getes network mode operation.
+Gets network mode operation.
 
 HTTP request
 ````````````
@@ -486,7 +486,7 @@ The response will be an object.
 Example
 ````````
 
-Request to change network mode to client and connect to SSID "home" with password "Twinkly". Encoded with MAC adress '5C:CF:7F:33:AA:FF'::
+Request to change network mode to client and connect to SSID "home" with password "Twinkly". Encoded with MAC address '5C:CF:7F:33:AA:FF'::
 
 	POST /xled/v1/network/status HTTP/1.1
 	Host: 192.168.4.1
@@ -870,7 +870,7 @@ Parameters as JSON object.
 `type`:
 	(string) always "A"
 `value`:
-	(integer) brighness level in range of 0..255
+	(integer) brightness level in range of 0..255
 
 When `mode` is "disabled" no dimming is applied and the led works at full
 brightness. It is not necessary to submit all the parameters, basically it

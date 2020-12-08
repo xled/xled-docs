@@ -32,7 +32,7 @@ WiFi password encryption
 1. Generate encryption key
 
    1. Use secret key: **supersecretkey!!**
-   2. get byte representation of MAC adress of a server and repeat it to length of the secret key
+   2. Get byte representation of MAC address of a server and repeat it to length of the secret key
    3. xor these two values
 
 2. Encrypt
@@ -69,18 +69,18 @@ Application uses TCP port 80 to get and verify authentication token. It is later
 2. Among other data server responds with authentication token
 3. Application uses authentication_token in header of request to verify.
 
-Only after this handshake authenticationa token can be used in other calls. Most of them require it.
+Only after this handshake authentication token can be used in other calls. Most of them require it.
 
 
 Verification of challenge-response
 ----------------------------------
 
-As part of login process server sends not only authentication token but also challenge-response. Application may verify if it shares secret with server - maybe if it is genuine Twinkly device with following algorightm:
+As part of login process server sends not only authentication token but also challenge-response. Application may verify if it shares secret with server - maybe if it is genuine Twinkly device with following algorithm:
 
 1. Generate encryption key
 
    1. Use secret key: **evenmoresecret!!**
-   2. get byte representation of MAC adress of a server and repeat it to length of the secret key
+   2. get byte representation of MAC address of a server and repeat it to length of the secret key
    3. xor these two values
 
 2. Encrypt - use rc4 to encrypt challenge with the key
