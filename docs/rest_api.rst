@@ -32,6 +32,9 @@ The HTTP response can be used to determine if the request was successful, and if
 401 Unauthenticated
 	Request requires authentication but authorization failed. Application didn't handle the request.
 
+404 Not Found
+	If a string `Resource not found.` is found in the response body check if API endpoint is implemented in the current firmware version.
+
 
 Application responses
 `````````````````````
