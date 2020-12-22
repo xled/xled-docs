@@ -36,6 +36,59 @@ The HTTP response can be used to determine if the request was successful, and if
 	If a string `Resource not found.` is found in the response body check if API endpoint is implemented in the current firmware version.
 
 
+Application hierarchy
+`````````````````````
+
+Endpoints seem to be organized into hierarchy by applications. Overview of the hierarchy:
+
+* `login`
+* `verify`
+* `logout`
+* `gestalt`
+* `device_name`
+* `timer`
+* `led`
+
+  * `mode`
+  * `effects`
+
+    * `current`
+
+  * `config`
+  * `movie`
+
+    * `full`
+    * `config`
+
+  * `out`
+
+    * `brightness`
+
+  * `driver_params`
+  * `reset`
+
+* `fw`
+
+  * `version`
+  * `update`
+  * `0`
+
+    * `update`
+
+  * `1`
+
+    * `update`
+
+* `network`
+
+  * `scan`
+  * `scan_results`
+  * `status`
+
+* `mqtt`
+
+  * `config`
+
 Application responses
 `````````````````````
 
@@ -396,139 +449,6 @@ Response::
 	{"name":"Twinkly_33AAFF","code":1000}
 
 
-Get network status
-------------------
-
-Gets network mode operation.
-
-Since firmware version 1.99.20.
-
-HTTP request
-````````````
-
-`GET /xled/v1/network/status`
-
-Response
-````````
-The response will be an object.
-
-`mode`
-	(enum) 1 or 2
-`station`
-	(object)
-`ap`
-	(object)
-`code`
-	Application return code.
-
-Contents of object `station`:
-
-`ssid`
-	(string), SSID of a WiFi network to connect to
-`ip`
-	(string), IP address of the device
-`gw`
-	(string), IP address of the gateway
-`mask`
-	(string), subnet mask
-`status`
-	(integer), status of the network connection
-
-Contents of object `ap`:
-
-`ssid`
-	(string), SSID of the device
-`channel`
-	(integer), channel number
-`ip`
-	(string), IP address
-`enc`
-	(integer)
-
-Example
-````````
-
-Request::
-
-	GET /xled/v1/network/status HTTP/1.1
-	Host: 192.168.1.2
-	X-Auth-Token: 5jPe+ONhwUY=
-
-Response::
-
-	HTTP/1.1 200 Ok
-	Connection: close
-	Content-Length: 187
-	Content-Type: application/json
-
-	{"mode":1,"station":{"ssid":"home","ip":"192.168.1.2","gw":"192.168.1.1","mask":"255.255.255.0","status":5},"ap":{"ssid":"Twinkly_33AAFF","channel":11,"ip":"0.0.0.0","enc":0},"code":1000}
-
-Set network status
-------------------
-
-Sets network mode operation.
-
-Since firmware version 1.99.20.
-
-HTTP request
-````````````
-
-`POST /xled/v1/network/status`
-
-Parameters
-``````````
-
-Parameters as JSON object.
-
-`mode`
-	(enum) 1 or 2
-`station`
-	(object) if mode set to 1 this parameter provides additional details.
-
-
-Station object parameters:
-
-`dhcp`
-	(integer) 1
-
-`ssid`
-	(string) SSID of a WiFi network
-
-`encpassword`
-	(string) encrypted password.
-
-Response
-````````
-
-The response will be an object.
-
-`code`
-	Application return code.
-
-Example
-````````
-
-Request to change network mode to client and connect to SSID "home" with password "Twinkly". Encoded with MAC address '5C:CF:7F:33:AA:FF'::
-
-	POST /xled/v1/network/status HTTP/1.1
-	Host: 192.168.4.1
-	Content-Type: application/json
-	X-Auth-Token: 5jPe+ONhwUY=
-	Content-Length: 150
-
-	{"mode":1,"station":{"ssid":"home","encpassword":"e4XXiiUhg4J1FnJEfUQ0BhIji2HGVk1NHU5vGCHfyclFdX6R8Nd9BSXVKS5nj2FXGU6SWv9CIzztfAvGgTGLUw==","dhcp":1}}
-
-Request to change network mode to AP::
-
-	POST /xled/v1/network/status HTTP/1.1
-	Host: 192.168.1.100
-	Content-Type: application/json
-	X-Auth-Token: 5jPe+ONhwUY=
-	Content-Length: 10
-
-	{"mode":2}
-
-
 Get timer
 ---------
 
@@ -727,29 +647,6 @@ Response::
 	{"code":1000}
 
 
-Upload full movie
------------------
-
-Effect is received in body of the request with Content-Type application/octet-stream. If mode is `movie` it starts playing this effect.
-
-Since firmware version 1.99.20.
-
-HTTP request
-````````````
-
-`POST /xled/v1/led/movie/full`
-
-Response
-````````
-
-The response will be an object.
-
-`code`
-	Application return code.
-`frames_number`
-	(integer) number of received frames
-
-
 Get LED effects
 ---------------
 
@@ -813,7 +710,7 @@ Example
 ````````
 Request::
 
-	GET /xled/v1/led/effect/current HTTP/1.1
+	GET /xled/v1/led/effects/current HTTP/1.1
 	Host: 192.168.4.1
 	Content-Type: application/json
 	X-Auth-Token: 5jPe+ONhwUY=
@@ -930,6 +827,29 @@ Response::
 	{"code":1000}
 
 
+Upload full movie
+-----------------
+
+Effect is received in body of the request with Content-Type application/octet-stream. If mode is `movie` it starts playing this effect.
+
+Since firmware version 1.99.20.
+
+HTTP request
+````````````
+
+`POST /xled/v1/led/movie/full`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	Application return code.
+`frames_number`
+	(integer) number of received frames
+
+
 Get LED movie config
 --------------------
 
@@ -984,6 +904,7 @@ Response::
 	Content-Type: application/json
 
 	{"frame_delay":40,"leds_number":105,"loop_type":0,"frames_number":325,"sync":{"mode":"none","slave_id":"","master_id":""},"code":1000}
+
 
 Set LED movie config
 --------------------
@@ -1126,6 +1047,31 @@ Response::
 
 	{"code":1000}
 
+
+Set LED driver parameters
+-------------------------
+
+Since firmware version 1.99.20.
+
+HTTP request
+````````````
+`POST /xled/v1/led/driver_params`
+
+
+Reset LED
+---------
+
+HTTP request
+````````````
+`GET /xled/v1/led/reset`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	Application return code.
 
 
 Get firmware version
@@ -1338,22 +1284,107 @@ Item of networks array is object:
 Response seems to correspond with `AT command CWLAP <https://github.com/espressif/ESP8266_AT/wiki/CWLAP>`_.
 
 
-Set LED driver parameters
--------------------------
+Get network status
+------------------
+
+Gets network mode operation.
 
 Since firmware version 1.99.20.
 
 HTTP request
 ````````````
-`POST /xled/v1/led/driver_params`
+
+`GET /xled/v1/network/status`
+
+Response
+````````
+The response will be an object.
+
+`mode`
+	(enum) 1 or 2
+`station`
+	(object)
+`ap`
+	(object)
+`code`
+	Application return code.
+
+Contents of object `station`:
+
+`ssid`
+	(string), SSID of a WiFi network to connect to
+`ip`
+	(string), IP address of the device
+`gw`
+	(string), IP address of the gateway
+`mask`
+	(string), subnet mask
+`status`
+	(integer), status of the network connection
+
+Contents of object `ap`:
+
+`ssid`
+	(string), SSID of the device
+`channel`
+	(integer), channel number
+`ip`
+	(string), IP address
+`enc`
+	(integer)
+
+Example
+````````
+
+Request::
+
+	GET /xled/v1/network/status HTTP/1.1
+	Host: 192.168.1.2
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 187
+	Content-Type: application/json
+
+	{"mode":1,"station":{"ssid":"home","ip":"192.168.1.2","gw":"192.168.1.1","mask":"255.255.255.0","status":5},"ap":{"ssid":"Twinkly_33AAFF","channel":11,"ip":"0.0.0.0","enc":0},"code":1000}
 
 
-Reset LED
----------
+Set network status
+------------------
+
+Sets network mode operation.
+
+Since firmware version 1.99.20.
 
 HTTP request
 ````````````
-`GET /xled/v1/led/reset`
+
+`POST /xled/v1/network/status`
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`mode`
+	(enum) 1 or 2
+`station`
+	(object) if mode set to 1 this parameter provides additional details.
+
+
+Station object parameters:
+
+`dhcp`
+	(integer) 1
+
+`ssid`
+	(string) SSID of a WiFi network
+
+`encpassword`
+	(string) encrypted password.
 
 Response
 ````````
@@ -1362,6 +1393,29 @@ The response will be an object.
 
 `code`
 	Application return code.
+
+Example
+````````
+
+Request to change network mode to client and connect to SSID "home" with password "Twinkly". Encoded with MAC address '5C:CF:7F:33:AA:FF'::
+
+	POST /xled/v1/network/status HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+	X-Auth-Token: 5jPe+ONhwUY=
+	Content-Length: 150
+
+	{"mode":1,"station":{"ssid":"home","encpassword":"e4XXiiUhg4J1FnJEfUQ0BhIji2HGVk1NHU5vGCHfyclFdX6R8Nd9BSXVKS5nj2FXGU6SWv9CIzztfAvGgTGLUw==","dhcp":1}}
+
+Request to change network mode to AP::
+
+	POST /xled/v1/network/status HTTP/1.1
+	Host: 192.168.1.100
+	Content-Type: application/json
+	X-Auth-Token: 5jPe+ONhwUY=
+	Content-Length: 10
+
+	{"mode":2}
 
 
 Get MQTT configuration
