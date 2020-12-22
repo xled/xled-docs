@@ -1,11 +1,12 @@
 Messaging API reference
 =======================
 
+New in firmware version 2.0.22.
+
 Overview
 --------
 
-Since firmware version 2.0.22 device sends messages with its states to a
-broker with MQTT. By default broker is set to mqtt.twinkly.com.
+Device sends messages with its states to a broker with MQTT. By default broker is set to mqtt.twinkly.com.
 
 Last topic levels are always client ID which are by default derived from MAC address of the device as uppercased hexadecimal digits.
 

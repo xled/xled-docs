@@ -13,7 +13,7 @@ Firmware consists of two files. I have seen following versions:
 
 - 1.99.20
 - 1.99.24
-- 2.0.22
+- 2.0.22 - adds MQTT support
 - 2.1.0
 - 2.3.5
 
