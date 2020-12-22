@@ -51,7 +51,7 @@ The API may return application status as `code` value of JSON. Returned will not
 	Error
 
 1103
-	Error - value too long?
+	Error - value too long? Or missing required object key?
 
 1104
 	Error - malformed JSON on input?
@@ -64,6 +64,9 @@ The API may return application status as `code` value of JSON. Returned will not
 
 1108
 	Ok?
+
+1205
+	Error with firmware upgrade - SHA1SUM does not match
 
 
 Login
