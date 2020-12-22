@@ -68,6 +68,8 @@ Login
 
 Request access token.
 
+Since firmware version 1.99.20.
+
 HTTP request
 ````````````
 
@@ -126,6 +128,8 @@ Verify
 
 Verify the token retrieved by Login.
 
+Since firmware version 1.99.20.
+
 HTTP request
 ````````````
 
@@ -176,6 +180,8 @@ Logout
 
 Probably invalidate access token. Doesn't work.
 
+Since firmware version 1.99.20.
+
 HTTP request
 ````````````
 
@@ -216,6 +222,8 @@ Device details
 --------------
 
 Gets information detailed information about the device.
+
+Since firmware version 1.99.20.
 
 HTTP request
 ````````````
@@ -293,6 +301,8 @@ Get device name
 
 Gets device name
 
+Since firmware version 1.99.20.
+
 HTTP request
 ````````````
 
@@ -332,6 +342,8 @@ Set device name
 ---------------
 
 Sets device name
+
+Since firmware version 1.99.20.
 
 HTTP request
 ````````````
@@ -382,6 +394,8 @@ Get network status
 ------------------
 
 Gets network mode operation.
+
+Since firmware version 1.99.20.
 
 HTTP request
 ````````````
@@ -448,6 +462,8 @@ Set network status
 
 Sets network mode operation.
 
+Since firmware version 1.99.20.
+
 HTTP request
 ````````````
 
@@ -512,6 +528,7 @@ Get timer
 
 Gets time when lights should be turned on and time to turn them off.
 
+Since firmware version 1.99.20.
 
 HTTP request
 ````````````
@@ -554,6 +571,8 @@ Set timer
 ---------
 
 Sets time when lights should be turned on and time to turn them off.
+
+Since firmware version 1.99.20.
 
 HTTP request
 ````````````
@@ -602,6 +621,8 @@ Get LED operation mode
 
 Gets current LED operation mode.
 
+Since firmware version 1.99.20.
+
 HTTP request
 ````````````
 
@@ -646,6 +667,8 @@ Set LED operation mode
 ----------------------
 
 Changes LED operation mode.
+
+Since firmware version 1.99.20.
 
 HTTP request
 ````````````
@@ -703,6 +726,8 @@ Upload full movie
 
 Effect is received in body of the request with Content-Type application/octet-stream. If mode is `movie` it starts playing this effect.
 
+Since firmware version 1.99.20.
+
 HTTP request
 ````````````
 
@@ -722,6 +747,8 @@ The response will be an object.
 
 Get LED movie config
 --------------------
+
+Since firmware version 1.99.20.
 
 HTTP request
 ````````````
@@ -776,6 +803,8 @@ Response::
 Set LED movie config
 --------------------
 
+Since firmware version 1.99.20.
+
 HTTP request
 ````````````
 
@@ -806,8 +835,9 @@ The response will be an object.
 Get current brightness
 ----------------------
 
-Gets the current brightness level. Since firmware version: 2.3.5.
+Gets the current brightness level.
 
+Since firmware version: 2.3.5.
 
 HTTP request
 ````````````
@@ -918,6 +948,8 @@ Get firmware version
 
 Note: no authentication needed.
 
+Since firmware version 1.99.20.
+
 HTTP request
 ````````````
 
@@ -957,6 +989,8 @@ Update firmware
 ---------------
 
 Probably initiates firmware update.
+
+Since firmware version 1.99.20.
 
 HTTP request
 ````````````
@@ -1015,6 +1049,8 @@ Upload first stage of firmware
 
 First stage of firmware is uploaded in body of the request with Content-Type application/octet-stream.
 
+Since firmware version 1.99.20.
+
 HTTP request
 ````````````
 
@@ -1037,6 +1073,8 @@ Upload second stage of firmware
 
 Second stage of firmware is uploaded in body of the request with Content-Type application/octet-stream.
 
+Since firmware version 1.99.20.
+
 HTTP request
 ````````````
 
@@ -1057,6 +1095,8 @@ The response will be an object.
 Initiate WiFi network scan
 --------------------------
 
+Since firmware version 1.99.20.
+
 HTTP request
 ````````````
 
@@ -1073,6 +1113,8 @@ The response will be an object.
 
 Get results of WiFi network scan
 --------------------------------
+
+Since firmware version 1.99.20.
 
 HTTP request
 ````````````
@@ -1113,6 +1155,8 @@ Response seems to correspond with `AT command CWLAP <https://github.com/espressi
 
 Set LED driver parameters
 -------------------------
+
+Since firmware version 1.99.20.
 
 HTTP request
 ````````````
