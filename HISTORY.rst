@@ -2,6 +2,21 @@
 History
 =======
 
+2.4.21.2 (2020-12-22)
+-----------------------
+
+* Add new REST API endpoints Get and set LED config
+* Add new REST endpoints: get LED effects and current LED effects
+* Improve application response description and add 1205
+* More consistent info about first firmware supporting MQTT
+* Document response 404 Not found
+* Specify initial firmware versions for all REST API endpoints
+* Move Logout earlier in the list of rest APIs
+* Rename section Change LED operation mode -> Set LED operation mode
+* Fix typos
+* Shorten main headings
+* Restructure rest api
+
 2.4.21.1 (2020-12-07)
 -----------------------
 
