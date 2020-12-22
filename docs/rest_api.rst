@@ -750,6 +750,83 @@ The response will be an object.
 	(integer) number of received frames
 
 
+Get LED effects
+---------------
+
+Since firmware version 1.99.20.
+
+HTTP request
+````````````
+
+`GET /xled/v1/led/effects`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	Application return code.
+`effects_number`
+	(integer), e.g. 5
+
+Example
+````````
+Request::
+
+	GET /xled/v1/led/effects HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+    HTTP/1.1 200 Ok
+    Connection: close
+    Content-Length: 32
+    Content-Type: application/json
+
+    {"effects_number":5,"code":1000}
+
+
+Get current LED effect
+----------------------
+
+Since firmware version 1.99.20.
+
+HTTP request
+````````````
+
+`GET /xled/v1/led/effects/current`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	Application return code.
+`effect_id`
+	(integer), e.g. 0
+
+Example
+````````
+Request::
+
+	GET /xled/v1/led/effect/current HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+    HTTP/1.1 200 Ok
+    Connection: close
+    Content-Length: 27
+    Content-Type: application/json
+
+    {"effect_id":0,"code":1000}
+
 
 Get LED movie config
 --------------------
