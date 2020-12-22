@@ -828,6 +828,108 @@ Response::
     {"effect_id":0,"code":1000}
 
 
+Get LED config
+--------------
+
+Since firmware version 1.99.20.
+
+HTTP request
+````````````
+
+`GET /xled/v1/led/config`
+
+Response
+````````
+
+The response will be an object.
+
+`strings`
+	Array of objects
+`code`
+	Application return code.
+
+Item of strings array is object:
+
+`first_led_id`
+	(integer), e.g. 0
+`length`
+	(integer), e.g. 105
+
+Example
+```````
+
+Request::
+
+	GET /xled/v1/led/config HTTP/1.1
+	Host: 192.168.4.1
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 57
+	Content-Type: application/json
+
+	{"strings":[{"first_led_id":0,"length":105}],"code":1000}
+
+
+Set LED config
+--------------
+
+Since firmware version 1.99.20.
+
+HTTP request
+````````````
+
+`POST /xled/v1/led/config`
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`strings`
+	Array of objects
+
+Item of strings array is object:
+
+`first_led_id`
+	(integer), e.g. 0
+`length`
+	(integer), e.g. 105
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	Application return code.
+
+Example
+```````
+
+Request::
+
+	POST /xled/v1/led/config HTTP/1.1
+	Host: 192.168.4.1
+	X-Auth-Token: 5jPe+ONhwUY=
+	Content-Type: application/json
+	Content-Length: 45
+
+	{"strings":[{"first_led_id":0,"length":100}]}
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 13
+	Content-Type: application/json
+
+	{"code":1000}
+
+
 Get LED movie config
 --------------------
 
