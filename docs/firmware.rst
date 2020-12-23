@@ -11,6 +11,7 @@ Firmware family "D"
 
 Firmware consists of two files. I have seen following versions:
 
+- 1.99.18 - probably first public version
 - 1.99.20
 - 1.99.24
 - 2.0.22 - adds MQTT support

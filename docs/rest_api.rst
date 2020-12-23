@@ -127,7 +127,7 @@ Login
 
 Request access token.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -187,7 +187,7 @@ Verify
 
 Verify the token retrieved by Login.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -239,7 +239,7 @@ Logout
 
 Probably invalidate access token. Doesn't work.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -282,7 +282,7 @@ Device details
 
 Gets information detailed information about the device.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -360,7 +360,7 @@ Get device name
 
 Gets device name
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -402,7 +402,7 @@ Set device name
 
 Sets device name
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -454,7 +454,7 @@ Get timer
 
 Gets time when lights should be turned on and time to turn them off.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -498,7 +498,7 @@ Set timer
 
 Sets time when lights should be turned on and time to turn them off.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -547,7 +547,7 @@ Get LED operation mode
 
 Gets current LED operation mode.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -594,7 +594,7 @@ Set LED operation mode
 
 Changes LED operation mode.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -650,7 +650,7 @@ Response::
 Get LED effects
 ---------------
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -689,7 +689,7 @@ Response::
 Get current LED effect
 ----------------------
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -728,7 +728,7 @@ Response::
 Get LED config
 --------------
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -743,7 +743,7 @@ The response will be an object.
 `strings`
 	Array of objects
 `code`
-	Application return code.
+	Application return code. Since firmware version: 1.99.20.
 
 Item of strings array is object:
 
@@ -774,7 +774,7 @@ Response::
 Set LED config
 --------------
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -832,7 +832,7 @@ Upload full movie
 
 Effect is received in body of the request with Content-Type application/octet-stream. If mode is `movie` it starts playing this effect.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -853,7 +853,7 @@ The response will be an object.
 Get LED movie config
 --------------------
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -909,7 +909,7 @@ Response::
 Set LED movie config
 --------------------
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -1051,7 +1051,7 @@ Response::
 Set LED driver parameters
 -------------------------
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -1079,7 +1079,7 @@ Get firmware version
 
 Note: no authentication needed.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -1121,7 +1121,7 @@ Update firmware
 
 Probably initiates firmware update.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -1180,7 +1180,7 @@ Upload first stage of firmware
 
 First stage of firmware is uploaded in body of the request with Content-Type application/octet-stream.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -1204,7 +1204,7 @@ Upload second stage of firmware
 
 Second stage of firmware is uploaded in body of the request with Content-Type application/octet-stream.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -1226,7 +1226,7 @@ The response will be an object.
 Initiate WiFi network scan
 --------------------------
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -1245,7 +1245,7 @@ The response will be an object.
 Get results of WiFi network scan
 --------------------------------
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -1289,7 +1289,7 @@ Get network status
 
 Gets network mode operation.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
@@ -1357,7 +1357,7 @@ Set network status
 
 Sets network mode operation.
 
-Since firmware version 1.99.20.
+Since firmware version 1.99.18.
 
 HTTP request
 ````````````
