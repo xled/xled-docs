@@ -49,7 +49,7 @@ as:
 Generation II model TWW210SPP-TEU
 ---------------------------------
 
-It is branded as Twinkly Wall and consists of 210 RGB+W LEDs. It is a matrix of
+It is branded as `Twinkly Wall and consists of 210 RGB+W LEDs`_. It is a matrix of
 10 strings each consisting of 21 red, green, blue and white LEDs.
 
 Hardware consists of a circuit board with ESP32 microcontroller by Espressif
@@ -83,3 +83,6 @@ WiFi. In this documentation the device is referred as:
 
 - Hardware ID: 1bb210
 - MAC address 98:f4:ab:1b:b2:10
+
+
+.. _`Twinkly Wall and consists of 210 RGB+W LEDs`: https://web.archive.org/web/2/https://www.twinkly.com/products/curtain-special-edition-210-leds/
