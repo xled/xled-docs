@@ -16,6 +16,18 @@ boards:
 - Module ESP-01 with microcontroller ESP8266 by Espressif Systems.
 - Custom-made LED driver module
 
+Esptool v2.8 identification of MCU:
+
+- Chip is ESP8266EX
+- Features: WiFi
+- Crystal is 26MHz
+
+and flash:
+
+- Manufacturer: 5e
+- Device: 4015
+- Detected flash size: 2MB
+
 API exposes these details:
 
 - Product code: TW105SEUP06
@@ -38,8 +50,20 @@ Generation II model TWW210SPP-TEU
 ---------------------------------
 
 It is branded as Twinkly Wall and consists of 210 RGB+W LEDs. It is a matrix of
-10 strings each consisting of 21 red, green, blue and white LEDs. Most likely
-the device is built on the top of ESP32 microcontroller by Espressif Systems.
+10 strings each consisting of 21 red, green, blue and white LEDs.
+
+Hardware consists of a circuit board with ESP32 microcontroller by Espressif
+Systems. Esptool v2.8 identification of MCU:
+
+- Chip is ESP32D0WDQ5 (revision 1)
+- Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+- Crystal is 40MHz
+
+and flash:
+
+- Manufacturer: c8
+- Device: 4017
+- Detected flash size: 8MB
 
 API exposes these details:
 
