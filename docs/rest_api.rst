@@ -354,11 +354,11 @@ For firmware family "G" since firmware version 2.4.21:
 `product_code`
 	(string), e.g. "TWW210SPP" or "TWI190SPP"
 `device_name`
-	(string), by default consists of `Twinkly_` prefix and uppercased `hw_id` (see bellow)
+	(string), by default consists of `Twinkly_` prefix and uppercased right three bytes of MAC address of a WiFi device.
 `uptime`
 	(string) number as a string. Miliseconds since start. E.g. "60000"
 `hw_id`
-	(string), right three bytes of mac address encoded as hexadecimal digits prefixed with 00.
+	(string), three bytes encoded as hexadecimal digits. Seem to come from MAC address but differs in right most byte.
 `mac`
 	(string) MAC address as six groups of two hexadecimal digits separated by colons (:).
 `uuid`
