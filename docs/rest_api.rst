@@ -313,15 +313,15 @@ The response will be an object.
 `rssi`
 	(number), Received signal strength indication. Since firmware version: 2.1.0.
 `uptime`
-	(string) number as a string, e.g. "60"
+	(string) number as a string. Seconds since start. E.g. "60"
 `hw_id`
 	(string), right three bytes of mac address encoded as hexadecimal digits prefixed with 00.
 `mac`
 	(string) MAC address as six groups of two hexadecimal digits separated by colons (:).
 `uuid`
-	(string) UUID of the device. Since firmware version: 2.0.22.
+	(string) UUID of the device. Since firmware version: 2.0.8. Device in family "D" has value 00000000-0000-0000-0000-000000000000.
 `max_supported_led`
-	(number), e.g. 180
+	(number), e.g. firmware family "D": 180 in firmware version 1.99.20, 224 in 1.99.24, 228 in 1.99.30, 255 in 2.0.0 and newer.
 `base_leds_number`
 	(number), e.g. 105
 `number_of_led`

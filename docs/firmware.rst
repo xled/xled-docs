@@ -14,9 +14,17 @@ Firmware consists of two files. I have seen following versions:
 - 1.99.18 - probably first public version
 - 1.99.20
 - 1.99.24
-- 2.0.22 - adds MQTT support
+- 1.99.30
+- 2.0.0
+- 2.0.8
+- 2.0.12
+- 2.0.13
+- 2.0.19
+- 2.0.22-mqtt - adds MQTT support
 - 2.1.0
-- 2.3.5
+- 2.1.1-net
+- 2.1.2-net
+- 2.3.5 - last version
 
 Firmware family "G"
 -------------------
