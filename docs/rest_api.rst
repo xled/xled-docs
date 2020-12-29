@@ -155,7 +155,7 @@ The response will be an object.
 	41 byte string ([0-9a-h])
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 `authentication_token_expires_in`: integer. All the time 14400?
 
@@ -208,7 +208,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 
 Example
@@ -252,7 +252,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 Example
 ````````
@@ -335,7 +335,7 @@ The response will be an object.
 `copyright`
 	(string) "LEDWORKS 2017"
 `code`
-	Application return code.
+	(integer), application return code.
 
 Example
 ````````
@@ -376,7 +376,7 @@ The response will be an object.
 	(string) Device name.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 Example
 ````````
@@ -423,7 +423,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code. `1103` if too long.
+	(integer), application return code. `1103` if too long.
 
 
 Example
@@ -476,7 +476,7 @@ The response will be an object.
 	(number) time when to turn lights off in seconds after midnight. -1 if not set
 
 `code`
-	Application return code. Since firmware version: 2.3.8.
+	(integer), application return code. Since firmware version: 2.3.8.
 
 Example
 ```````
@@ -563,7 +563,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 `mode`
 	(string) mode of operation.
 
@@ -625,7 +625,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 Example
 ````````
@@ -666,7 +666,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 `effects_number`
 	(integer), e.g. 5
 
@@ -705,7 +705,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 `effect_id`
 	(integer), e.g. 0
 
@@ -746,7 +746,7 @@ The response will be an object.
 `strings`
 	Array of objects
 `code`
-	Application return code. Since firmware version: 1.99.20.
+	(integer), application return code. Since firmware version: 1.99.20.
 
 Item of strings array is object:
 
@@ -805,7 +805,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 Example
 ```````
@@ -848,7 +848,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 `frames_number`
 	(integer) number of received frames
 
@@ -879,7 +879,7 @@ The response will be an object.
 `sync`
 	(object)
 `code`
-	Application return code.
+	(integer), application return code.
 
 Contents of object `sync`:
 
@@ -939,7 +939,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 Get current brightness
 ----------------------
@@ -959,7 +959,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 `mode`
 	(string) one of "enabled" or "disabled".
 `value`
@@ -1024,7 +1024,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 Example
 ```````
@@ -1074,7 +1074,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 
 Get firmware version
@@ -1095,7 +1095,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 `version`
 	(string)
@@ -1153,7 +1153,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 Example
 ````````
@@ -1196,7 +1196,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 `sha1sum`
 	SHA1 digest of uploaded firmware.
@@ -1220,7 +1220,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 `sha1sum`
 	SHA1 digest of uploaded firmware.
@@ -1242,7 +1242,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 
 Get results of WiFi network scan
@@ -1261,7 +1261,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 `networks`
 	Array of objects
@@ -1310,7 +1310,7 @@ The response will be an object.
 `ap`
 	(object)
 `code`
-	Application return code.
+	(integer), application return code.
 
 Contents of object `station`:
 
@@ -1395,7 +1395,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 Example
 ````````
@@ -1436,7 +1436,7 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
 
 `broker_host`
 	(string), hostname of broker. By default `mqtt.twinkly.com`.
@@ -1496,4 +1496,4 @@ Response
 The response will be an object.
 
 `code`
-	Application return code.
+	(integer), application return code.
