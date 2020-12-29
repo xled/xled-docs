@@ -17,7 +17,7 @@ Hardware works in two network modes:
 - Access Point (AP)
 - Station (STA)
 
-AP mode is default - after factory reset. Broadcasts SSID made from `device name`_. Server uses static IP address 192.168.4.1 and operates in network 192.168.4.0/24. Provides DHCP server for any device it joins the network.
+AP mode is default - after factory reset. Broadcasts SSID made from `device name`_. Generation I devices provide open AP - without any encryption. Generation II devices use WPA2 with password `Twinkly2019`. Server uses static IP address 192.168.4.1 and operates in network 192.168.4.0/24. Provides DHCP server for any device it joins the network.
 
 To switch to STA mode hardware needs to be configured with SSID network to connect to and encrypted password. Rest is simple API call through TCP port 80 (HTTP).
 
