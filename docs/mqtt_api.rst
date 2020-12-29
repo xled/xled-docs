@@ -8,6 +8,8 @@ Overview
 
 Device sends messages with its states to a broker with MQTT. By default broker is set to mqtt.twinkly.com.
 
+Firmware family "D" use HTTP and "G" use TLS.
+
 Last topic levels are always client ID which are by default derived from MAC address of the device as uppercased hexadecimal digits.
 
 Status from device

@@ -294,6 +294,8 @@ Response
 
 The response will be an object.
 
+For firmware family "D":
+
 `product_name`
 	(string) `Twinkly`
 `product_version`
@@ -337,6 +339,48 @@ The response will be an object.
 `code`
 	(integer), application return code.
 
+For firmware family "G" since firmware version 2.4.21:
+
+`fw_family`
+	(string) "G",
+`product_name`
+	(string) `Twinkly`
+`hardware_version`
+	(numeric string), "100"
+`flash_size`
+	(number), 64
+`led_type`
+	(number), 12
+`product_code`
+	(string), e.g. "TWW210SPP" or "TWI190SPP"
+`device_name`
+	(string), by default consists of `Twinkly_` prefix and uppercased `hw_id` (see bellow)
+`uptime`
+	(string) number as a string. Miliseconds since start. E.g. "60000"
+`hw_id`
+	(string), right three bytes of mac address encoded as hexadecimal digits prefixed with 00.
+`mac`
+	(string) MAC address as six groups of two hexadecimal digits separated by colons (:).
+`uuid`
+	(string) UUID of the device
+`max_supported_led`
+	(number), e.g. 1200
+`number_of_led`
+	(number), e.g. 190 or 210
+`led_profile`
+	(string) "RGBW"
+`frame_rate`
+	(number), 28.57
+`movie_capacity`
+	(number), e.g. 992
+`copyright`
+	(string) "LEDWORKS 2018"
+`wire_type`
+    (integer), e.g. 1 or 4
+`code`
+	(integer), application return code.
+
+
 Example
 ````````
 
@@ -345,7 +389,7 @@ Request::
 	GET /xled/v1/gestalt HTTP/1.1
 	Host: 192.168.4.1
 
-Response::
+Response from firmware family "D"::
 
 	HTTP/1.1 200 Ok
 	Connection: close
@@ -353,6 +397,15 @@ Response::
 	Content-Type: application/json
 
 	{"product_name":"Twinkly","product_version":"2","hardware_version":"6","flash_size":16,"led_type":6,"led_version":"1","product_code":"TW105SEUP06","device_name":"Twinkly_33AAFF","uptime":"60","hw_id":"0033aaff","mac":"5c:cf:7f:33:aa:ff","max_supported_led":224,"base_leds_number":105,"number_of_led":105,"led_profile":"RGB","frame_rate":25,"movie_capacity":719,"copyright":"LEDWORKS 2017","code":1000}
+
+Response from firmware family "G"::
+
+	HTTP/1.1 200 OK
+	Server: esp-httpd/0.5
+	Transfer-Encoding: chunked
+	Content-Type: application/json
+
+	{"product_name":"Twinkly","hardware_version":"100","bytes_per_led":4,"hw_id":"1cc190","flash_size":64,"led_type":12,"product_code":"TWI190SPP","fw_family":"G","device_name":"Twinkly_1CC190","uptime":"8107194","mac":"98:f4:ab:1c:c1:90","uuid":"E103C5A3-3398-4B77-AE1A-9D8998A5EB62","max_supported_led":1200,"number_of_led":190,"led_profile":"RGBW","frame_rate":28.57,"movie_capacity":992,"wire_type":4,"copyright":"LEDWORKS 2018","code":1000}
 
 
 Get device name
@@ -764,7 +817,7 @@ Request::
 	Host: 192.168.4.1
 	X-Auth-Token: 5jPe+ONhwUY=
 
-Response::
+Response from firmware family "D"::
 
 	HTTP/1.1 200 Ok
 	Connection: close
@@ -773,6 +826,14 @@ Response::
 
 	{"strings":[{"first_led_id":0,"length":105}],"code":1000}
 
+Response from Icicle firmware family "G"::
+
+	HTTP/1.1 200 OK
+	Server: esp-httpd/0.5
+	Transfer-Encoding: chunked
+	Content-Type: application/json
+
+	{"strings":[{"first_led_id":0,"length":95},{"first_led_id":95,"length":95}],"code":1000}
 
 Set LED config
 --------------
@@ -878,6 +939,8 @@ The response will be an object.
 	(integer)
 `sync`
 	(object)
+`mic`
+    (object), since firmware version 2.4.21.
 `code`
 	(integer), application return code.
 
@@ -890,6 +953,19 @@ Contents of object `sync`:
 `master_id`
 	(string), e.g. ""
 
+Contents of object `mic`:
+
+`filters`
+	array of objects
+`brightness_depth`
+    (integer)
+`hue_depth`
+    (integer)
+`value_depth`
+    (integer)
+`saturation_depth`
+    (integer)
+
 Example
 ```````
 
@@ -899,7 +975,7 @@ Request::
 	Host: 192.168.4.1
 	X-Auth-Token: 5jPe+ONhwUY=
 
-Response::
+Response from firmware family "D"::
 
 	HTTP/1.1 200 Ok
 	Connection: close
@@ -908,6 +984,14 @@ Response::
 
 	{"frame_delay":40,"leds_number":105,"loop_type":0,"frames_number":325,"sync":{"mode":"none","slave_id":"","master_id":""},"code":1000}
 
+Response from firmware family "G"::
+
+	HTTP/1.1 200 OK
+	Server: esp-httpd/0.5
+	Transfer-Encoding: chunked
+	Content-Type: application/json
+
+	{"frame_delay":0,"leds_number":0,"loop_type":0,"frames_number":0,"sync":{"mode":"none","slave_id":"","master_id":""},"mic":{"filters":[],"brightness_depth":0,"hue_depth":0,"value_depth":0,"saturation_depth":0},"code":1000}
 
 Set LED movie config
 --------------------
@@ -1312,7 +1396,7 @@ The response will be an object.
 `code`
 	(integer), application return code.
 
-Contents of object `station`:
+Contents of object `station` for firmware family "D":
 
 `ssid`
 	(string), SSID of a WiFi network to connect to
@@ -1324,6 +1408,17 @@ Contents of object `station`:
 	(string), subnet mask
 `status`
 	(integer), status of the network connection
+
+Contents of object `station` for firmware family "G" since firmware version 2.4.21:
+
+`ssid`
+	(string), SSID of a WiFi network to connect to
+`ip`
+	(string), IP address of the device
+`gw`
+	(string), IP address of the gateway
+`mask`
+	(string), subnet mask
 
 Contents of object `ap`:
 
@@ -1435,6 +1530,8 @@ Response
 
 The response will be an object.
 
+For firmware family "D":
+
 `code`
 	(integer), application return code.
 
@@ -1456,6 +1553,54 @@ The response will be an object.
 `user`
 	(string), by default "twinkly_noauth"
 
+For firmware family "G" since firmware version 2.4.21:
+
+`code`
+	(integer), application return code.
+
+`broker_host`
+	(string), hostname of broker. By default `mqtt.twinkly.com`.
+
+`broker_port`
+	(integer), destination port of broker. By default "8883".
+
+`client_id`
+	(string), by default hex string of length 12 derived from MAC address of the device as uppercased hexadecimal digits.
+
+`keep_alive_interval`
+	(integer), by default "60".
+
+`user`
+	(string), by default "twinkly32"
+
+Example
+````````
+
+Request::
+
+	GET /xled/v1/mqtt/config HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+	X-Auth-Token: mfqEJHHKJR8=
+
+Response from firmware family "D"::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 169
+	Content-Type: application/json
+
+	{"broker_host":"mqtt.twinkly.com","broker_port":1883,"client_id":"5CCF7F33AAFF","user":"twinkly_noauth","keep_alive_interval":180,"encryption_key_set":false,"code":1000}
+
+Response from firmware family "G"::
+
+	HTTP/1.1 200 OK
+	Server: esp-httpd/0.5
+	Transfer-Encoding: chunked
+	Content-Type: application/json
+
+	{"broker_host":"mqtt.twinkly.com","broker_port":8883,"client_id":"98F4AB1CC190","user":"twinkly32","keep_alive_interval":60,"code":1000}
+
 
 Set MQTT configuration
 ----------------------
@@ -1470,6 +1615,8 @@ Parameters
 ``````````
 
 Parameters as JSON object.
+
+For firmware family "D":
 
 `broker_host`
 	(string), hostname of broker
@@ -1489,6 +1636,22 @@ Parameters as JSON object.
 `user`
 	(string)
 
+For firmware family "G" since firmware version 2.4.21:
+
+`broker_host`
+	(string), hostname of broker
+
+`broker_port`
+	(integer), destination port of broker
+
+`client_id`
+	(string)
+
+`keep_alive_interval`
+	cannot be set?
+
+`user`
+	(string)
 
 Response
 ````````
