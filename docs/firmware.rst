@@ -24,7 +24,8 @@ Firmware consists of two files. I have seen following versions:
 - 2.1.0
 - 2.1.1-net
 - 2.1.2-net
-- 2.3.5 - last version
+- 2.3.5 - last version upgraded by application
+- 2.3.8
 
 Firmware family "G"
 -------------------

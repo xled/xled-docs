@@ -475,6 +475,9 @@ The response will be an object.
 `time_off`
 	(number) time when to turn lights off in seconds after midnight. -1 if not set
 
+`code`
+	Application return code. Since firmware version: 2.3.8.
+
 Example
 ```````
 
