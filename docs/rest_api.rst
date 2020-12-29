@@ -94,7 +94,7 @@ Application responses
 
 The API may return application status as `code` value of JSON. Returned will not necessarily "correspond" with the HTTP status code. For example, a HTTP status code 200 OK returned with an error application code indicates that the request successfully reached the server, but application cannot process the request.
 
-1100
+1000
 	Ok
 
 1101
