@@ -128,7 +128,7 @@ Movie file format
 
 LED effect is called **movie**. It consists of **frames**. Each frame defines colour of each LED.
 
-Movie file format is simple sequence of bytes. Three bytes in a row represent intensity of *red*, *green* and *blue* in this order. Each frame is defined just with number of LEDs times three. Frames don't have any separator. Definition of each frame starts from LED closer to LED driver/adapter.
+Movie file format is simple sequence of bytes. For RGB devices, each LED is defined by three bytes in a row representing the intensity of *red*, *green* and *blue* in this order. For RGB+W devices, each LED is defined by four bytes in a row representing the intensity of *white*, *red*, *green* and *blue* in this order. Each frame is defined just with number of LEDs times three or four. Frames don't have any separator. Definition of each frame starts from LED closer to LED driver/adapter.
 
 
 Real time LED operating mode
