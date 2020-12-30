@@ -1407,7 +1407,7 @@ Contents of object `station` for firmware family "D":
 `mask`
 	(string), subnet mask
 `status`
-	(integer), status of the network connection
+	(integer), status of the network connection: 5 = connected, 255 = AP is used
 
 Contents of object `station` for firmware family "G" since firmware version 2.4.21:
 
@@ -1429,7 +1429,7 @@ Contents of object `ap`:
 `ip`
 	(string), IP address
 `enc`
-	(integer)
+	(enum), 0 for no encryption, 2 for WPA1, 3 for WPA2, 4 for WPA1+WPA2
 
 Example
 ````````
@@ -1468,12 +1468,14 @@ Parameters
 Parameters as JSON object.
 
 `mode`
-	(enum) 1 or 2
+	(enum), required: 1 or 2
 `station`
-	(object) if mode set to 1 this parameter provides additional details.
+	(object) optional, if mode set to 1 this parameter could provide additional details.
+`ap`
+	(object) optional, if mode set to 2 this parameter could provide additional details.
 
 
-Station object parameters:
+`station` object parameters:
 
 `dhcp`
 	(integer) 1
@@ -1483,6 +1485,21 @@ Station object parameters:
 
 `encpassword`
 	(string) encrypted password.
+
+
+`ap` object parameters:
+
+`ssid`
+	(string), required SSID of a WiFi network
+
+`encpassword`
+	(string), optional encrypted password.
+
+`enc`
+	(enum), optional type of encryption. See above in Get network status. Defaults to 0 if not part of the request. If a request has `enc` value 1, get will return 0 as well.
+
+`channel`
+	(integer), optional
 
 Response
 ````````
