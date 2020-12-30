@@ -1616,42 +1616,19 @@ Parameters
 
 Parameters as JSON object.
 
-For firmware family "D":
+For firmware family "D" since firmware version 2.0.22 and firmware family "G" since firmware version 2.4.21:
 
 `broker_host`
-	(string), hostname of broker
-
-`broker_port`
-	(integer), destination port of broker
+	(string), optional hostname of a broker
 
 `client_id`
-	(string)
-
-`encryption_key`
-	(string), length exactly 16 characters?
+	(string), optional
 
 `keep_alive_interval`
-	cannot be set?
+	(integer), optional
 
 `user`
-	(string)
-
-For firmware family "G" since firmware version 2.4.21:
-
-`broker_host`
-	(string), hostname of broker
-
-`broker_port`
-	(integer), destination port of broker
-
-`client_id`
-	(string)
-
-`keep_alive_interval`
-	cannot be set?
-
-`user`
-	(string)
+	(string), optional
 
 Response
 ````````
