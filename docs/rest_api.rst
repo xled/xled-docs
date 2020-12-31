@@ -1469,6 +1469,8 @@ Contents of object `ap`:
 	(integer), default 0. Since firmware version 2.4.25.
 `max_connection`
 	(integer), default 4. Since firmware version 2.4.25.
+`password_changed`
+	(integer), either hidden or set to 1 if default password for AP was changed.
 
 Example
 ````````
@@ -1533,6 +1535,9 @@ Parameters as JSON object.
 
 `encpassword`
 	(string), optional encrypted password.
+
+`password`
+    (string), optional plaintext password. Since firmware version 2.5.25 (?).
 
 `enc`
 	(enum), optional type of encryption. See above in Get network status. Defaults to 0 if not part of the request. If a request has `enc` value 1, get will return 0 as well.
