@@ -311,13 +311,13 @@ For firmware family "D":
 `product_code`
 	(string), e.g. "TW105SEUP06"
 `device_name`
-	(string), by default consists of `Twinkly_` prefix and uppercased `hw_id` (see bellow)
+	(string), name of the device - see section Device Name in Protocol details.
 `rssi`
 	(number), Received signal strength indication. Since firmware version: 2.1.0.
 `uptime`
 	(string) number as a string. Seconds since start. E.g. "60"
 `hw_id`
-	(string), right three bytes of mac address encoded as hexadecimal digits prefixed with 00.
+	(string), see section Hardware ID in Protocol details.
 `mac`
 	(string) MAC address as six groups of two hexadecimal digits separated by colons (:).
 `uuid`
@@ -354,13 +354,13 @@ For firmware family "G" since firmware version 2.4.21:
 `product_code`
 	(string), e.g. "TWW210SPP" or "TWI190SPP"
 `device_name`
-	(string), by default consists of `Twinkly_` prefix and uppercased right three bytes of MAC address of a WiFi device.
+	(string), name of the device - see section Device Name in Protocol details.
 `uptime`
 	(string) number as a string. Miliseconds since start. E.g. "60000"
 `hw_id`
-	(string), three bytes encoded as hexadecimal digits. Seem to come from MAC address but differs in right most byte.
+	(string), see section Hardware ID in Protocol details.
 `mac`
-	(string) MAC address as six groups of two hexadecimal digits separated by colons (:).
+	(string) MAC address as six groups of two hexadecimal digits separated by colons (:). Address of a device in access point mode.
 `uuid`
 	(string) UUID of the device
 `max_supported_led`
@@ -1440,7 +1440,7 @@ Contents of object `station` for firmware family "D":
 Contents of object `station` for firmware family "G" since firmware version 2.4.21:
 
 `ssid`
-	(string), SSID of a WiFi network to connect to
+	(string), SSID of a WiFi network to connect to. If empty string is passed it defaults to prefix `ESP_` instead of `Twinkly_`.
 `ip`
 	(string), IP address of the device
 `gw`
@@ -1589,7 +1589,7 @@ For firmware family "D":
 	(integer), destination port of broker. By default "1883".
 
 `client_id`
-	(string), by default hex string of length 12 derived from MAC address of the device as uppercased hexadecimal digits.
+	(string), see section MQTT Client ID in Protocol details.
 
 `encryption_key_set`
 	(bool), by default "False"
@@ -1612,7 +1612,7 @@ For firmware family "G" since firmware version 2.4.21:
 	(integer), destination port of broker. By default "8883".
 
 `client_id`
-	(string), by default hex string of length 12 derived from MAC address of the device as uppercased hexadecimal digits.
+	(string), see section MQTT Client ID in Protocol details.
 
 `keep_alive_interval`
 	(integer), by default "60".

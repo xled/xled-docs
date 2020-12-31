@@ -3,10 +3,50 @@ Protocol details
 
 This page describes hardware, modes of operation and some private protocols or algorithms used by Twinkly application.
 
+Hardware ID
+-----------
+
+Each device has unique hardware ID that consists of 6 bytes written as lowercase hex value. It can be read through API call.
+
+* In generation I devices it is rightmost part of device's MAC address.
+
+* In generation II devices it is rightmost part of the device's MAC address in station (STA) mode.
+
+
+Device ID
+---------
+
+Each device has unique ID that consists of a prefix **Twinkly_** and 6 bytes written as uppercase hex value:
+
+* In generation I devices it is rightmost part of device's MAC address.
+
+* In generation II devices it is rightmost part of the device's MAC address in access point (AP) mode.
+
+Value can not be directly read by API but it is used in various places - e.g. in discovery packets.
+
+
 Device name
 -----------
 
-Device name is used to announce SSID if it operates in AP mode, or to select device in the application. By default consists of prefix **Twinkly_** and uppercased unique identifier derived from MAC address. It can be read or changed by API.
+Device has a name that can be used for identification - e.g. in the application. Its default value is the same as `device id`_. It can be read or changed by API. It's length is from 0 to 32 bytes.
+
+
+Access point SSID
+-----------------
+
+Device in Access Point mode broadcasts SSID. Its default value is the same as `device id`_. It can be read or changed with API. It's length is from 1 to 31 bytes.
+
+
+MQTT Client ID
+--------------
+
+When device uses MQTT protocol it sends client identification. Its default value is written as uppercase 12 byte long hex value:
+
+* In generation I devices from their MAC address.
+
+* In generation II devices from their MAC address in access point (AP) mode.
+
+It can be read or changed by API. It's length is from 0 to 32 bytes.
 
 
 Modes of network operation
@@ -17,11 +57,11 @@ Hardware works in two network modes:
 - Access Point (AP)
 - Station (STA)
 
-AP mode is default - after factory reset. Broadcasts SSID made from `device name`_. Generation I devices provide open AP - without any encryption. Generation II devices use WPA2 with password `Twinkly2019`. Server uses static IP address 192.168.4.1 and operates in network 192.168.4.0/24. Provides DHCP server for any device it joins the network.
+AP mode is default - after factory reset. See `Access point SSID` for details. Generation I devices provide open AP - without any encryption. Generation II devices use WPA2 with password `Twinkly2019`. Server uses static IP address 192.168.4.1 and operates in network 192.168.4.0/24. Provides DHCP server for any device it joins the network. It's hostname is `_gateway`.
 
-To switch to STA mode hardware needs to be configured with SSID network to connect to and encrypted password. Rest is simple API call through TCP port 80 (HTTP).
+In STA mode a device connects to an access points with configured SSID and password. If DHCP is enabled it sends `device id`_ hostname.
 
-Switch from STA mode back to AP mode is as easy as another API call.
+Network mode can be changed with an API calls.
 
 http://41j.com/blog/2015/01/esp8266-access-mode-notes/
 
