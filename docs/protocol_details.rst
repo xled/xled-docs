@@ -142,18 +142,39 @@ Real time LED operating mode
 Real time LED UDP packet format
 -------------------------------
 
-Before packets are sent to a device application needs to login and verify authentication token. See above.
+Before packets are sent to a device application needs to login and verify authentication token. See above. Depending on the number of LEDs, a frame can be
+sent in a single UDP packet, or it need several UDP packets (multipacket format). If the payload size is less than 900 bytes, the single packet format is selected. This corresponds to 300 LEDs of RGB type, or 225 RGB+W. For devices with more LEDs, the multipacket format is selected.
 
-Each UDP has header:
+(More data needed: For RGB LEDs, between 255 and 299 LEDs would fit in the UDP packet, but a single byte cannot represent the number of LEDs. How would the client handle this?)
 
-* 1 byte *\\x01* (byte with hex representation 0x01)
-* 8 bytes Base 64 decoded authentication token
-* 1 byte number of LED definitions in the frame
+Single packet format UDP header:
 
-Then follows body of the frame similarly to movie file format - three bytes for each LED.
+The single UDP packet has a 10 byte header:
+
+* 1 byte: Number of packets needed -- always *\\x01* (byte with hex representation 0x01)
+* 8 bytes: Base 64 decoded authentication token
+* 1 byte: number of LED definitions in the frame
+
+Then follows body of the frame similarly to movie file format - three or four bytes for each LED.
 
 For my 105 LED each packet is 325 bytes long.
 
+Multipacket format UDP header:
+
+Each UDP packet has an individual header, which is 12 bytes long: 
+
+* 1 byte: Number of packets needed (*N*) -- at least 2
+* 8 bytes: Base 64 decoded authentication token
+* 2 byte: always *\\x00\\x00* (two bytes with hex representation 0x00)
+* 1 byte: Packet number, between 0 and *N*-1
+
+Then follows body of the frame similarly to movie file format - three or four bytes for each LED.
+
+A multipacket UDP packet is at most 912 bytes long. The last packet can be shorter. For instance, for a 750 light device, the packet sizes can be:
+
+1. 912 (12 + 300*3)
+2. 912 (12 + 300*3)
+3. 462 (12 + 150*3)
 
 Scan for WiFi networks
 ----------------------
