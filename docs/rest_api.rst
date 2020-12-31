@@ -1030,7 +1030,9 @@ Get current brightness
 
 Gets the current brightness level.
 
-Since firmware version: 2.3.5.
+* For devices with firmware family "D" since version 2.3.5.
+* For devices with firmware family "F" not available in version 2.2.1.
+* For devices with firmware family "G" since version 2.4.21.
 
 HTTP request
 ````````````
@@ -1536,7 +1538,9 @@ Request to change network mode to AP::
 Get MQTT configuration
 ----------------------
 
-Since firmware version: 2.0.22
+* For devices with firmware family "D" since version 2.0.22
+* For devices with firmware family "F" not available in version 2.2.1.
+* For devices with firmware family "G" since version 2.4.21.
 
 HTTP request
 ````````````
