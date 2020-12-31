@@ -1009,7 +1009,7 @@ Parameters
 Parameters as JSON object.
 
 `frame_delay`
-	(integer)
+	(integer) the delay in milliseconds between two consecutive frames. For *n* fps, this is *1000 / n*.
 
 `leds_number`
 	(integer) seems to be total number of LEDs to use
