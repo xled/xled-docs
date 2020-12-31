@@ -1234,7 +1234,7 @@ Response::
 Update firmware
 ---------------
 
-Probably initiates firmware update.
+Initiates firmware update.
 
 Since firmware version 1.99.18.
 
@@ -1251,13 +1251,18 @@ Parameters as JSON object.
 `checksum`
 	(object)
 
-Checksum object parameters:
+Checksum object parameters for generation I devices:
 
 `stage0_sha1sum`
 	(string) SHA1 digest of first stage
 
 `stage1_sha1sum`
 	(string) SHA1 digest of second stage
+
+Checksum object parameters for generation II devices:
+
+`stage0_sha1sum`
+	(string) SHA1 digest of first stage
 
 Response
 ````````
@@ -1270,7 +1275,7 @@ The response will be an object.
 Example
 ````````
 
-Request::
+Request for generation I device::
 
 	POST /xled/v1/fw/update HTTP/1.1
 	X-Auth-Token: 5jPe+ONhwUY=
@@ -1320,6 +1325,8 @@ Upload second stage of firmware
 Second stage of firmware is uploaded in body of the request with Content-Type application/octet-stream.
 
 Since firmware version 1.99.18.
+
+Used only for generation I devices.
 
 HTTP request
 ````````````

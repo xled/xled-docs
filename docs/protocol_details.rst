@@ -140,13 +140,19 @@ As part of login process server sends not only authentication token but also cha
 Firmware update
 ---------------
 
-Update sequence follows:
+Update sequence for generation I device follows:
 
 1. application sends first file to endpoint 0 over HTTP
 2. server returns sha1sum of received file
 3. application sends second file to endpoint 1 over HTTP
 4. server returns sha1sum of received file
 5. application calls update API with sha1sum of each stages.
+
+Update sequence for generation II device follows:
+
+1. application sends first file to endpoint 0 over HTTP
+2. server returns sha1sum of received file
+3. application calls update API with sha1sum of uploaded stage.
 
 
 LED effect operating modes
