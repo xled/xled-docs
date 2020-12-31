@@ -104,7 +104,7 @@ This seems to be used to find all Twinkly devices on the network.
 
    - fifth and sixth byte forms string "OK"
 
-   - rest is string representing `device name`_ padded with zero byte.
+   - rest is string representing `device id`_ padded with zero byte.
 
 
 Get and verify authentication token
