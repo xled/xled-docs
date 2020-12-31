@@ -42,6 +42,7 @@ Firmware file is `encrypted using host generated key`_. I have seen following ve
 - 2.4.21 - shipped with a device
 - 2.4.25 - seems to incorrectly report `frame_rate: 1` in `gestalt` API call
 - 2.4.30 - introduced SSID encryption for client setup
+- 2.5.6 - adds UUIDs to effects
 
 
 .. _`encrypted using host generated key`: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/flash-encryption.html#using-host-generated-key

@@ -370,7 +370,9 @@ For firmware family "G" since firmware version 2.4.21:
 `led_profile`
 	(string) "RGBW"
 `frame_rate`
-	(number), 28.57
+	(number), e.g. 28.57. Since firmware version 2.5.6: 24
+`measured_frame_rate`
+	(number), e.g. 27.78. Since firmware version 2.5.6.
 `movie_capacity`
 	(number), e.g. 992
 `copyright`
@@ -721,7 +723,12 @@ The response will be an object.
 `code`
 	(integer), application return code.
 `effects_number`
-	(integer), e.g. 5
+	(integer), e.g. 5 until firmware version 2.4.30 and 15 since firmware version 2.5.6.
+`unique_ids`
+	(array), since firmware version 2.5.6.
+
+Item of `unique_ids` array is a UUID string. Default values are "00000000-0000-0000-0000-000000000001" up until "00000000-0000-0000-0000-00000000000F".
+
 
 Example
 ````````
@@ -759,6 +766,8 @@ The response will be an object.
 
 `code`
 	(integer), application return code.
+`unique_id`
+    (string), UUID. Since firmware version 2.5.6.
 `effect_id`
 	(integer), e.g. 0
 
@@ -940,7 +949,7 @@ The response will be an object.
 `sync`
 	(object)
 `mic`
-    (object), since firmware version 2.4.21.
+    (object), since firmware version 2.4.21 until 2.5.6.
 `code`
 	(integer), application return code.
 
@@ -949,9 +958,11 @@ Contents of object `sync`:
 `mode`
 	(string), e.g. "none"
 `slave_id`
-	(string), e.g. ""
+	(string), e.g. "". Since firmware version 2.5.6 not available (only if empty?).
 `master_id`
-	(string), e.g. ""
+	(string), e.g. "". Since firmware version 2.5.6 not available (only if empty?).
+`compat_mode`
+	(number), default 0. Since firmware version 2.5.6.
 
 Contents of object `mic`:
 
