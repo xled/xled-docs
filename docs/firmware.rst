@@ -39,7 +39,8 @@ Firmware family "G"
 
 Firmware file is `encrypted using host generated key`_. I have seen following versions:
 
-- 2.4.21
+- 2.4.21 - shipped with a device
+- 2.4.25
 
 
 .. _`encrypted using host generated key`: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/flash-encryption.html#using-host-generated-key

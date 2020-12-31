@@ -1465,6 +1465,10 @@ Contents of object `ap`:
 	(string), IP address
 `enc`
 	(enum), 0 for no encryption, 2 for WPA1, 3 for WPA2, 4 for WPA1+WPA2
+`ssid_hidden`
+	(integer), default 0. Since firmware version 2.4.25.
+`max_connection`
+	(integer), default 4. Since firmware version 2.4.25.
 
 Example
 ````````
@@ -1535,6 +1539,12 @@ Parameters as JSON object.
 
 `channel`
 	(integer), optional
+
+`ssid_hidden`
+	(integer), optional, 0 to broadcast SSID, 1 to hide. Since firmware version 2.4.25.
+
+`max_connection`
+	(integer), optional, value from 1 to 4. Since firmware version 2.4.25.
 
 Response
 ````````
