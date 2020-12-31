@@ -185,7 +185,7 @@ Response::
 Verify
 ------
 
-Verify the token retrieved by Login.
+Verify the token retrieved by Login. Successful call invalidates previous token, if it existed.
 
 Since firmware version 1.99.18.
 

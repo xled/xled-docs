@@ -116,8 +116,7 @@ Application uses TCP port 80 to get and verify authentication token. It is later
 2. Among other data server responds with authentication token
 3. Application uses authentication_token in header of request to verify.
 
-Only after this handshake authentication token can be used in other calls. Most of them require it.
-
+Only after this handshake authentication token can be used in other calls. Most of them require it. Previous authentication token, if existed, is invalided.
 
 Verification of challenge-response
 ----------------------------------
