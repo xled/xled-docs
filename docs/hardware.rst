@@ -113,5 +113,34 @@ WiFi. In this documentation the device is referred as:
 - Hardware ID: 1cc190
 - MAC address 98:f4:ab:1c:c1:90
 
+Generation II model TWF020STP-BEU
+---------------------------------
+
+It is branded as `Twinkly Festoon and consists of 20 RGB Lamps`_. It is a
+string where each lamp is red, green and blue LEDs.
+
+Hardware consists of a circuit board with ESP32 microcontroller by Espressif
+Systems. Most likely similar to the other generation II model listed above.
+
+API exposes these details:
+
+- Product code: TWF020STP-BT
+- Hardware version: 100
+- Flash size: 64
+- LED Type: 14
+- Firmware family: F
+- Bytes per LED: 3
+- Max Supported LEDs: 510
+- Frame Rate: 200
+- Movie Capacity: 1984
+
+On the top of that device has Bluetooth for out of the band configuration of
+WiFi. In this documentation the device is referred as:
+
+- Hardware ID: 1fe520
+- MAC address 98:f4:ab:1f:e5:20
+
+
 .. _`Twinkly Wall and consists of 210 RGB+W LEDs`: https://web.archive.org/web/2/https://www.twinkly.com/products/curtain-special-edition-210-leds/
 .. _`Twinkly Icicle and consists of 190 RGB+W LEDs`: https://web.archive.org/web/2/https://www.twinkly.com/products/icicle-190-leds-special-edition/
+.. _`Twinkly Festoon and consists of 20 RGB Lamps`: https://web.archive.org/web/2/https://www.twinkly.com/products/festoon-lights-starter-pack/

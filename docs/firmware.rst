@@ -27,6 +27,13 @@ Firmware consists of two files. I have seen following versions:
 - 2.3.5 - last version upgraded by application
 - 2.3.8
 
+Firmware family "F"
+-------------------
+
+Firmware file is `encrypted using host generated key`_. I have seen following versions:
+
+- 2.2.1
+
 Firmware family "G"
 -------------------
 
