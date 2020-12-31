@@ -45,6 +45,13 @@ WiFi password encryption
    Base64 encode encrypted string.
 
 
+Where lookup
+------------
+
+It is unclear what this is used for. Maybe get MAC address?
+
+Application sends UDP broadcast to ports 5555 and 5556 with message **\\x01WHEREAREYOU** (first character is byte with hex representation 0x01).
+
 Discovery
 ---------
 
