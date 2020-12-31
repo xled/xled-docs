@@ -1522,7 +1522,10 @@ Parameters as JSON object.
 	(integer) 1
 
 `ssid`
-	(string) SSID of a WiFi network
+	(string) SSID of a WiFi network until firmare version 2.4.25
+
+`encssid`
+	(string) encrypted SSID of a WiFi network since firmare version 2.4.30.
 
 `encpassword`
 	(string) encrypted password.

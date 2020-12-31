@@ -85,6 +85,12 @@ WiFi password encryption
    Base64 encode encrypted string.
 
 
+WiFi SSID encryption
+--------------------
+
+Doesn't seem to use same algorithm as for WiFi password encryption. Maybe only different key?
+
+
 Where lookup
 ------------
 
