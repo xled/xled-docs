@@ -1146,6 +1146,32 @@ HTTP request
 ````````````
 `POST /xled/v1/led/driver_params`
 
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`t0h`
+	(integer)
+`t0l`
+    (integer)
+`t1h`
+    (integer)
+`t1l`
+    (integer)
+`tendh`
+    (integer)
+`tendl`
+    (integer)
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code
+
 
 Reset LED
 ---------
