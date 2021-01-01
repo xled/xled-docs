@@ -167,8 +167,30 @@ WiFi. In this documentation the device is referred as:
 - Hardware ID: 2bb250
 - MAC address 98:f4:ab:2b:b2:50
 
+Generation II model TWS600STP-BEU
+---------------------------------
+
+It is branded as `Twinkly Strings 600 LEDs Multicolor`_ with 600 red, green and
+blue LEDs.
+
+Hardware most likely consists of a circuit board with ESP32 microcontroller by Espressif
+Systems similar to the other generation II model listed above.
+
+API exposes these details:
+
+- Product code: TWS600STP
+- Hardware version: 100
+- Flash size: 64
+- LED Type: 19
+- Firmware family: M
+- Bytes per LED: 3
+- Max Supported LEDs: 1200
+- Frame Rate: 9
+- Movie Capacity: 992
+- Wire type: 1
 
 .. _`Twinkly Wall and consists of 210 RGB+W LEDs`: https://web.archive.org/web/2/https://www.twinkly.com/products/curtain-special-edition-210-leds/
 .. _`Twinkly Icicle and consists of 190 RGB+W LEDs`: https://web.archive.org/web/2/https://www.twinkly.com/products/icicle-190-leds-special-edition/
 .. _`Twinkly Festoon and consists of 20 RGB Lamps`: https://web.archive.org/web/2/https://www.twinkly.com/products/festoon-lights-starter-pack/
 .. _`Twinkly Strings 250 LEDs Multicolor`: https://web.archive.org/web/2/https://www.twinkly.com/products/strings-multicolor-250-leds/
+.. _`Twinkly Strings 600 LEDs Multicolor`: https://web.archive.org/web/2/https://www.twinkly.com/products/strings-multicolor-600-leds/
