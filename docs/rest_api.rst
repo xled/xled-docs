@@ -621,6 +621,8 @@ The response will be an object.
 	(integer), application return code.
 `mode`
 	(string) mode of operation.
+`shop_mode`
+	(integer), by default 0. Since firmware version 2.4.21.
 
 Mode can be one of:
 
