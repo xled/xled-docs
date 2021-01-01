@@ -151,7 +151,7 @@ Single packet format UDP header:
 
 The single UDP packet has a 10 byte header:
 
-* 1 byte: Number of packets needed -- always *\\x01* (byte with hex representation 0x01)
+* 1 byte: Single packet UDP format -- always *\\x01* (byte with hex representation 0x01)
 * 8 bytes: Base 64 decoded authentication token
 * 1 byte: number of LED definitions in the frame
 
@@ -163,7 +163,7 @@ Multipacket format UDP header:
 
 Each UDP packet has an individual header, which is 12 bytes long: 
 
-* 1 byte: Number of packets needed (*N*) -- at least 2
+* 1 byte: Multipacket UDP format -- always *\\x03* (byte with hex representation 0x03)
 * 8 bytes: Base 64 decoded authentication token
 * 2 byte: always *\\x00\\x00* (two bytes with hex representation 0x00)
 * 1 byte: Packet number, between 0 and *N*-1
