@@ -81,11 +81,18 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
 
     * `update`
 
+* `movies`
+
+  * `new`
+  * `full`
+
 * `network`
 
   * `scan`
   * `scan_results`
   * `status`
+
+* `playlist`
 
 * `mqtt`
 
@@ -778,6 +785,7 @@ Mode can be one of:
 * `movie` - plays predefined or uploaded effect. If movie hasn't been set (yet) code 1104 is returned.
 * `rt` - receive effect in real time
 * `effect` - plays effect with `effect_id`
+* `playlist` - plays a movie from a playlist. Since firmware version 2.5.6.
 
 Response
 ````````
@@ -1479,6 +1487,125 @@ The response will be an object.
 	SHA1 digest of uploaded firmware.
 
 
+Get list of movies
+------------------
+
+Available since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`GET /xled/v1/movies`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+`movies`
+	Array of objects
+`available_frames`
+	(integer), e.g. 992
+`max_capacity`
+	(integer), e.g. 992
+
+Where each item of `movies` is an object.
+
+`id`
+	(integer), e.g. 0
+`name`
+	(string)
+`unique_id`
+	(string), UUID
+`descriptor_type`
+	(string), e.g "rgbw_raw",
+`leds_per_frame`
+	(integer), e.g. 210
+`frames_number`
+	(integer), e.g. 4
+`fps`
+	(integer), e.g. 0
+
+Example
+````````
+
+Request::
+
+	GET /xled/v1/movies HTTP/1.1
+	Host: 192.168.1.2
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response with empty list of movies::
+
+	HTTP/1.1 200 OK
+	Server: esp-httpd/0.5
+	Transfer-Encoding: chunked
+	Content-Type: application/json
+
+	{"movies":[],"available_frames":992,"max_capacity":992,"code":1000}
+
+
+Create new movie entry
+----------------------
+
+Available since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`POST /xled/v1/movies/new`
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`name`
+	(string)
+`unique_id`
+	(string), UUID
+`descriptor_type`
+	(string), e.g "rgbw_raw",
+`leds_per_frame`
+	(integer), e.g. 210
+`frames_number`
+	(integer), e.g. 4
+`fps`
+	(integer), e.g. 0
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+
+Upload new movie to list of movies
+----------------------------------
+
+Available since firmware version 2.5.6.
+
+Effect is received in body of the request with Content-Type application/octet-stream. This call must be preceeded by a call to `movies/new`.
+
+HTTP request
+````````````
+
+`POST /xled/v1/movies/full`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+
+
 Initiate WiFi network scan
 --------------------------
 
@@ -1846,3 +1973,49 @@ The response will be an object.
 
 `code`
 	(integer), application return code.
+
+
+Get playlist
+------------
+
+Available since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`GET /xled/v1/playlist`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+`entries`
+	Array of objects
+
+Where each item of `entries` is an object.
+
+`duration`
+	(integer), in seconds, e.g. 10
+`unique_id`
+	(string), UUID
+
+Example
+````````
+
+Request::
+
+	GET /xled/v1/movies HTTP/1.1
+	Host: 192.168.1.2
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 OK
+	Server: esp-httpd/0.5
+	Transfer-Encoding: chunked
+	Content-Type: application/json
+
+	{"entries":[],"code":1000}
