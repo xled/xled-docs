@@ -38,6 +38,7 @@ Firmware file is `encrypted using host generated key`_. I have seen following ve
 - 2.4.6 - seems to incorrectly report `frame_rate: 1` in `gestalt` API call
 - 2.4.14
 - 2.4.16
+- 2.4.22
 
 Firmware family "G"
 -------------------

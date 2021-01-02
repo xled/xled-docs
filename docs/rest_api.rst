@@ -373,13 +373,13 @@ For firmware family "F" since firmware version 2.2.1:
 `uuid`
 	(string) UUID of the device
 `max_supported_led`
-	(number), e.g. 510, since firmware version 2.4.14: 1020
+	(number), e.g. 510, since firmware version 2.4.14: 1020, since 2.4.22: 1200
 `number_of_led`
 	(number), e.g. 250
 `led_profile`
 	(string) "RGB"
 `frame_rate`
-	(number), e.g. 30.3, since firmware version 2.4.14: 17.86, since 2.4.16: 23.81
+	(number), e.g. 30.3, since firmware version 2.4.14: 17.86, since 2.4.16: 23.81, since 2.4.22: 25
 `movie_capacity`
 	(number), e.g. 1984, since firmware version 2.4.14: 992
 `copyright`
