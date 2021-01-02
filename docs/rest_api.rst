@@ -17,6 +17,7 @@ Most API requests require valid authentication token. Except of:
 * login
 * gestalt
 * fw version
+* status
 
 If API requires authentication but valid token wasn't passed server returns HTTP status code 401 Unauthenticated and string `Invalid Token.` in the response body.
 
@@ -45,6 +46,7 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
 * `verify`
 * `logout`
 * `gestalt`
+* `status`
 * `device_name`
 * `echo`
 * `timer`
@@ -1376,6 +1378,43 @@ Response::
 	Content-Type: application/json
 
 	{"version":"1.99.24","code":1000}
+
+
+Get Status
+----------
+
+Since firmware version 1.99.18.
+
+HTTP request
+````````````
+
+`GET /xled/v1/status`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+Example
+````````
+
+Request::
+
+	GET /xled/v1/status HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 13
+	Content-Type: application/json
+
+	{"code":1000}
 
 
 Update firmware
