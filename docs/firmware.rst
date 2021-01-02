@@ -33,6 +33,8 @@ Firmware family "F"
 Firmware file is `encrypted using host generated key`_. I have seen following versions:
 
 - 2.2.1 - shipped with a device, maybe first public version?
+- 2.2.2
+- 2.4.2 - adds MQTT and brightness support
 
 Firmware family "G"
 -------------------

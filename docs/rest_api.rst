@@ -1145,7 +1145,7 @@ Get current brightness
 Gets the current brightness level.
 
 * For devices with firmware family "D" since version 2.3.5.
-* For devices with firmware family "F" not available in version 2.2.1.
+* For devices with firmware family "F" since 2.4.2.
 * For devices with firmware family "G" since version 2.4.21.
 
 HTTP request
@@ -1721,8 +1721,8 @@ Request to change network mode to AP::
 Get MQTT configuration
 ----------------------
 
-* For devices with firmware family "D" since version 2.0.22
-* For devices with firmware family "F" not available in version 2.2.1.
+* For devices with firmware family "D" since version 2.0.22.
+* For devices with firmware family "F" since version 2.4.2.
 * For devices with firmware family "G" since version 2.4.21.
 
 HTTP request
@@ -1757,7 +1757,7 @@ For firmware family "D":
 `user`
 	(string), by default "twinkly_noauth"
 
-For firmware family "G" since firmware version 2.4.21:
+For firmware family "G" since firmware version 2.4.21 and "F" since 2.4.2:
 
 `code`
 	(integer), application return code.
@@ -1776,6 +1776,9 @@ For firmware family "G" since firmware version 2.4.21:
 
 `user`
 	(string), by default "twinkly32"
+
+`password`
+    (string), only in firmware family "F" since 2.4.2.
 
 Example
 ````````
@@ -1820,7 +1823,7 @@ Parameters
 
 Parameters as JSON object.
 
-For firmware family "D" since firmware version 2.0.22 and firmware family "G" since firmware version 2.4.21:
+For firmware family "D" since firmware version 2.0.22 and firmware family "G" since firmware version 2.4.21 and firmware family "F" since version 2.4.2:
 
 `broker_host`
 	(string), optional hostname of a broker
