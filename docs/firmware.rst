@@ -36,6 +36,7 @@ Firmware file is `encrypted using host generated key`_. I have seen following ve
 - 2.2.2
 - 2.4.2 - adds MQTT and brightness support
 - 2.4.6 - seems to incorrectly report `frame_rate: 1` in `gestalt` API call
+- 2.4.14
 
 Firmware family "G"
 -------------------

@@ -373,15 +373,15 @@ For firmware family "F" since firmware version 2.2.1:
 `uuid`
 	(string) UUID of the device
 `max_supported_led`
-	(number), e.g. 510
+	(number), e.g. 510, since firmware version 2.4.14: 1020
 `number_of_led`
 	(number), e.g. 250
 `led_profile`
 	(string) "RGB"
 `frame_rate`
-	(number), e.g. 30.3
+	(number), e.g. 30.3, since firmware version 2.4.14: 17.86
 `movie_capacity`
-	(number), e.g. 1984
+	(number), e.g. 1984, since firmware version 2.4.14: 992
 `copyright`
 	(string) "LEDWORKS 2018"
 `code`
@@ -1052,7 +1052,7 @@ The response will be an object.
 `sync`
 	(object)
 `mic`
-    (object), since firmware version 2.4.21 until 2.5.6.
+    (object), since firmware family "G" version 2.4.21 until 2.5.6 and firmware family "F" version 2.4.14.
 `code`
 	(integer), application return code.
 
