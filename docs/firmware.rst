@@ -40,6 +40,7 @@ Firmware file is `encrypted using host generated key`_. I have seen following ve
 - 2.4.16
 - 2.4.22
 - 2.4.25
+- 2.4.30
 
 Firmware family "G"
 -------------------

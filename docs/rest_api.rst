@@ -379,7 +379,7 @@ For firmware family "F" since firmware version 2.2.1:
 `led_profile`
 	(string) "RGB"
 `frame_rate`
-	(number), e.g. 30.3, since firmware version 2.4.14: 17.86, since 2.4.16: 23.81, since 2.4.22: 25
+	(number), e.g. 30.3, since firmware version 2.4.14: 17.86, since 2.4.16: 23.81, since 2.4.22: 25, since 2.4.30: 25.64
 `movie_capacity`
 	(number), e.g. 1984, since firmware version 2.4.14: 992
 `copyright`
