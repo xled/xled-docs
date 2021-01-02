@@ -101,6 +101,7 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
 * `mic`
 
   * `config`
+  * `sample`
 
 Application responses
 `````````````````````
@@ -2028,7 +2029,7 @@ Response::
 Get mic config
 --------------
 
-Since firmware version 2.4.2.
+Since firmware version 2.4.2 until 2.4.30.
 
 HTTP request
 ````````````
@@ -2054,6 +2055,8 @@ The response will be an object.
     (integer), default 255
 `saturation_depth`
     (integer), default 255
+`code`
+	(integer), application return code.
 
 Example
 ```````
@@ -2072,3 +2075,42 @@ Response::
 	Content-Type: application/json
 
 	{"filters":[],"silence_threshold":0,"active_range":0,"brightness_depth":255,"hue_depth":255,"value_depth":255,"saturation_depth":255,"code":1000}
+
+
+Get mic sample
+--------------
+
+Since firmware version 2.4.2 until 2.4.30.
+
+HTTP request
+````````````
+
+`GET /xled/v1/mic/sample`
+
+Response
+````````
+
+The response will be an object.
+
+`sampled_value`
+	(integer), e.g. 0
+`code`
+	(integer), application return code.
+
+Example
+```````
+
+Request::
+
+	GET /xled/v1/mic/sample HTTP/1.1
+	Host: 192.168.4.1
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 OK
+	Server: esp-httpd/0.5
+	Transfer-Encoding: chunked
+	Content-Type: application/json
+
+	{"sampled_value":0,"code":1000}
