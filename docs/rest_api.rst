@@ -668,13 +668,16 @@ Parameters as JSON object.
 
 `mode`
 	(string) mode of operation.
+`effect_id`
+	(int), id of effect, e.g. 0. Set together with `mode: effect`.
 
 Mode can be one of:
 
 * `off` - turns off lights
 * `demo` - starts predefined sequence of effects that are changed after few seconds
-* `movie` - plays predefined or uploaded effect
+* `movie` - plays predefined or uploaded effect. If movie hasn't been set (yet) code 1104 is returned.
 * `rt` - receive effect in real time
+* `effect` - plays effect with `effect_id`
 
 Response
 ````````
