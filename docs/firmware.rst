@@ -40,7 +40,8 @@ Firmware file is `encrypted using host generated key`_. I have seen following ve
 - 2.4.16
 - 2.4.22
 - 2.4.25
-- 2.4.30
+- 2.4.30 - introduced SSID encryption for client setup
+- 2.5.6 - adds UUIDs to effects
 
 Firmware family "G"
 -------------------

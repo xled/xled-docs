@@ -379,7 +379,9 @@ For firmware family "F" since firmware version 2.2.1:
 `led_profile`
 	(string) "RGB"
 `frame_rate`
-	(number), e.g. 30.3, since firmware version 2.4.14: 17.86, since 2.4.16: 23.81, since 2.4.22: 25, since 2.4.30: 25.64
+	(number), e.g. 30.3, since firmware version 2.4.14: 17.86, since 2.4.16: 23.81, since 2.4.22: 25, since 2.4.30: 25.64, since 2.5.6: 24.
+`measured_frame_rate`
+	(number), e.g. 23.26. Since firmware version 2.5.6.
 `movie_capacity`
 	(number), e.g. 1984, since firmware version 2.4.14: 992
 `copyright`
@@ -629,7 +631,7 @@ The response will be an object.
 	(number) time when to turn lights off in seconds after midnight. -1 if not set
 
 `code`
-	(integer), application return code. Since firmware version: 2.3.8.
+	(integer), application return code. Since firmware family "G" version: 2.3.8 and family "F" version: 2.5.6.
 
 Example
 ```````
@@ -1052,7 +1054,7 @@ The response will be an object.
 `sync`
 	(object)
 `mic`
-    (object), since firmware family "G" version 2.4.21 until 2.5.6 and firmware family "F" version 2.4.14.
+    (object), since firmware family "G" version 2.4.21 until 2.4.30 and firmware family "F" version 2.4.14 until 2.4.30.
 `code`
 	(integer), application return code.
 
