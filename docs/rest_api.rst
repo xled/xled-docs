@@ -67,6 +67,7 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
 
   * `driver_params`
   * `reset`
+  * `reset2`
 
 * `fw`
 
@@ -1249,6 +1250,24 @@ Reset LED
 HTTP request
 ````````````
 `GET /xled/v1/led/reset`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+
+Reset2 LED
+----------
+
+Maybe reboot?
+
+HTTP request
+````````````
+`GET /xled/v1/led/reset2`
 
 Response
 ````````
