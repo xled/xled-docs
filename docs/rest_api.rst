@@ -46,6 +46,7 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
 * `logout`
 * `gestalt`
 * `device_name`
+* `echo`
 * `timer`
 * `led`
 
@@ -96,6 +97,9 @@ The API may return application status as `code` value of JSON. Returned will not
 
 1000
 	Ok
+
+1001
+	Error
 
 1101
 	Invalid argument value
@@ -502,6 +506,56 @@ Response::
 	Content-Type: application/json
 
 	{"name":"Twinkly_33AAFF","code":1000}
+
+
+Echo
+----
+
+Responds with requested message.
+
+Since firmware version 1.99.18.
+
+HTTP request
+````````````
+
+`POST /xled/v1/echo`
+
+Parameters
+``````````
+
+Parameters must be an JSON object. There doesn't seem to be any requirement on a structure.
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code. Returns 1001 on error.
+`json`
+	(object), contents is the same as the request.
+
+Example
+````````
+
+Request::
+
+	POST /xled/v1/echo HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+	X-Auth-Token: 5jPe+ONhwUY=
+	Content-Length: 23
+
+	{"message": "Hello!"}}
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 44
+	Content-Type: application/json
+
+	{"json":{"message":"Hello!"},"code":1000}
 
 
 Get timer
