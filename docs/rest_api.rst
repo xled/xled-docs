@@ -307,6 +307,8 @@ For firmware family "D":
 	(numeric string), e.g. "2"
 `hardware_version`
 	(numeric string), e.g. "6"
+`bytes_per_led`
+	(number), 4
 `flash_size`
 	(number), e.g. 16
 `led_type`
