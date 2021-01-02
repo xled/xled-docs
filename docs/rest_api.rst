@@ -379,7 +379,7 @@ For firmware family "F" since firmware version 2.2.1:
 `led_profile`
 	(string) "RGB"
 `frame_rate`
-	(number), e.g. 30.3, since firmware version 2.4.14: 17.86
+	(number), e.g. 30.3, since firmware version 2.4.14: 17.86, since 2.4.16: 23.81
 `movie_capacity`
 	(number), e.g. 1984, since firmware version 2.4.14: 992
 `copyright`
@@ -1778,7 +1778,7 @@ For firmware family "G" since firmware version 2.4.21 and "F" since 2.4.2:
 	(string), by default "twinkly32"
 
 `password`
-    (string), only in firmware family "F" since 2.4.2.
+    (string), only in firmware family "F" since 2.4.2 until 2.4.14.
 
 Example
 ````````
