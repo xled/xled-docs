@@ -344,6 +344,47 @@ For firmware family "D":
 `code`
 	(integer), application return code.
 
+For firmware family "F" since firmware version 2.2.1:
+
+`fw_family`
+	(string) "F",
+`product_name`
+	(string) `Twinkly`
+`hardware_version`
+	(numeric string), "100"
+`bytes_per_led`
+	(number), 3
+`flash_size`
+	(number), 64
+`led_type`
+	(number), 14
+`product_code`
+	(string), e.g. "TWS250STP"
+`device_name`
+	(string), name of the device - see section Device Name in Protocol details.
+`uptime`
+	(string) number as a string. Miliseconds since start. E.g. "60000"
+`hw_id`
+	(string), see section Hardware ID in Protocol details.
+`mac`
+	(string) MAC address as six groups of two hexadecimal digits separated by colons (:). Address of a device in access point mode.
+`uuid`
+	(string) UUID of the device
+`max_supported_led`
+	(number), e.g. 510
+`number_of_led`
+	(number), e.g. 250
+`led_profile`
+	(string) "RGB"
+`frame_rate`
+	(number), e.g. 30.3
+`movie_capacity`
+	(number), e.g. 1984
+`copyright`
+	(string) "LEDWORKS 2018"
+`code`
+	(integer), application return code.
+
 For firmware family "G" since firmware version 2.4.21:
 
 `fw_family`
@@ -1533,7 +1574,7 @@ Contents of object `station` for firmware family "D":
 `status`
 	(integer), status of the network connection: 5 = connected, 255 = AP is used
 
-Contents of object `station` for firmware family "G" since firmware version 2.4.21:
+Contents of object `station` for firmware family "G" since firmware version 2.4.21 and "F" since 2.2.1:
 
 `ssid`
 	(string), SSID of a WiFi network to connect to. If empty string is passed it defaults to prefix `ESP_` instead of `Twinkly_`.

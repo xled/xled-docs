@@ -32,7 +32,7 @@ Firmware family "F"
 
 Firmware file is `encrypted using host generated key`_. I have seen following versions:
 
-- 2.2.1
+- 2.2.1 - shipped with a device, maybe first public version?
 
 Firmware family "G"
 -------------------
