@@ -1520,7 +1520,7 @@ Where each item of `movies` is an object.
 `unique_id`
 	(string), UUID
 `descriptor_type`
-	(string), e.g "rgbw_raw",
+	(string), e.g "rgbw_raw" for firmware family "G" or "rgb_raw" for firmware family "F"
 `leds_per_frame`
 	(integer), e.g. 210
 `frames_number`
