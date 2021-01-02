@@ -2114,3 +2114,73 @@ Response::
 	Content-Type: application/json
 
 	{"sampled_value":0,"code":1000}
+
+
+Get summary
+-----------
+
+Since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`GET /xled/v1/summary`
+
+Response
+````````
+
+The response will be an object.
+
+`led_mode`
+	(object) corresponds to response of Get LED operation mode without `code`.
+
+`timer`
+	(object) corresponds to response of Get Timer without `code`.
+
+`music`
+	(object)
+
+`music`
+	Array of objects
+
+`group`
+	(object) corresponds to `sync` object from response of Get LED movie config without `code`.
+
+`layout`
+	(object)
+
+`code`
+	(integer), application return code.
+
+Where `music` contains:
+
+`enabled`
+	(integer), e.g. 1
+
+`active`
+	(integer), e.g. 0
+
+`current_driverset`
+	(integer), e.g. 1
+
+
+Where each item of `filters` is an object:
+
+`filter`
+	(string), one of "brightness", "hue", "saturation"
+
+`config`
+	(object)
+
+Where `config` consists of:
+
+`value`
+	(integer), e.g. 0
+
+`mode`
+	(string), e.g. "disabled"
+
+Object `layout` consists of:
+
+`uuid`
+	(string) UUID
