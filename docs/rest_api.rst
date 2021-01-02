@@ -98,6 +98,10 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
 
   * `config`
 
+* `mic`
+
+  * `config`
+
 Application responses
 `````````````````````
 
@@ -2019,3 +2023,52 @@ Response::
 	Content-Type: application/json
 
 	{"entries":[],"code":1000}
+
+
+Get mic config
+--------------
+
+Since firmware version 2.4.2.
+
+HTTP request
+````````````
+
+`GET /xled/v1/mic/config`
+
+Response
+````````
+
+The response will be an object.
+
+`filters`
+	array of objects
+`silence_threshold`
+	(integer), default 0
+`active_range`
+	(integer), default 0
+`brightness_depth`
+    (integer), default 255
+`hue_depth`
+    (integer), default 255
+`value_depth`
+    (integer), default 255
+`saturation_depth`
+    (integer), default 255
+
+Example
+```````
+
+Request::
+
+	GET /xled/v1/mic/config HTTP/1.1
+	Host: 192.168.4.1
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 OK
+	Server: esp-httpd/0.5
+	Transfer-Encoding: chunked
+	Content-Type: application/json
+
+	{"filters":[],"silence_threshold":0,"active_range":0,"brightness_depth":255,"hue_depth":255,"value_depth":255,"saturation_depth":255,"code":1000}
