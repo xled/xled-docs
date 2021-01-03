@@ -793,6 +793,69 @@ Response::
 
 	{"code":1000}
 
+Get layout
+----------
+
+Since firmware version 1.99.18.
+
+HTTP request
+````````````
+
+`GET /xled/v1/led/layout/full`
+
+`X-Auth-Token`
+	Authentication token
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`aspectXY`
+	(integer), e.g. 0
+
+`aspectXZ`
+	(integer), e.g. 0
+
+`coordinates`
+	(array)
+
+`source`
+	(string enum)
+
+`synthesized`
+	(bool), e.g. false
+
+`uuid`
+	(string), e.g. "00000000-0000-0000-0000-000000000000"
+
+Where each item of `coordinates` is an object:
+
+`x`
+	(number)
+
+`y`
+	(number)
+
+`z`
+	(number)
+
+`source` is one of:
+
+* "2d"
+* "3d"
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+`parsed_coordinates`
+	(integer)
+
 Upload layout
 -------------
 
