@@ -164,17 +164,17 @@ Update sequence for generation II device follows:
 2. server returns sha1sum of received file
 3. application calls update API with sha1sum of uploaded stage.
 
-LED effect operating modes
---------------------------
+LED operating modes
+-------------------
 
 Hardware can operate in one of following modes:
 
-- off - turns off lights
-- demo - starts predefined sequence of effects that are changed after few seconds
-- movie - plays last uploaded effect
-- rt - receive effect in real time
-
-First two are set just by API call.
+* `off` - turns off lights
+* `demo` - starts predefined sequence of effects that are changed after few seconds
+* `movie` - plays predefined or uploaded effect. If movie hasn't been set (yet) code 1104 is returned.
+* `rt` - receive effect in real time
+* `effect` - plays effect with `effect_id`
+* `playlist` - plays a movie from a playlist. Since firmware version 2.5.6.
 
 Upload full movie LED effect
 ----------------------------
