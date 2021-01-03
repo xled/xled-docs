@@ -70,6 +70,7 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
   * `driver_params`
   * `reset`
   * `reset2`
+  * `rt`
 
 * `fw`
 
@@ -1328,6 +1329,26 @@ Maybe reboot?
 HTTP request
 ````````````
 `GET /xled/v1/led/reset2`
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+
+Send Realtime Frame
+-------------------
+
+Used by application during lights mapping.
+
+Frame without any header is sent in the request with Content-Type application/octet-stream.
+
+HTTP request
+````````````
+`POST /xled/v1/led/rt/frame`
 
 Response
 ````````
