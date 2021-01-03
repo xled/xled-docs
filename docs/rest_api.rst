@@ -107,6 +107,14 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
   * `config`
   * `sample`
 
+* `music`
+
+  * `drivers`
+
+    * `sets`
+
+      * `current`
+
 Application responses
 `````````````````````
 
@@ -2617,3 +2625,95 @@ Object `layout` consists of:
 
 `uuid`
 	(string) UUID
+
+Get music drivers
+-----------------
+
+Since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`GET /xled/v1/music/drivers`
+
+`X-Auth-Token`
+	Authentication token
+
+Response
+````````
+
+The response will be an object.
+
+`drivers_number`
+	(integer), e.g. 26
+
+`unique_ids`
+	(array), each entry is UUID string
+
+`code`
+	(integer), application return code.
+
+Get music drivers sets
+----------------------
+
+Since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`GET /xled/v1/music/drivers/sets`
+
+`X-Auth-Token`
+	Authentication token
+
+Response
+````````
+
+The response will be an object.
+
+`current`
+	(integer), e.g. 26
+
+`count`
+	(integer), e.g. 3
+
+`driversets`
+	(array)
+
+`code`
+	(integer), application return code.
+
+Where each item of `driversets` is an object:
+
+`id`
+	(integer)
+
+`count`
+	(integer)
+
+`unique_ids`
+	(array), each entry is UUID string
+
+Get current music driverset
+---------------------------
+
+Since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`GET /xled/v1/music/drivers/sets/current`
+
+`X-Auth-Token`
+	Authentication token
+
+Response
+````````
+
+The response will be an object.
+
+`driverset_id`
+	(integer), e.g. 0
+
+`code`
+	(integer), application return code.
