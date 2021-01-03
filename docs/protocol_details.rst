@@ -116,7 +116,7 @@ Twinkly devices respond with message:
 Where are you protocol
 ----------------------
 
-Where are you protocol uses IPv4 packets to broadcast addresses over UDP from port 5556.
+Where are you protocol uses unicast IPv4 packets over UDP to port 5556.
 
 Request message so far with unknown purpose:
 
