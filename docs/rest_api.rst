@@ -1243,13 +1243,13 @@ The response will be an object.
 Contents of object `sync`:
 
 `mode`
-	(string), e.g. "none"
+	(string)
 
 `slave_id`
-	(string), e.g. "". Since firmware version 2.5.6 not available (only if empty?).
+	(string), e.g. "". Defined if mode is "slave". Since firmware version 2.5.6 not present if empty
 
 `master_id`
-	(string), e.g. "". Since firmware version 2.5.6 not available (only if empty?).
+	(string), e.g. "". Defined if mode is "slave" or "master". Since firmware version 2.5.6 not present if empty
 
 `compat_mode`
 	(number), default 0. Since firmware version 2.5.6.
@@ -1270,6 +1270,17 @@ Contents of object `mic`:
 
 `saturation_depth`
 	(integer)
+
+Contents of `mode` is one of:
+
+* "none"
+* "master"
+* "slave"
+
+Contents of `compat_mode` is one of:
+
+* 0
+* 1 - maybe if joined with older version, e.g. gen I device?
 
 Example
 ```````

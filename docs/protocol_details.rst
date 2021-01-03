@@ -205,3 +205,38 @@ Hardware can be used to scan for available WiFi networks and return some informa
 1. Call network scan API
 2. Wait a little bit
 3. Call network results API
+
+Group devices
+-------------
+
+Devices can be grouped together to control them at once. Only compatible devices can be grouped. Compatibility seems to be based on LED profile (RGB vs. RGB+W).
+
+One device is master and other are slaves.
+
+Group name acts as a single device in the application.
+
+Master since firmware version 2.5.6 grouped with one slave in compat mode sends every 5 seconds broadcast packets from UDP port 7777 to UDP port 7777 with total length 50 bytes. Every time 3 packets of the same contents are sent.
+
+Header:
+
+* 1 byte *\\x03* (byte with hex representation 0x03)
+* 8 bytes *\\x0000000000000000*
+
+Followed by one of:
+
+a) First triplet:
+
+* 2 bytes *\\x0101*
+* 11 bytes with unknown use
+
+b) Second triplet:
+
+* 2 bytes *\\x0104*
+* 10 bytes with unknown use
+
+c) Third or later:
+
+* 2 bytes *\\x0102*
+* 6 bytes with unknown use where last two bytes change every 10 seconds
+
+Rest is padded with *\\x00*
