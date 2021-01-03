@@ -113,24 +113,34 @@ Messages
 
 `changeeffect`
 	each message switches to next of default effects or movie. Same as pressing the button on the device.
+
 `setmovie`
 	sets to uploaded movie effect
+
 `setcollision`
 	sets default effect "collision"
+
 `setrainbow`
 	sets default effect "rainbow"
+
 `setsnake`
 	sets default effect "snake"
+
 `settwinkle`
 	sets default effect "twinkle"
+
 `setwaves`
 	sets default effect "waves"
+
 `switchoff`
 	switches off the device
+
 `switchon`
 	switches on the device
+
 `setbrightnessdelta`
 	changes brightness by amount set by `value`. Parameter `value` is signed number.
+
 `setbrightness`
 	changes brightness to `value`. Parameter `value` is a number between 0..255 but only up to 100 has a dimming effect.
 

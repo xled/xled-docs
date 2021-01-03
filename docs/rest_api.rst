@@ -318,46 +318,67 @@ For firmware family "D":
 
 `product_name`
 	(string) `Twinkly`
+
 `product_version`
 	(numeric string), e.g. "2"
+
 `hardware_version`
 	(numeric string), e.g. "6"
+
 `bytes_per_led`
 	(number), 4
+
 `flash_size`
 	(number), e.g. 16
+
 `led_type`
 	(number), e.g. 6
+
 `led_version`
 	(string) "1"
+
 `product_code`
 	(string), e.g. "TW105SEUP06"
+
 `device_name`
 	(string), name of the device - see section Device Name in Protocol details.
+
 `rssi`
 	(number), Received signal strength indication. Since firmware version: 2.1.0.
+
 `uptime`
 	(string) number as a string. Seconds since start. E.g. "60"
+
 `hw_id`
 	(string), see section Hardware ID in Protocol details.
+
 `mac`
 	(string) MAC address as six groups of two hexadecimal digits separated by colons (:).
+
 `uuid`
 	(string) UUID of the device. Since firmware version: 2.0.8. Device in family "D" has value 00000000-0000-0000-0000-000000000000.
+
 `max_supported_led`
 	(number), e.g. firmware family "D": 180 in firmware version 1.99.20, 224 in 1.99.24, 228 in 1.99.30, 255 in 2.0.0 and newer.
+
 `base_leds_number`
 	(number), e.g. 105
+
 `number_of_led`
 	(number), e.g. 105
+
 `led_profile`
 	(string) "RGB"
+
 `frame_rate`
 	(number), 25
+
 `movie_capacity`
 	(number), e.g. 719
+
 `copyright`
 	(string) "LEDWORKS 2017"
+
 `code`
 	(integer), application return code.
 
@@ -365,42 +386,61 @@ For firmware family "F" since firmware version 2.2.1:
 
 `fw_family`
 	(string) "F",
+
 `product_name`
 	(string) `Twinkly`
+
 `hardware_version`
 	(numeric string), "100"
+
 `bytes_per_led`
 	(number), 3
+
 `flash_size`
 	(number), 64
+
 `led_type`
 	(number), 14
+
 `product_code`
 	(string), e.g. "TWS250STP"
+
 `device_name`
 	(string), name of the device - see section Device Name in Protocol details.
+
 `uptime`
 	(string) number as a string. Miliseconds since start. E.g. "60000"
+
 `hw_id`
 	(string), see section Hardware ID in Protocol details.
+
 `mac`
 	(string) MAC address as six groups of two hexadecimal digits separated by colons (:). Address of a device in access point mode.
+
 `uuid`
 	(string) UUID of the device
+
 `max_supported_led`
 	(number), e.g. 510, since firmware version 2.4.14: 1020, since 2.4.22: 1200
+
 `number_of_led`
 	(number), e.g. 250
+
 `led_profile`
 	(string) "RGB"
+
 `frame_rate`
 	(number), e.g. 30.3, since firmware version 2.4.14: 17.86, since 2.4.16: 23.81, since 2.4.22: 25, since 2.4.30: 25.64, since 2.5.6: 24.
+
 `measured_frame_rate`
 	(number), e.g. 23.26. Since firmware version 2.5.6.
+
 `movie_capacity`
 	(number), e.g. 1984, since firmware version 2.4.14: 992
+
 `copyright`
 	(string) "LEDWORKS 2018"
+
 `code`
 	(integer), application return code.
 
@@ -408,42 +448,61 @@ For firmware family "G" since firmware version 2.4.21:
 
 `fw_family`
 	(string) "G",
+
 `product_name`
 	(string) `Twinkly`
+
 `hardware_version`
 	(numeric string), "100"
+
 `flash_size`
 	(number), 64
+
 `led_type`
 	(number), 12
+
 `product_code`
 	(string), e.g. "TWW210SPP" or "TWI190SPP"
+
 `device_name`
 	(string), name of the device - see section Device Name in Protocol details.
+
 `uptime`
 	(string) number as a string. Miliseconds since start. E.g. "60000"
+
 `hw_id`
 	(string), see section Hardware ID in Protocol details.
+
 `mac`
 	(string) MAC address as six groups of two hexadecimal digits separated by colons (:). Address of a device in access point mode.
+
 `uuid`
 	(string) UUID of the device
+
 `max_supported_led`
 	(number), e.g. 1200
+
 `number_of_led`
 	(number), e.g. 190 or 210
+
 `led_profile`
 	(string) "RGBW"
+
 `frame_rate`
 	(number), e.g. 28.57. Since firmware version 2.5.6: 24
+
 `measured_frame_rate`
 	(number), e.g. 27.78. Since firmware version 2.5.6.
+
 `movie_capacity`
 	(number), e.g. 992
+
 `copyright`
 	(string) "LEDWORKS 2018"
+
 `wire_type`
 	(integer), e.g. 1 or 4
+
 `code`
 	(integer), application return code.
 
@@ -593,6 +652,7 @@ The response will be an object.
 
 `code`
 	(integer), application return code. Returns 1001 on error.
+
 `json`
 	(object), contents is the same as the request.
 
@@ -734,8 +794,10 @@ The response will be an object.
 
 `code`
 	(integer), application return code.
+
 `mode`
 	(string) mode of operation.
+
 `shop_mode`
 	(integer), by default 0. Since firmware version 2.4.21.
 
@@ -783,6 +845,7 @@ Parameters as JSON object.
 
 `mode`
 	(string) mode of operation.
+
 `effect_id`
 	(int), id of effect, e.g. 0. Set together with `mode: effect`.
 
@@ -843,8 +906,10 @@ The response will be an object.
 
 `code`
 	(integer), application return code.
+
 `effects_number`
 	(integer), e.g. 5 until firmware version 2.4.30 and 15 since firmware version 2.5.6.
+
 `unique_ids`
 	(array), since firmware version 2.5.6.
 
@@ -887,8 +952,10 @@ The response will be an object.
 
 `code`
 	(integer), application return code.
+
 `unique_id`
 	(string), UUID. Since firmware version 2.5.6.
+
 `effect_id`
 	(integer), e.g. 0
 
@@ -928,6 +995,7 @@ The response will be an object.
 
 `strings`
 	Array of objects
+
 `code`
 	(integer), application return code. Since firmware version: 1.99.20.
 
@@ -935,6 +1003,7 @@ Item of strings array is object:
 
 `first_led_id`
 	(integer), e.g. 0
+
 `length`
 	(integer), e.g. 105
 
@@ -987,6 +1056,7 @@ Item of strings array is object:
 
 `first_led_id`
 	(integer), e.g. 0
+
 `length`
 	(integer), e.g. 105
 
@@ -1040,6 +1110,7 @@ The response will be an object.
 
 `code`
 	(integer), application return code.
+
 `frames_number`
 	(integer) number of received frames
 
@@ -1061,16 +1132,22 @@ The response will be an object.
 
 `frame_delay`
 	(integer)
+
 `leds_number`
 	(integer) seems to be total number of LEDs to use
+
 `loop_type`
 	(integer), e.g. 0
+
 `frames_number`
 	(integer)
+
 `sync`
 	(object)
+
 `mic`
 	(object), since firmware family "G" version 2.4.21 until 2.4.30 and firmware family "F" version 2.4.14 until 2.4.30.
+
 `code`
 	(integer), application return code.
 
@@ -1078,10 +1155,13 @@ Contents of object `sync`:
 
 `mode`
 	(string), e.g. "none"
+
 `slave_id`
 	(string), e.g. "". Since firmware version 2.5.6 not available (only if empty?).
+
 `master_id`
 	(string), e.g. "". Since firmware version 2.5.6 not available (only if empty?).
+
 `compat_mode`
 	(number), default 0. Since firmware version 2.5.6.
 
@@ -1089,12 +1169,16 @@ Contents of object `mic`:
 
 `filters`
 	array of objects
+
 `brightness_depth`
 	(integer)
+
 `hue_depth`
 	(integer)
+
 `value_depth`
 	(integer)
+
 `saturation_depth`
 	(integer)
 
@@ -1178,8 +1262,10 @@ The response will be an object.
 
 `code`
 	(integer), application return code.
+
 `mode`
 	(string) one of "enabled" or "disabled".
+
 `value`
 	(integer) brightness level in range of 0..255
 
@@ -1222,11 +1308,13 @@ Parameters
 
 Parameters as JSON object.
 
-`mode`:
+`mode`
 	(string) one of "enabled", "disabled"
-`type`:
+
+`type`
 	(string) always "A"
-`value`:
+
+`value`
 	(integer) brightness level in range of 0..255
 
 When `mode` is "disabled" no dimming is applied and the led works at full
@@ -1285,14 +1373,19 @@ Parameters as JSON object.
 
 `t0h`
 	(integer)
+
 `t0l`
 	(integer)
+
 `t1h`
 	(integer)
+
 `t1l`
 	(integer)
+
 `tendh`
 	(integer)
+
 `tendl`
 	(integer)
 
@@ -1569,10 +1662,13 @@ The response will be an object.
 
 `code`
 	(integer), application return code.
+
 `movies`
 	Array of objects
+
 `available_frames`
 	(integer), e.g. 992
+
 `max_capacity`
 	(integer), e.g. 992
 
@@ -1580,16 +1676,22 @@ Where each item of `movies` is an object.
 
 `id`
 	(integer), e.g. 0
+
 `name`
 	(string)
+
 `unique_id`
 	(string), UUID
+
 `descriptor_type`
 	(string), e.g "rgbw_raw" for firmware family "G" or "rgb_raw" for firmware family "F"
+
 `leds_per_frame`
 	(integer), e.g. 210
+
 `frames_number`
 	(integer), e.g. 4
+
 `fps`
 	(integer), e.g. 0
 
@@ -1629,14 +1731,19 @@ Parameters as JSON object.
 
 `name`
 	(string)
+
 `unique_id`
 	(string), UUID
+
 `descriptor_type`
 	(string), e.g "rgbw_raw",
+
 `leds_per_frame`
 	(integer), e.g. 210
+
 `frames_number`
 	(integer), e.g. 4
+
 `fps`
 	(integer), e.g. 0
 
@@ -1750,10 +1857,13 @@ The response will be an object.
 
 `mode`
 	(enum) 1 or 2
+
 `station`
 	(object)
+
 `ap`
 	(object)
+
 `code`
 	(integer), application return code.
 
@@ -1761,12 +1871,16 @@ Contents of object `station` for firmware family "D":
 
 `ssid`
 	(string), SSID of a WiFi network to connect to
+
 `ip`
 	(string), IP address of the device
+
 `gw`
 	(string), IP address of the gateway
+
 `mask`
 	(string), subnet mask
+
 `status`
 	(integer), status of the network connection: 5 = connected, 255 = AP is used
 
@@ -1774,10 +1888,13 @@ Contents of object `station` for firmware family "G" since firmware version 2.4.
 
 `ssid`
 	(string), SSID of a WiFi network to connect to. If empty string is passed it defaults to prefix `ESP_` instead of `Twinkly_`.
+
 `ip`
 	(string), IP address of the device
+
 `gw`
 	(string), IP address of the gateway
+
 `mask`
 	(string), subnet mask
 
@@ -1785,16 +1902,22 @@ Contents of object `ap`:
 
 `ssid`
 	(string), SSID of the device
+
 `channel`
 	(integer), channel number
+
 `ip`
 	(string), IP address
+
 `enc`
 	(enum), 0 for no encryption, 2 for WPA1, 3 for WPA2, 4 for WPA1+WPA2
+
 `ssid_hidden`
 	(integer), default 0. Since firmware version 2.4.25.
+
 `max_connection`
 	(integer), default 4. Since firmware version 2.4.25.
+
 `password_changed`
 	(integer), either hidden or set to 1 if default password for AP was changed.
 
@@ -1836,8 +1959,10 @@ Parameters as JSON object.
 
 `mode`
 	(enum), required: 1 or 2
+
 `station`
 	(object) optional, if mode set to 1 this parameter could provide additional details.
+
 `ap`
 	(object) optional, if mode set to 2 this parameter could provide additional details.
 
@@ -2057,6 +2182,7 @@ The response will be an object.
 
 `code`
 	(integer), application return code.
+
 `entries`
 	Array of objects
 
@@ -2064,6 +2190,7 @@ Where each item of `entries` is an object.
 
 `duration`
 	(integer), in seconds, e.g. 10
+
 `unique_id`
 	(string), UUID
 
@@ -2103,18 +2230,25 @@ The response will be an object.
 
 `filters`
 	array of objects
+
 `silence_threshold`
 	(integer), default 0
+
 `active_range`
 	(integer), default 0
+
 `brightness_depth`
 	(integer), default 255
+
 `hue_depth`
 	(integer), default 255
+
 `value_depth`
 	(integer), default 255
+
 `saturation_depth`
 	(integer), default 255
+
 `code`
 	(integer), application return code.
 
@@ -2154,6 +2288,7 @@ The response will be an object.
 
 `sampled_value`
 	(integer), e.g. 0
+
 `code`
 	(integer), application return code.
 
