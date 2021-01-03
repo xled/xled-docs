@@ -60,28 +60,38 @@ Network mode can be changed with an API calls.
 
 http://41j.com/blog/2015/01/esp8266-access-mode-notes/
 
-WiFi password encryption
-------------------------
+WiFi setup encryption
+---------------------
+
+Some WiFi configuration is encrypted before it is sent over REST API to the device.
+
+Up until firmware version 2.4.22 only WiFi password was encrypted using key string `supersecretkey!!`, which is 16 bytes long, in hex::
+
+    73 75 70 65 72 73
+    65 63 72 65 74 6B
+    65 79 21 21
+
+Since firmware version 2.4.25 not only WiFi password but also SSID is encrypted with new key of length 48 bytes, in hex::
+
+    26 80 F5 87 9F EE
+    2C 75 11 AA 08 15
+    47 44 8E 04 99 CD
+    68 07 6E 09 32 62
+    5D C4 DE 7C 38 98
+    9E 88 80 EE 2A B7
+    33 67 8F A2 0D CC
+    85 D8 94 CD 94 4F
 
 1. Generate encryption key
 
-   1. Use secret key: **supersecretkey!!**
-   2. Get byte representation of MAC address of a server and repeat it to length of the secret key
-   3. xor these two values
+   1. Get MAC address of a device in AP mode or `mac` value from `gestalt` REST API call and repeat it to length of the secret key.
+   2. XOR these two values.
 
-2. Encrypt
+2. Right pad desired configuration (password or SSID) with zero bytes to length 64 bytes.
 
-   1. Use password to access WiFi and pad it with zero bytes to length 64 bytes.
-   2. Use rc4 to encrypt padded password with the *encryption key*
+3. Use RC4 to encrypt padded data with the encryption key.
 
-3. Encode
-
-   Base64 encode encrypted string.
-
-WiFi SSID encryption
---------------------
-
-Doesn't seem to use same algorithm as for WiFi password encryption. Maybe only different key?
+4. Base64 encode encrypted string.
 
 Where lookup
 ------------
@@ -118,19 +128,24 @@ Only after this handshake authentication token can be used in other calls. Most 
 Verification of challenge-response
 ----------------------------------
 
-As part of login process server sends not only authentication token but also challenge-response. Application may verify if it shares secret with server - maybe if it is genuine Twinkly device with following algorithm:
+As part of login process server sends not only authentication token but also challenge-response. Application may verify if it shares secret with server - maybe if it is genuine Twinkly device.
+
+The key for this algorithm is a string `evenmoresecret!!` which is 16 long, in hex::
+
+    65 76 65 6E 6D 6F
+    72 65 73 65 63 72
+    65 74 21 21
 
 1. Generate encryption key
 
-   1. Use secret key: **evenmoresecret!!**
-   2. get byte representation of MAC address of a server and repeat it to length of the secret key
-   3. xor these two values
+   1. Get MAC address of a device in AP mode or `mac` value from `gestalt` REST API call and repeat it to length of the secret key.
+   2. XOR these two values
 
-2. Encrypt - use rc4 to encrypt challenge with the key
+2. Encrypt - use RC4 to encrypt challenge with the key.
 
-3. Generate hash digest - encrypted data with SHA1
+3. Generate hash digest - encrypted data with SHA1.
 
-4. Compare - hash digest must be same as challenge-response from server
+4. Compare - hash digest must be same as challenge-response from server.
 
 Firmware update
 ---------------
