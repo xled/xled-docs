@@ -1836,6 +1836,27 @@ Response with empty list of movies::
 
 	{"movies":[],"available_frames":992,"max_capacity":992,"code":1000}
 
+Delete movies
+-------------
+
+Available since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`DELETE /xled/v1/movies`
+
+`X-Auth-Token`
+	Authentication token
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
 Create new movie entry
 ----------------------
 
@@ -2354,6 +2375,64 @@ Response::
 	Content-Type: application/json
 
 	{"entries":[],"code":1000}
+
+Create playlist
+---------------
+
+Available since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`POST /xled/v1/playlist`
+
+`X-Auth-Token`
+	Authentication token
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`entries`
+	Array of objects
+
+Where each item of `entries` is an object.
+
+`duration`
+	(integer), in seconds, e.g. 10
+
+`unique_id`
+	(string), UUID
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+Delete playlist
+---------------
+
+Available since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`DELETE /xled/v1/playlist`
+
+`X-Auth-Token`
+	Authentication token
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
 
 Get mic config
 --------------
