@@ -443,7 +443,7 @@ For firmware family "G" since firmware version 2.4.21:
 `copyright`
 	(string) "LEDWORKS 2018"
 `wire_type`
-    (integer), e.g. 1 or 4
+	(integer), e.g. 1 or 4
 `code`
 	(integer), application return code.
 
@@ -862,12 +862,12 @@ Request::
 
 Response::
 
-    HTTP/1.1 200 Ok
-    Connection: close
-    Content-Length: 32
-    Content-Type: application/json
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 32
+	Content-Type: application/json
 
-    {"effects_number":5,"code":1000}
+	{"effects_number":5,"code":1000}
 
 
 Get current LED effect
@@ -888,7 +888,7 @@ The response will be an object.
 `code`
 	(integer), application return code.
 `unique_id`
-    (string), UUID. Since firmware version 2.5.6.
+	(string), UUID. Since firmware version 2.5.6.
 `effect_id`
 	(integer), e.g. 0
 
@@ -903,12 +903,12 @@ Request::
 
 Response::
 
-    HTTP/1.1 200 Ok
-    Connection: close
-    Content-Length: 27
-    Content-Type: application/json
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 27
+	Content-Type: application/json
 
-    {"effect_id":0,"code":1000}
+	{"effect_id":0,"code":1000}
 
 
 Get LED config
@@ -1070,7 +1070,7 @@ The response will be an object.
 `sync`
 	(object)
 `mic`
-    (object), since firmware family "G" version 2.4.21 until 2.4.30 and firmware family "F" version 2.4.14 until 2.4.30.
+	(object), since firmware family "G" version 2.4.21 until 2.4.30 and firmware family "F" version 2.4.14 until 2.4.30.
 `code`
 	(integer), application return code.
 
@@ -1090,13 +1090,13 @@ Contents of object `mic`:
 `filters`
 	array of objects
 `brightness_depth`
-    (integer)
+	(integer)
 `hue_depth`
-    (integer)
+	(integer)
 `value_depth`
-    (integer)
+	(integer)
 `saturation_depth`
-    (integer)
+	(integer)
 
 Example
 ```````
@@ -1286,15 +1286,15 @@ Parameters as JSON object.
 `t0h`
 	(integer)
 `t0l`
-    (integer)
+	(integer)
 `t1h`
-    (integer)
+	(integer)
 `t1l`
-    (integer)
+	(integer)
 `tendh`
-    (integer)
+	(integer)
 `tendl`
-    (integer)
+	(integer)
 
 Response
 ````````
@@ -1866,7 +1866,7 @@ Parameters as JSON object.
 	(string), optional encrypted password.
 
 `password`
-    (string), optional plaintext password. Since firmware version 2.5.25 (?).
+	(string), optional plaintext password. Since firmware version 2.5.25 (?).
 
 `enc`
 	(enum), optional type of encryption. See above in Get network status. Defaults to 0 if not part of the request. If a request has `enc` value 1, get will return 0 as well.
@@ -1972,7 +1972,7 @@ For firmware family "G" since firmware version 2.4.21 and "F" since 2.4.2:
 	(string), by default "twinkly32"
 
 `password`
-    (string), only in firmware family "F" since 2.4.2 until 2.4.14.
+	(string), only in firmware family "F" since 2.4.2 until 2.4.14.
 
 Example
 ````````
@@ -2108,13 +2108,13 @@ The response will be an object.
 `active_range`
 	(integer), default 0
 `brightness_depth`
-    (integer), default 255
+	(integer), default 255
 `hue_depth`
-    (integer), default 255
+	(integer), default 255
 `value_depth`
-    (integer), default 255
+	(integer), default 255
 `saturation_depth`
-    (integer), default 255
+	(integer), default 255
 `code`
 	(integer), application return code.
 
