@@ -93,26 +93,36 @@ Since firmware version 2.4.25 not only WiFi password but also SSID is encrypted 
 
 4. Base64 encode encrypted string.
 
-Where lookup
-------------
+Discovery protocol
+------------------
 
-It is unclear what this is used for. Maybe get MAC address?
-
-Application sends UDP broadcast to ports 5555 and 5556 with message **\\x01WHEREAREYOU** (first character is byte with hex representation 0x01).
+Discovery protocol uses IPv4 packets to broadcast addresses over UDP from port 5555 and listens on port 5555 for replies.
 
 Discovery
----------
+`````````
 
-This seems to be used to find all Twinkly devices on the network.
+Discovery request message to find all Twinkly devices on the network:
 
-1. Application sends UDP broadcast to port 5555 with message **\\x01discover** (first character is byte with hex representation 0x01).
-2. Server responds back with following message:
+* 1 byte `0x01` probably version
+* 8 bytes as a string `discover`
 
-   - first four bytes are octets of IP address written in reverse - first byte is last octet of the IP adress, second second to last, ...
+Twinkly devices respond with message:
 
-   - fifth and sixth byte forms string "OK"
+* first four bytes are octets of IP address of the device in reverse order - first byte is last octet of the IP adress, second one is the second to last, ...
 
-   - rest is string representing `device id`_ padded with zero byte.
+* fifth and sixth byte are `0x79 0x75` - string `OK`
+
+* rest is a string representing `device id`_
+
+* last one is a zero byte
+
+Where are you
+`````````````
+
+Application sends another type of message so far with unknown purpose also on port 5556:
+
+* 1 byte `0x01` probably version
+* 8 bytes as a string `WHEREAREYOU`
 
 Get and verify authentication token
 -----------------------------------
