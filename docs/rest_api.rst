@@ -49,6 +49,10 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
 * `timer`
 * `led`
 
+  * `layout`
+
+	* `full`
+
   * `mode`
   * `effects`
 
@@ -778,6 +782,66 @@ Response::
 	Content-Type: application/json
 
 	{"code":1000}
+
+Upload layout
+-------------
+
+Since firmware version 1.99.18.
+
+HTTP request
+````````````
+
+`POST /xled/v1/led/layout/full`
+
+`X-Auth-Token`
+	Authentication token
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`aspectXY`
+	(integer), e.g. 0
+
+`aspectXZ`
+	(integer), e.g. 0
+
+`coordinates`
+	(array)
+
+`source`
+	(string enum)
+
+`synthesized`
+	(bool), e.g. false
+
+Where each item of `coordinates` is an object:
+
+`x`
+	(number)
+
+`y`
+	(number)
+
+`z`
+	(number)
+
+`source` is one of:
+
+* "2d"
+* "3d"
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+`parsed_coordinates`
+	(integer)
 
 Get LED operation mode
 -------------------------
