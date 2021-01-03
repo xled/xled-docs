@@ -44,7 +44,6 @@ Offline::
 
 	{"status": "offline"}
 
-
 Application status from device
 ------------------------------
 Device publishes these messages to a broker.
@@ -71,7 +70,6 @@ Rainbow::
 
 	{"appstatus": "rainbow"}
 
-
 Parameters
 ----------
 
@@ -96,7 +94,6 @@ Example
 ::
 
 	{"brightness": 50, "filters": ["brightness"]}
-
 
 Command messages to device
 --------------------------
@@ -143,7 +140,6 @@ Messages
 
 `setbrightness`
 	changes brightness to `value`. Parameter `value` is a number between 0..255 but only up to 100 has a dimming effect.
-
 
 Example
 ```````

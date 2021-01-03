@@ -12,7 +12,6 @@ Each device has unique hardware ID that consists of 6 bytes written as lowercase
 
 * In generation II devices it is rightmost part of the device's MAC address in station (STA) mode.
 
-
 Device ID
 ---------
 
@@ -24,18 +23,15 @@ Each device has unique ID that consists of a prefix **Twinkly_** and 6 bytes wri
 
 Value can not be directly read by API but it is used in various places - e.g. in discovery packets.
 
-
 Device name
 -----------
 
 Device has a name that can be used for identification - e.g. in the application. Its default value is the same as `device id`_. It can be read or changed by API. It's length is from 0 to 32 bytes.
 
-
 Access point SSID
 -----------------
 
 Device in Access Point mode broadcasts SSID. Its default value is the same as `device id`_. It can be read or changed with API. It's length is from 1 to 31 bytes.
-
 
 MQTT Client ID
 --------------
@@ -47,7 +43,6 @@ When device uses MQTT protocol it sends client identification. Its default value
 * In generation II devices from their MAC address in access point (AP) mode.
 
 It can be read or changed by API. It's length is from 0 to 32 bytes.
-
 
 Modes of network operation
 --------------------------
@@ -64,7 +59,6 @@ In STA mode a device connects to an access points with configured SSID and passw
 Network mode can be changed with an API calls.
 
 http://41j.com/blog/2015/01/esp8266-access-mode-notes/
-
 
 WiFi password encryption
 ------------------------
@@ -84,12 +78,10 @@ WiFi password encryption
 
    Base64 encode encrypted string.
 
-
 WiFi SSID encryption
 --------------------
 
 Doesn't seem to use same algorithm as for WiFi password encryption. Maybe only different key?
-
 
 Where lookup
 ------------
@@ -111,7 +103,6 @@ This seems to be used to find all Twinkly devices on the network.
    - fifth and sixth byte forms string "OK"
 
    - rest is string representing `device id`_ padded with zero byte.
-
 
 Get and verify authentication token
 -----------------------------------
@@ -141,7 +132,6 @@ As part of login process server sends not only authentication token but also cha
 
 4. Compare - hash digest must be same as challenge-response from server
 
-
 Firmware update
 ---------------
 
@@ -159,7 +149,6 @@ Update sequence for generation II device follows:
 2. server returns sha1sum of received file
 3. application calls update API with sha1sum of uploaded stage.
 
-
 LED effect operating modes
 --------------------------
 
@@ -172,14 +161,12 @@ Hardware can operate in one of following modes:
 
 First two are set just by API call.
 
-
 Upload full movie LED effect
 ----------------------------
 
 1. Application calls API to switch mode to movie
 2. Application calls API movie/full with file sent as part of the request
 3. Application calls config movie call with additional parameters of the movie
-
 
 Movie file format
 -----------------
@@ -188,14 +175,12 @@ LED effect is called **movie**. It consists of **frames**. Each frame defines co
 
 Movie file format is simple sequence of bytes. Three bytes in a row represent intensity of *red*, *green* and *blue* in this order. Each frame is defined just with number of LEDs times three. Frames don't have any separator. Definition of each frame starts from LED closer to LED driver/adapter.
 
-
 Real time LED operating mode
 ----------------------------
 
 1. Application calls HTTP API to switch mode to rt
 2. Then UDP packets are sent to a port 7777 of device. *Each packet represents single frame* that is immediately displayed. See bellow for format of the packets.
 3. After some time without any UDP packets device switches back to movie mode.
-
 
 Real time LED UDP packet format
 -------------------------------
@@ -211,7 +196,6 @@ Each UDP has header:
 Then follows body of the frame similarly to movie file format - three bytes for each LED.
 
 For my 105 LED each packet is 325 bytes long.
-
 
 Scan for WiFi networks
 ----------------------

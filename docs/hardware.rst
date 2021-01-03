@@ -167,7 +167,6 @@ WiFi. In this documentation the device is referred as:
 - Hardware ID: 2bb250
 - MAC address 98:f4:ab:2b:b2:50
 
-
 .. _`Twinkly Wall and consists of 210 RGB+W LEDs`: https://web.archive.org/web/2/https://www.twinkly.com/products/curtain-special-edition-210-leds/
 .. _`Twinkly Icicle and consists of 190 RGB+W LEDs`: https://web.archive.org/web/2/https://www.twinkly.com/products/icicle-190-leds-special-edition/
 .. _`Twinkly Festoon and consists of 20 RGB Lamps`: https://web.archive.org/web/2/https://www.twinkly.com/products/festoon-lights-starter-pack/

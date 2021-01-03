@@ -8,7 +8,6 @@ Twinkly rest API is primary way to get information about the device, configure n
 
 This API is used by mobile applications. It haven't been made public yet so it may change at any time.
 
-
 Request Authentication
 ``````````````````````
 
@@ -20,7 +19,6 @@ Most API requests require valid authentication token. Except of:
 * status
 
 If API requires authentication but valid token wasn't passed server returns HTTP status code 401 Unauthenticated and string `Invalid Token.` in the response body.
-
 
 HTTP Responses
 ``````````````
@@ -35,7 +33,6 @@ The HTTP response can be used to determine if the request was successful, and if
 
 404 Not Found
 	If a string `Resource not found.` is found in the response body check if API endpoint is implemented in the current firmware version.
-
 
 Application hierarchy
 `````````````````````
@@ -141,7 +138,6 @@ The API may return application status as `code` value of JSON. Returned will not
 1205
 	Error with firmware upgrade - SHA1SUM does not match
 
-
 Login
 -----
 
@@ -162,7 +158,6 @@ Parameters as JSON object.
 `challenge`
 	Random 32 byte string encoded with base64.
 
-
 Response
 ````````
 
@@ -178,7 +173,6 @@ The response will be an object.
 	(integer), application return code.
 
 `authentication_token_expires_in`: integer. All the time 14400?
-
 
 Example
 ````````
@@ -200,7 +194,6 @@ Response::
 	Content-Type: application/json
 
 	{"authentication_token":"5jPe+ONhwUY=","authentication_token_expires_in":14400,"challenge-response":"8d87f080947e343180da3f411df3997e3e9ae0cc","code":1000}
-
 
 Verify
 ------
@@ -230,7 +223,6 @@ The response will be an object.
 `code`
 	(integer), application return code.
 
-
 Example
 ````````
 
@@ -252,7 +244,6 @@ Response::
 	Content-Type: application/json
 
 	{"code":1000}
-
 
 Logout
 ------
@@ -295,7 +286,6 @@ Response::
 	Content-Type: application/json
 
 	{"code":1000}
-
 
 Device details
 --------------
@@ -506,7 +496,6 @@ For firmware family "G" since firmware version 2.4.21:
 `code`
 	(integer), application return code.
 
-
 Example
 ````````
 
@@ -532,7 +521,6 @@ Response from firmware family "G"::
 	Content-Type: application/json
 
 	{"product_name":"Twinkly","hardware_version":"100","bytes_per_led":4,"hw_id":"1cc190","flash_size":64,"led_type":12,"product_code":"TWI190SPP","fw_family":"G","device_name":"Twinkly_1CC190","uptime":"8107194","mac":"98:f4:ab:1c:c1:90","uuid":"E103C5A3-3398-4B77-AE1A-9D8998A5EB62","max_supported_led":1200,"number_of_led":190,"led_profile":"RGBW","frame_rate":28.57,"movie_capacity":992,"wire_type":4,"copyright":"LEDWORKS 2018","code":1000}
-
 
 Get device name
 ---------------
@@ -575,7 +563,6 @@ Response::
 
 	{"name":"Twinkly_33AAFF","code":1000}
 
-
 Set device name
 ---------------
 
@@ -604,7 +591,6 @@ The response will be an object.
 `code`
 	(integer), application return code. `1103` if too long.
 
-
 Example
 ````````
 
@@ -626,7 +612,6 @@ Response::
 	Content-Type: application/json
 
 	{"name":"Twinkly_33AAFF","code":1000}
-
 
 Echo
 ----
@@ -677,7 +662,6 @@ Response::
 	Content-Type: application/json
 
 	{"json":{"message":"Hello!"},"code":1000}
-
 
 Get timer
 ---------
@@ -773,7 +757,6 @@ Response::
 	Content-Type: application/json
 
 	{"code":1000}
-
 
 Get LED operation mode
 -------------------------
@@ -888,7 +871,6 @@ Response::
 
 	{"code":1000}
 
-
 Get LED effects
 ---------------
 
@@ -915,7 +897,6 @@ The response will be an object.
 
 Item of `unique_ids` array is a UUID string. Default values are "00000000-0000-0000-0000-000000000001" up until "00000000-0000-0000-0000-00000000000F".
 
-
 Example
 ````````
 Request::
@@ -933,7 +914,6 @@ Response::
 	Content-Type: application/json
 
 	{"effects_number":5,"code":1000}
-
 
 Get current LED effect
 ----------------------
@@ -976,7 +956,6 @@ Response::
 	Content-Type: application/json
 
 	{"effect_id":0,"code":1000}
-
 
 Get LED config
 --------------
@@ -1090,7 +1069,6 @@ Response::
 
 	{"code":1000}
 
-
 Upload full movie
 -----------------
 
@@ -1113,7 +1091,6 @@ The response will be an object.
 
 `frames_number`
 	(integer) number of received frames
-
 
 Get LED movie config
 --------------------
@@ -1274,7 +1251,6 @@ brightness regardless of what value is set if the `mode` is `disabled`.
 Brightness level value seems to represent percent so 0 is dark and maximum
 meaningful value is 100. Greater values doesn't seem to have any effect.
 
-
 Example
 ```````
 
@@ -1347,7 +1323,6 @@ Request::
 
 	{"mode":"enabled","type": "A","value": "100"}
 
-
 Response::
 
 	HTTP/1.1 200 Ok
@@ -1356,7 +1331,6 @@ Response::
 
 	{"code":1000}
 
-
 Set LED driver parameters
 -------------------------
 
@@ -1364,6 +1338,7 @@ Since firmware version 1.99.18.
 
 HTTP request
 ````````````
+
 `POST /xled/v1/led/driver_params`
 
 Parameters
@@ -1397,12 +1372,12 @@ The response will be an object.
 `code`
 	(integer), application return code
 
-
 Reset LED
 ---------
 
 HTTP request
 ````````````
+
 `GET /xled/v1/led/reset`
 
 Response
@@ -1413,7 +1388,6 @@ The response will be an object.
 `code`
 	(integer), application return code.
 
-
 Reset2 LED
 ----------
 
@@ -1421,6 +1395,7 @@ Maybe reboot?
 
 HTTP request
 ````````````
+
 `GET /xled/v1/led/reset2`
 
 Response
@@ -1431,7 +1406,6 @@ The response will be an object.
 `code`
 	(integer), application return code.
 
-
 Send Realtime Frame
 -------------------
 
@@ -1441,6 +1415,7 @@ Frame without any header is sent in the request with Content-Type application/oc
 
 HTTP request
 ````````````
+
 `POST /xled/v1/led/rt/frame`
 
 Response
@@ -1450,7 +1425,6 @@ The response will be an object.
 
 `code`
 	(integer), application return code.
-
 
 Get firmware version
 --------------------
@@ -1493,7 +1467,6 @@ Response::
 
 	{"version":"1.99.24","code":1000}
 
-
 Get Status
 ----------
 
@@ -1529,7 +1502,6 @@ Response::
 	Content-Type: application/json
 
 	{"code":1000}
-
 
 Update firmware
 ---------------
@@ -1594,7 +1566,6 @@ Response::
 
 	{"code":1000}
 
-
 Upload first stage of firmware
 ------------------------------
 
@@ -1617,7 +1588,6 @@ The response will be an object.
 
 `sha1sum`
 	SHA1 digest of uploaded firmware.
-
 
 Upload second stage of firmware
 -------------------------------
@@ -1643,7 +1613,6 @@ The response will be an object.
 
 `sha1sum`
 	SHA1 digest of uploaded firmware.
-
 
 Get list of movies
 ------------------
@@ -1713,7 +1682,6 @@ Response with empty list of movies::
 
 	{"movies":[],"available_frames":992,"max_capacity":992,"code":1000}
 
-
 Create new movie entry
 ----------------------
 
@@ -1755,7 +1723,6 @@ The response will be an object.
 `code`
 	(integer), application return code.
 
-
 Upload new movie to list of movies
 ----------------------------------
 
@@ -1777,7 +1744,6 @@ The response will be an object.
 	(integer), application return code.
 
 
-
 Initiate WiFi network scan
 --------------------------
 
@@ -1795,7 +1761,6 @@ The response will be an object.
 
 `code`
 	(integer), application return code.
-
 
 Get results of WiFi network scan
 --------------------------------
@@ -1835,9 +1800,7 @@ Item of networks array is object:
 `enc`
 	One of numbers 0 (Open), 1 (WEP), 2 (WPA-PSK), 3 (WPA2-PSK), 4 (WPA-PSK + WPA2-PSK), 5 (WPA2-EAP).
 
-
 Response seems to correspond with `AT command CWLAP <https://github.com/espressif/ESP8266_AT/wiki/CWLAP>`_.
-
 
 Get network status
 ------------------
@@ -1939,7 +1902,6 @@ Response::
 
 	{"mode":1,"station":{"ssid":"home","ip":"192.168.1.2","gw":"192.168.1.1","mask":"255.255.255.0","status":5},"ap":{"ssid":"Twinkly_33AAFF","channel":11,"ip":"0.0.0.0","enc":0},"code":1000}
 
-
 Set network status
 ------------------
 
@@ -1966,7 +1928,6 @@ Parameters as JSON object.
 `ap`
 	(object) optional, if mode set to 2 this parameter could provide additional details.
 
-
 `station` object parameters:
 
 `dhcp`
@@ -1980,7 +1941,6 @@ Parameters as JSON object.
 
 `encpassword`
 	(string) encrypted password.
-
 
 `ap` object parameters:
 
@@ -2036,7 +1996,6 @@ Request to change network mode to AP::
 
 	{"mode":2}
 
-
 Get MQTT configuration
 ----------------------
 
@@ -2046,6 +2005,7 @@ Get MQTT configuration
 
 HTTP request
 ````````````
+
 `GET /xled/v1/mqtt/config`
 
 Response
@@ -2127,7 +2087,6 @@ Response from firmware family "G"::
 
 	{"broker_host":"mqtt.twinkly.com","broker_port":8883,"client_id":"98F4AB1CC190","user":"twinkly32","keep_alive_interval":60,"code":1000}
 
-
 Set MQTT configuration
 ----------------------
 
@@ -2135,6 +2094,7 @@ Since firmware version: 2.0.22
 
 HTTP request
 ````````````
+
 `POST /xled/v1/mqtt/config`
 
 Parameters
@@ -2163,7 +2123,6 @@ The response will be an object.
 
 `code`
 	(integer), application return code.
-
 
 Get playlist
 ------------
@@ -2211,7 +2170,6 @@ Response::
 	Content-Type: application/json
 
 	{"entries":[],"code":1000}
-
 
 Get mic config
 --------------
@@ -2270,7 +2228,6 @@ Response::
 
 	{"filters":[],"silence_threshold":0,"active_range":0,"brightness_depth":255,"hue_depth":255,"value_depth":255,"saturation_depth":255,"code":1000}
 
-
 Get mic sample
 --------------
 
@@ -2309,7 +2266,6 @@ Response::
 	Content-Type: application/json
 
 	{"sampled_value":0,"code":1000}
-
 
 Get summary
 -----------
@@ -2357,7 +2313,6 @@ Where `music` contains:
 
 `current_driverset`
 	(integer), e.g. 1
-
 
 Where each item of `filters` is an object:
 
