@@ -806,8 +806,8 @@ HTTP request
 `X-Auth-Token`
 	Authentication token
 
-Parameters
-``````````
+Response
+````````
 
 Parameters as JSON object.
 
@@ -844,17 +844,6 @@ Where each item of `coordinates` is an object:
 
 * "2d"
 * "3d"
-
-Response
-````````
-
-The response will be an object.
-
-`code`
-	(integer), application return code.
-
-`parsed_coordinates`
-	(integer)
 
 Upload layout
 -------------
