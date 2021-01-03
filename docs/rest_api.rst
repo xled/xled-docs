@@ -207,6 +207,9 @@ HTTP request
 
 `POST /xled/v1/verify`
 
+`X-Auth-Token`
+	Authentication token
+
 Parameters
 ``````````
 
@@ -256,6 +259,9 @@ HTTP request
 ````````````
 
 `POST /xled/v1/logout`
+
+`X-Auth-Token`
+	Authentication token
 
 Response
 ````````
@@ -534,6 +540,9 @@ HTTP request
 
 `GET /xled/v1/device_name`
 
+`X-Auth-Token`
+	Authentication token
+
 Response
 ````````
 
@@ -574,6 +583,9 @@ HTTP request
 ````````````
 
 `POST /xled/v1/device_name`
+
+`X-Auth-Token`
+	Authentication token
 
 Parameters
 ``````````
@@ -625,6 +637,9 @@ HTTP request
 
 `POST /xled/v1/echo`
 
+`X-Auth-Token`
+	Authentication token
+
 Parameters
 ``````````
 
@@ -675,6 +690,9 @@ HTTP request
 
 `GET /xled/v1/timer`
 
+`X-Auth-Token`
+	Authentication token
+
 Response
 ````````
 
@@ -721,6 +739,9 @@ HTTP request
 ````````````
 
 `POST /xled/v1/timer`
+
+`X-Auth-Token`
+	Authentication token
 
 Parameters
 ``````````
@@ -769,6 +790,9 @@ HTTP request
 ````````````
 
 `GET /xled/v1/led/mode`
+
+`X-Auth-Token`
+	Authentication token
 
 Response
 ````````
@@ -820,6 +844,9 @@ HTTP request
 ````````````
 
 `POST /xled/v1/led/mode`
+
+`X-Auth-Token`
+	Authentication token
 
 Parameters
 ``````````
@@ -881,6 +908,9 @@ HTTP request
 
 `GET /xled/v1/led/effects`
 
+`X-Auth-Token`
+	Authentication token
+
 Response
 ````````
 
@@ -925,6 +955,9 @@ HTTP request
 
 `GET /xled/v1/led/effects/current`
 
+`X-Auth-Token`
+	Authentication token
+
 Response
 ````````
 
@@ -966,6 +999,9 @@ HTTP request
 ````````````
 
 `GET /xled/v1/led/config`
+
+`X-Auth-Token`
+	Authentication token
 
 Response
 ````````
@@ -1023,6 +1059,9 @@ HTTP request
 
 `POST /xled/v1/led/config`
 
+`X-Auth-Token`
+	Authentication token
+
 Parameters
 ``````````
 
@@ -1072,7 +1111,7 @@ Response::
 Upload full movie
 -----------------
 
-Effect is received in body of the request with Content-Type application/octet-stream. If mode is `movie` it starts playing this effect.
+Effect is sent in body of the request. If mode is `movie` it starts playing this effect.
 
 Since firmware version 1.99.18.
 
@@ -1080,6 +1119,12 @@ HTTP request
 ````````````
 
 `POST /xled/v1/led/movie/full`
+
+`X-Auth-Token`
+	Authentication token
+
+`Content-Type`
+	"application/octet-stream"
 
 Response
 ````````
@@ -1101,6 +1146,9 @@ HTTP request
 ````````````
 
 `GET /xled/v1/led/movie/config`
+
+`X-Auth-Token`
+	Authentication token
 
 Response
 ````````
@@ -1196,6 +1244,9 @@ HTTP request
 
 `POST /xled/v1/led/movie/config`
 
+`X-Auth-Token`
+	Authentication token
+
 Parameters
 ``````````
 
@@ -1231,6 +1282,9 @@ HTTP request
 ````````````
 
 `GET /xled/v1/led/out/brightness`
+
+`X-Auth-Token`
+	Authentication token
 
 Response
 ````````
@@ -1278,6 +1332,9 @@ HTTP request
 ````````````
 
 `POST /xled/v1/led/out/brightness`
+
+`X-Auth-Token`
+	Authentication token
 
 Parameters
 ``````````
@@ -1341,6 +1398,9 @@ HTTP request
 
 `POST /xled/v1/led/driver_params`
 
+`X-Auth-Token`
+	Authentication token
+
 Parameters
 ``````````
 
@@ -1380,6 +1440,9 @@ HTTP request
 
 `GET /xled/v1/led/reset`
 
+`X-Auth-Token`
+	Authentication token
+
 Response
 ````````
 
@@ -1398,6 +1461,9 @@ HTTP request
 
 `GET /xled/v1/led/reset2`
 
+`X-Auth-Token`
+	Authentication token
+
 Response
 ````````
 
@@ -1411,12 +1477,18 @@ Send Realtime Frame
 
 Used by application during lights mapping.
 
-Frame without any header is sent in the request with Content-Type application/octet-stream.
+Frame without any header is sent in the request body.
 
 HTTP request
 ````````````
 
 `POST /xled/v1/led/rt/frame`
+
+`X-Auth-Token`
+	Authentication token
+
+`Content-Type`
+	"application/octet-stream"
 
 Response
 ````````
@@ -1515,6 +1587,9 @@ HTTP request
 
 `POST /xled/v1/fw/update`
 
+`X-Auth-Token`
+	Authentication token
+
 Parameters
 ``````````
 
@@ -1569,7 +1644,7 @@ Response::
 Upload first stage of firmware
 ------------------------------
 
-First stage of firmware is uploaded in body of the request with Content-Type application/octet-stream.
+First stage of firmware is uploaded in body of the request.
 
 Since firmware version 1.99.18.
 
@@ -1577,6 +1652,12 @@ HTTP request
 ````````````
 
 `POST /xled/v1/fw/0/update`
+
+`X-Auth-Token`
+	Authentication token
+
+`Content-Type`
+	"application/octet-stream"
 
 Response
 ````````
@@ -1592,7 +1673,7 @@ The response will be an object.
 Upload second stage of firmware
 -------------------------------
 
-Second stage of firmware is uploaded in body of the request with Content-Type application/octet-stream.
+Second stage of firmware is uploaded in body of the request.
 
 Since firmware version 1.99.18.
 
@@ -1602,6 +1683,12 @@ HTTP request
 ````````````
 
 `POST /xled/v1/fw/1/update`
+
+`X-Auth-Token`
+	Authentication token
+
+`Content-Type`
+	"application/octet-stream"
 
 Response
 ````````
@@ -1623,6 +1710,9 @@ HTTP request
 ````````````
 
 `GET /xled/v1/movies`
+
+`X-Auth-Token`
+	Authentication token
 
 Response
 ````````
@@ -1692,6 +1782,9 @@ HTTP request
 
 `POST /xled/v1/movies/new`
 
+`X-Auth-Token`
+	Authentication token
+
 Parameters
 ``````````
 
@@ -1728,12 +1821,18 @@ Upload new movie to list of movies
 
 Available since firmware version 2.5.6.
 
-Effect is received in body of the request with Content-Type application/octet-stream. This call must be preceeded by a call to `movies/new`.
+Effect is received in body of the request. This call must be preceeded by a call to `movies/new`.
 
 HTTP request
 ````````````
 
 `POST /xled/v1/movies/full`
+
+`X-Auth-Token`
+	Authentication token
+
+`Content-Type`
+	"application/octet-stream"
 
 Response
 ````````
@@ -1754,6 +1853,9 @@ HTTP request
 
 `GET /xled/v1/network/scan`
 
+`X-Auth-Token`
+	Authentication token
+
 Response
 ````````
 
@@ -1771,6 +1873,9 @@ HTTP request
 ````````````
 
 `GET /xled/v1/network/scan_results`
+
+`X-Auth-Token`
+	Authentication token
 
 Response
 ````````
@@ -1813,6 +1918,9 @@ HTTP request
 ````````````
 
 `GET /xled/v1/network/status`
+
+`X-Auth-Token`
+	Authentication token
 
 Response
 ````````
@@ -1914,6 +2022,9 @@ HTTP request
 
 `POST /xled/v1/network/status`
 
+`X-Auth-Token`
+	Authentication token
+
 Parameters
 ``````````
 
@@ -2008,6 +2119,9 @@ HTTP request
 
 `GET /xled/v1/mqtt/config`
 
+`X-Auth-Token`
+	Authentication token
+
 Response
 ````````
 
@@ -2097,6 +2211,9 @@ HTTP request
 
 `POST /xled/v1/mqtt/config`
 
+`X-Auth-Token`
+	Authentication token
+
 Parameters
 ``````````
 
@@ -2133,6 +2250,9 @@ HTTP request
 ````````````
 
 `GET /xled/v1/playlist`
+
+`X-Auth-Token`
+	Authentication token
 
 Response
 ````````
@@ -2180,6 +2300,9 @@ HTTP request
 ````````````
 
 `GET /xled/v1/mic/config`
+
+`X-Auth-Token`
+	Authentication token
 
 Response
 ````````
@@ -2238,6 +2361,9 @@ HTTP request
 
 `GET /xled/v1/mic/sample`
 
+`X-Auth-Token`
+	Authentication token
+
 Response
 ````````
 
@@ -2276,6 +2402,9 @@ HTTP request
 ````````````
 
 `GET /xled/v1/summary`
+
+`X-Auth-Token`
+	Authentication token
 
 Response
 ````````
