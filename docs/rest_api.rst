@@ -98,6 +98,8 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
 
 * `playlist`
 
+  * `current`
+
 * `mqtt`
 
   * `config`
@@ -2450,6 +2452,33 @@ Response
 
 The response will be an object.
 
+`code`
+	(integer), application return code.
+
+Get current playlist entry
+--------------------------
+
+Available since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`GET /xled/v1/playlist/current`
+
+`X-Auth-Token`
+	Authentication token
+
+Response
+````````
+
+The response will be an object.
+
+`id`
+	(integer), 0
+`unique_id`
+	(string), UUID
+`name`
+	(string)
 `code`
 	(integer), application return code.
 
