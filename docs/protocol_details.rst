@@ -251,16 +251,21 @@ Followed by one of:
 a) First triplet:
 
 * 2 bytes *\\x0101*
-* 11 bytes with unknown use
+* 4 bytes that seem to be based on group name
+* 3 bytes of unknown meaning
+* 4 bytes that seem to be constant for a device also used in the next packet
 
 b) Second triplet:
 
 * 2 bytes *\\x0104*
-* 10 bytes with unknown use
+* 4 bytes that seem to be based on group name
+* 2 bytes of unknown meaning
+* 4 bytes that seem to be constant for a device also same as in previous packet
 
 c) Third or later:
 
 * 2 bytes *\\x0102*
-* 6 bytes with unknown use where last two bytes change every 10 seconds
+* 4 bytes that seem to be based on group name
+* 2 bytes that change every 10 seconds
 
 Rest is padded with *\\x00*
