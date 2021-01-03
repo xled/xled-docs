@@ -98,9 +98,6 @@ Discovery protocol
 
 Discovery protocol uses IPv4 packets to broadcast addresses over UDP from port 5555 and listens on port 5555 for replies.
 
-Discovery
-`````````
-
 Discovery request message to find all Twinkly devices on the network:
 
 * 1 byte `0x01` probably version
@@ -116,10 +113,12 @@ Twinkly devices respond with message:
 
 * last one is a zero byte
 
-Where are you
-`````````````
+Where are you protocol
+----------------------
 
-Application sends another type of message so far with unknown purpose also on port 5556:
+Where are you protocol uses IPv4 packets to broadcast addresses over UDP from port 5556.
+
+Request message so far with unknown purpose:
 
 * 1 byte `0x01` probably version
 * 8 bytes as a string `WHEREAREYOU`
