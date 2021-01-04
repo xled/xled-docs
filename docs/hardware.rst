@@ -7,13 +7,12 @@ There are wide variety of Twinkly products on the market with various
 functionality and properties. This page desribes hardware that this
 documentation has been tested with.
 
-Generation I model TW105S-EU
-----------------------------
+Generation I
+------------
 
-It is a string of 105 RGB LED from 2017. Hardware consists of two circuit
-boards:
+Hardware consists of two circuit boards:
 
-- Module ESP-01 with microcontroller ESP8266 by Espressif Systems.
+- Module ESP-01 with microcontroller ESP8266 by Espressif Systems
 - Custom-made LED driver module
 
 Esptool v2.8 identification of MCU:
@@ -27,6 +26,11 @@ and flash:
 - Manufacturer: 5e
 - Device: 4015
 - Detected flash size: 2MB
+
+Model TW105S-EU
+```````````````
+
+It is a string of 105 RGB LED from 2017.
 
 API exposes these details:
 
@@ -46,11 +50,8 @@ as:
 - Hardware ID: 0033aaff
 - MAC address 5c:cf:7f:33:aa:ff
 
-Generation II model TWW210SPP-TEU
----------------------------------
-
-It is branded as `Twinkly Wall and consists of 210 RGB+W LEDs`_. It is a matrix of
-10 strings each consisting of 21 red, green, blue and white LEDs.
+Generation II
+-------------
 
 Hardware consists of a circuit board with ESP32 microcontroller by Espressif
 Systems. Esptool v2.8 identification of MCU:
@@ -65,6 +66,15 @@ and flash:
 - Device: 4017
 - Detected flash size: 8MB
 
+On the top of that device has Bluetooth for out of the band configuration of
+WiFi.
+
+Model TWW210SPP-TEU
+```````````````````
+
+It is branded as `Twinkly Wall and consists of 210 RGB+W LEDs`_. It is a matrix
+of 10 strings each consisting of 21 red, green, blue and white LEDs.
+
 API exposes these details:
 
 - Product code: TWW210SPP
@@ -78,21 +88,17 @@ API exposes these details:
 - Movie Capacity: 992
 - Wire type: 1
 
-On the top of that device has Bluetooth for out of the band configuration of
-WiFi. In this documentation the device is referred as:
+In this documentation the device is referred as:
 
 - Hardware ID: 1bb210
 - MAC address 98:f4:ab:1b:b2:10
 
-Generation II model TWI190SPP-TEU
----------------------------------
+Model TWI190SPP-TEU
+```````````````````
 
 It is branded as `Twinkly Icicle and consists of 190 RGB+W LEDs`_. It is a
 repeated pattern of strings with length 2, 4, 6, 2, 5 where each has red,
 green, blue and white LEDs.
-
-Hardware consists of a circuit board with ESP32 microcontroller by Espressif
-Systems. Most likely similar to the other generation II model listed above.
 
 API exposes these details:
 
@@ -107,20 +113,16 @@ API exposes these details:
 - Movie Capacity: 992
 - Wire type: 4
 
-On the top of that device has Bluetooth for out of the band configuration of
-WiFi. In this documentation the device is referred as:
+In this documentation the device is referred as:
 
 - Hardware ID: 1cc190
 - MAC address 98:f4:ab:1c:c1:90
 
-Generation II model TWF020STP-BEU
----------------------------------
+Model TWF020STP-BEU
+```````````````````
 
 It is branded as `Twinkly Festoon and consists of 20 RGB Lamps`_. It is a
 string where each lamp is red, green and blue LEDs.
-
-Hardware consists of a circuit board with ESP32 microcontroller by Espressif
-Systems. Most likely similar to the other generation II model listed above.
 
 API exposes these details:
 
@@ -134,20 +136,16 @@ API exposes these details:
 - Frame Rate: 200
 - Movie Capacity: 1984
 
-On the top of that device has Bluetooth for out of the band configuration of
-WiFi. In this documentation the device is referred as:
+In this documentation the device is referred as:
 
 - Hardware ID: 1fe520
 - MAC address 98:f4:ab:1f:e5:20
 
-Generation II model TWS250STP-BEU
----------------------------------
+Model TWS250STP-BEU
+```````````````````
 
 It is branded as `Twinkly Strings 250 LEDs Multicolor`_ with 250 red, green and
 blue LEDs.
-
-Hardware consists of a circuit board with ESP32 microcontroller by Espressif
-Systems. Most likely similar to the other generation II model listed above.
 
 API exposes these details:
 
@@ -161,8 +159,7 @@ API exposes these details:
 - Frame Rate: 30.3
 - Movie Capacity: 1984
 
-On the top of that device has Bluetooth for out of the band configuration of
-WiFi. In this documentation the device is referred as:
+In this documentation the device is referred as:
 
 - Hardware ID: 2bb250
 - MAC address 98:f4:ab:2b:b2:50
