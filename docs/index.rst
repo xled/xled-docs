@@ -28,6 +28,7 @@ API reference
 
    mqtt_api
    rest_api
+   bt_api
 
 
 The Contributor Guide
