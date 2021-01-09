@@ -44,6 +44,8 @@ API exposes these details:
 - Movie Capacity: 719
 - Frame Rate: 25
 
+Standard physical configuration is a string of 105 LEDs.
+
 Firmware belongs to family "D". In this documentation the device is referred
 as:
 
@@ -88,6 +90,8 @@ API exposes these details:
 - Movie Capacity: 992
 - Wire type: 1
 
+Physical configuration is a string of 210 LEDs.
+
 In this documentation the device is referred as:
 
 - Hardware ID: 1bb210
@@ -113,6 +117,11 @@ API exposes these details:
 - Movie Capacity: 992
 - Wire type: 4
 
+Physical configuration:
+
+- string of 95 LEDs on first cable
+- string of 95 LEDs on second cable
+
 In this documentation the device is referred as:
 
 - Hardware ID: 1cc190
@@ -136,6 +145,8 @@ API exposes these details:
 - Frame Rate: 200
 - Movie Capacity: 1984
 
+Standard physical configuration is a string of 20 LEDs.
+
 In this documentation the device is referred as:
 
 - Hardware ID: 1fe520
@@ -158,6 +169,11 @@ API exposes these details:
 - Max Supported LEDs: 510
 - Frame Rate: 30.3
 - Movie Capacity: 1984
+
+Physical configuration:
+
+- string of 125 LEDs on first cable
+- string of 125 LEDs on second cable
 
 In this documentation the device is referred as:
 

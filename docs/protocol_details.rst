@@ -218,7 +218,7 @@ Intensity of each color in a LED is defined by one unsigned byte. Order of bytes
 Frame
 `````
 
-The frame is a sequence of bytes that define color of each LED in a device. First LED is the closest to a LED driver/adapter.
+The frame is a sequence of bytes that define color of each LED in a device. First LED is the closest to a LED driver/adapter (potentially on one of the cables if a device has two).
 
 Examples of frame lengths:
 
