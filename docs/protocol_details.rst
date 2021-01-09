@@ -249,7 +249,7 @@ Real time LED operating mode
 ----------------------------
 
 1. Application calls HTTP API to switch mode to rt
-2. Then UDP packets are sent to a port 7777 of device. *Each packet represents single frame* that is immediately displayed. See bellow for format of the packets.
+2. Then UDP packets are sent to a port 7777 of device. Each packet contains a frame or its segment that is immediately displayed. See bellow for format of the packets.
 3. After some time without any UDP packets device switches back to movie mode.
 
 Real time LED UDP packet format
@@ -257,13 +257,54 @@ Real time LED UDP packet format
 
 Before packets are sent to a device application needs to login and verify authentication token. See above.
 
-Each UDP has header:
+UDP packet format depends on firmware version which implies device generation.
 
-* 1 byte *\\x01* (byte with hex representation 0x01)
-* 8 bytes Base 64 decoded authentication token
-* 1 byte number of LED definitions in the frame
+Version 1
+`````````
 
-Then follows a body with a movie. See above for format.
+This format is used in generation I devices. An UDP packet starts with a header:
+
+* 1 byte: version *\\x01* (byte with hex representation 0x01)
+* 8 bytes: byte representation of the authentication token - not encoded in base 64
+* 1 byte: number of LED definitions in the frame
+
+Then follows a body in the frame format.
+
+Version 2
+`````````
+
+This format is used in generation II devices until firmware version 2.4.6 (including). An UDP packet starts with a header:
+
+* 1 byte: version *\\x02* (byte with hex representation 0x02)
+* 8 bytes: byte representation of the authentication token - not encoded in base 64
+
+Then follows a body in the movie format.
+
+Version 3
+`````````
+
+This format is used in generation II devices from firmware version 2.4.14.
+
+Frames are split into fragments with size up to 900 bytes. Each fragment is sent in an UDP packet that starts with a header:
+
+* 1 byte: version *\\x03* (byte with hex representation 0x03)
+* 8 bytes: byte representation of the authentication token - not encoded in base 64
+* 2 bytes: *\\x00\\x00* of unknown meaning - maybe a fragment could be 3 bytes long?
+* 1 byte: frame fragment number - first one is 0
+
+Then follows a body with the frame fragment.
+
+Example of a frame with size 2250 bytes for a device with 750 LEDs with RGB LED profile:
+
++-----------------------+---------------------+
+| Frame fragment number | Frame fragment size |
++=======================+=====================+
+|                     0 |                 900 |
++-----------------------+---------------------+
+|                     1 |                 900 |
++-----------------------+---------------------+
+|                     2 |                 450 |
++-----------------------+---------------------+
 
 Scan for WiFi networks
 ----------------------
