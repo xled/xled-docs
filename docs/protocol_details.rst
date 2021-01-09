@@ -192,12 +192,58 @@ Upload full movie LED effect
 2. Application calls API movie/full with file sent as part of the request
 3. Application calls config movie call with additional parameters of the movie
 
-Movie file format
------------------
+Frame format
+------------
 
-LED effect is called **movie**. It consists of **frames**. Each frame defines colour of each LED.
+A frame is the lowest level that a device accepts to light any LED. Firstly let's start with single LED definition.
 
-Movie file format is simple sequence of bytes. Three bytes in a row represent intensity of *red*, *green* and *blue* in this order. Each frame is defined just with number of LEDs times three. Frames don't have any separator. Definition of each frame starts from LED closer to LED driver/adapter.
+Single LED
+``````````
+
+Intensity of each color in a LED is defined by one unsigned byte. Order of bytes is based on a LED profile:
+
+- RGB:
+
+  1. *red*
+  2. *green*
+  3. *blue*
+
+- RGBW:
+
+  1. *white*
+  2. *red*
+  3. *green*
+  4. *blue*
+
+Frame
+`````
+
+The frame is a sequence of bytes that define color of each LED in a device. First LED is the closest to a LED driver/adapter.
+
+Examples of frame lengths:
+
++----------------+-------------+-----------------------+
+| Number of LEDs | LED profile | Frame length in bytes |
++================+=============+=======================+
+|            105 |         RGB |                   315 |
++----------------+-------------+-----------------------+
+|            210 |        RGBW |                   840 |
++----------------+-------------+-----------------------+
+
+Movie format
+------------
+
+A movie is a sequence of frames. A frame rate is defined separately from a movie.
+
+Example movie lengths:
+
++-----------------------+------------------+-----------------------+
+| Frame length in bytes | Number of frames | Movie length in bytes |
++=======================+==================+=======================+
+|                   315 |               12 |                  3780 |
++-----------------------+------------------+-----------------------+
+|                   840 |                6 |                  5040 |
++-----------------------+------------------+-----------------------+
 
 Real time LED operating mode
 ----------------------------
@@ -217,9 +263,7 @@ Each UDP has header:
 * 8 bytes Base 64 decoded authentication token
 * 1 byte number of LED definitions in the frame
 
-Then follows body of the frame similarly to movie file format - three bytes for each LED.
-
-For my 105 LED each packet is 325 bytes long.
+Then follows a body with a movie. See above for format.
 
 Scan for WiFi networks
 ----------------------
