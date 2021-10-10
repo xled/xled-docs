@@ -277,6 +277,7 @@ This format is used in generation II devices until firmware version 2.4.6 (inclu
 
 * 1 byte: version *\\x02* (byte with hex representation 0x02)
 * 8 bytes: byte representation of the authentication token - not encoded in base 64
+* 1 byte: *\\x00* of unknown meaning
 
 Then follows a body in the movie format.
 
