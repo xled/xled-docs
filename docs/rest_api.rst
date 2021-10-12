@@ -67,6 +67,7 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
   * `out`
 
     * `brightness`
+    * `saturation`
 
   * `driver_params`
   * `reset`
@@ -89,6 +90,7 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
 
   * `new`
   * `full`
+  * `current`
 
 * `network`
 
@@ -1543,14 +1545,14 @@ Parameters as JSON object.
 	(string) either "A" for Absolute value or "R" for Relative value
 
 `value`
-	(integer) brightness level in range of 0..100 if type is "A", or change of level in range -100..100 if type is "R"
+	(signed integer) brightness level in range of 0..100 if type is "A", or change of level in range -100..100 if type is "R"
 
 When `mode` is "disabled" no dimming is applied and the led works at full
 brightness. It is not necessary to submit all the parameters, basically it
 would work if only `value` or `mode` is supplied. `type` parameter can be
 omitted ("A" is the default). The brightness level value is in percent
-so 0 is dark and maximum meaningful value is 100. Greater values
-doesn't seem to have any effect. 
+so 0 is dark and maximum meaningful value is 100. Greater values are possible
+but don't seem to have any effect.
 
 Response
 ````````
@@ -1666,14 +1668,14 @@ Parameters as JSON object.
 	(string) either "A" for Absolute value or "R" for Relative value
 
 `value`
-	(integer) saturation level in range of 0..100 if type is "A", or change of level in range -100..100 if type is "R"
+	(signed integer) saturation level in range of 0..100 if type is "A", or change of level in range -100..100 if type is "R"
 
 When `mode` is "disabled" no desaturation is applied and the led works at full
 color. It is not necessary to submit all the parameters, basically it
 would work if only `value` or `mode` is supplied. `type` parameter can be
 omitted ("A" is the default). The saturation level value is in percent
 so 0 is completely black-and-white and maximum meaningful value is 100. Greater
-values doesn't seem to have any effect. 
+values are possible but don't seem to have any effect.
 
 Response
 ````````
