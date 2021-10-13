@@ -191,7 +191,7 @@ The response will be an object.
 `authentication_token_expires_in`: integer. All the time 14400?
 
 Example
-````````
+```````
 
 Request::
 
@@ -243,7 +243,7 @@ The response will be an object.
 	(integer), application return code.
 
 Example
-````````
+```````
 
 Request::
 
@@ -288,7 +288,7 @@ The response will be an object.
 	(integer), application return code.
 
 Example
-````````
+```````
 
 Request::
 
@@ -519,7 +519,7 @@ For firmware family "G" since firmware version 2.4.21:
 	(integer), application return code.
 
 Example
-````````
+```````
 
 Request::
 
@@ -571,7 +571,7 @@ The response will be an object.
 	(integer), application return code.
 
 Example
-````````
+```````
 
 Request::
 
@@ -620,7 +620,7 @@ The response will be an object.
 	(integer), application return code. `1103` if too long.
 
 Example
-````````
+```````
 
 Request::
 
@@ -673,7 +673,7 @@ The response will be an object.
 	(object), contents is the same as the request.
 
 Example
-````````
+```````
 
 Request::
 
@@ -774,7 +774,7 @@ Parameters as JSON object.
 	(number) time when to turn lights off in seconds after midnight. -1 if not set
 
 Example
-````````
+```````
 
 Request to set current time to 2:00 AM, turn on lights at 1:00 AM and turn off at 4:00 AM::
 
@@ -1000,7 +1000,7 @@ The response will be an object.
 	(integer), application return code.
 
 Example
-````````
+```````
 
 Request::
 
@@ -1053,7 +1053,7 @@ The response will be an object.
 Item of `unique_ids` array is a UUID string. Default values are "00000000-0000-0000-0000-000000000001" up until "00000000-0000-0000-0000-00000000000F".
 
 Example
-````````
+```````
 Request::
 
 	GET /xled/v1/led/effects HTTP/1.1
@@ -1100,7 +1100,7 @@ The response will be an object.
 	(integer), e.g. 0
 
 Example
-````````
+```````
 Request::
 
 	GET /xled/v1/led/effects/current HTTP/1.1
@@ -1840,7 +1840,7 @@ The response will be an object.
 	(string)
 
 Example
-````````
+```````
 
 Request::
 
@@ -1876,7 +1876,7 @@ The response will be an object.
 	(integer), application return code.
 
 Example
-````````
+```````
 
 Request::
 
@@ -1938,7 +1938,7 @@ The response will be an object.
 	(integer), application return code.
 
 Example
-````````
+```````
 
 Request for generation I device::
 
@@ -2075,7 +2075,7 @@ Where each item of `movies` is an object.
 	(integer), e.g. 0
 
 Example
-````````
+```````
 
 Request::
 
@@ -2442,7 +2442,7 @@ Contents of object `ap`:
 	(integer), either hidden or set to 1 if default password for AP was changed.
 
 Example
-````````
+```````
 
 Request::
 
@@ -2534,7 +2534,7 @@ The response will be an object.
 	(integer), application return code.
 
 Example
-````````
+```````
 
 Request to change network mode to client and connect to SSID "home" with password "Twinkly". Encoded with MAC address '5C:CF:7F:33:AA:FF'::
 
@@ -2623,7 +2623,7 @@ For firmware family "G" since firmware version 2.4.21 and "F" since 2.4.2:
 	(string), only in firmware family "F" since 2.4.2 until 2.4.14.
 
 Example
-````````
+```````
 
 Request::
 
@@ -2723,7 +2723,7 @@ Where each item of `entries` is an object.
 	(string), UUID
 
 Example
-````````
+```````
 
 Request::
 
