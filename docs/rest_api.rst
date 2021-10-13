@@ -117,6 +117,8 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
 
       * `current`
 
+* `summary`
+
 Application responses
 `````````````````````
 
@@ -722,7 +724,7 @@ The response will be an object.
 	(number) time when to turn lights off in seconds after midnight. -1 if not set
 
 `code`
-	(integer), application return code. Since firmware family "G" version: 2.3.8 and family "F" version: 2.5.6.
+	(integer), application return code. Since firmware family "D" version: 2.3.8 and family "F" version: 2.5.6.
 
 Example
 ```````
@@ -842,6 +844,7 @@ Where each item of `coordinates` is an object:
 
 `source` is one of:
 
+* "linear"
 * "2d"
 * "3d"
 
@@ -891,6 +894,7 @@ Where each item of `coordinates` is an object:
 
 `source` is one of:
 
+* "linear"
 * "2d"
 * "3d"
 
@@ -937,8 +941,10 @@ The response will be an object.
 Mode can be one of:
 
 * `off` - lights are turned off
-* `demo` - in demo mode
-* `movie` - plays predefined or uploaded effect
+* `demo` - demo mode, cycles through pre-defined effects
+* `effect` - plays a predefined effect
+* `movie` - plays an uploaded movie
+* `playlist` - cycles through playlist of uploaded movies
 * `rt` - receive effect in real time
 
 Example
@@ -1018,6 +1024,8 @@ Response::
 Get LED effects
 ---------------
 
+Retrieve the identities of all available predefined effects.
+
 Since firmware version 1.99.18.
 
 HTTP request
@@ -1065,6 +1073,8 @@ Response::
 Get current LED effect
 ----------------------
 
+Gets the id of the effect shown when in effect mode.
+
 Since firmware version 1.99.18.
 
 HTTP request
@@ -1106,6 +1116,59 @@ Response::
 	Content-Type: application/json
 
 	{"effect_id":0,"code":1000}
+
+Set current LED effect
+----------------------
+
+Sets which effect to show when in effect mode.
+
+Since firmware version 1.99.18.
+
+HTTP request
+````````````
+
+`POST /xled/v1/led/effects/current`
+
+`X-Auth-Token`
+	Authentication token
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`effect_id`
+	(int), id of effect, e.g. 0.
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+Example
+```````
+
+Request::
+
+	POST /xled/v1/led/effects/current HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+	X-Auth-Token: 5jPe+ONhwUY=
+	Content-Length: 15
+
+	{"effect_id":0}
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 13
+	Content-Type: application/json
+
+	{"code":1000}
 
 Get LED config
 --------------
@@ -1397,8 +1460,8 @@ The response will be an object.
 `code`
 	(integer), application return code.
 
-Get current brightness
-----------------------
+Get brightness
+--------------
 
 Gets the current brightness level.
 
@@ -1426,12 +1489,12 @@ The response will be an object.
 	(string) one of "enabled" or "disabled".
 
 `value`
-	(integer) brightness level in range of 0..255
+	(integer) brightness level in range of 0..100
 
 Mode string displays if the dimming is applied. The led shines at full
 brightness regardless of what value is set if the `mode` is `disabled`.
-Brightness level value seems to represent percent so 0 is dark and maximum
-meaningful value is 100. Greater values doesn't seem to have any effect.
+Brightness level value represents percent so 0 is dark and 100 is maximum
+brightness.
 
 Example
 ```````
@@ -1446,15 +1509,19 @@ Response::
 
 	HTTP/1.1 200 Ok
 	Connection: close
-	Content-Length: 37
+	Content-Length: 42
 	Content-Type: application/json
 
-	{"value":"100,"mode":"enabled","code":1000}
+	{"value":100,"mode":"enabled","code":1000}
 
 Set brightness
 --------------
 
-Since firmware version: 2.3.5.
+Sets the brightness level.
+
+* For devices with firmware family "D" since version 2.3.5.
+* For devices with firmware family "F" since 2.4.2.
+* For devices with firmware family "G" since version 2.4.21.
 
 HTTP request
 ````````````
@@ -1473,17 +1540,17 @@ Parameters as JSON object.
 	(string) one of "enabled", "disabled"
 
 `type`
-	(string) always "A"
+	(string) either "A" for Absolute value or "R" for Relative value
 
 `value`
-	(integer) brightness level in range of 0..255
+	(integer) brightness level in range of 0..100 if type is "A", or change of level in range -100..100 if type is "R"
 
 When `mode` is "disabled" no dimming is applied and the led works at full
 brightness. It is not necessary to submit all the parameters, basically it
 would work if only `value` or `mode` is supplied. `type` parameter can be
-omitted, and the only value seen on the wire was "A". Brightness level value
-seems to represent percent so 0 is dark and maximum meaningful value is 100.
-Greater values doesn't seem to have any effect.
+omitted ("A" is the default). The brightness level value is in percent
+so 0 is dark and maximum meaningful value is 100. Greater values
+doesn't seem to have any effect. 
 
 Response
 ````````
@@ -1504,9 +1571,132 @@ Request::
 	Host: 192.168.4.1
 	X-Auth-Token: 5jPe+ONhwUY=
 	Content-Type: application/json
-	Content-Length: 45
+	Content-Length: 41
 
-	{"mode":"enabled","type": "A","value": "100"}
+	{"mode":"enabled","type":"A","value":100}
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 13
+
+	{"code":1000}
+
+Get saturation
+--------------
+
+Gets the current saturation level.
+
+* For devices with firmware family "D" since version 2.3.5.
+* For devices with firmware family "F" since 2.4.2.
+* For devices with firmware family "G" since version 2.4.21.
+
+HTTP request
+````````````
+
+`GET /xled/v1/led/out/saturation`
+
+`X-Auth-Token`
+	Authentication token
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+`mode`
+	(string) one of "enabled" or "disabled".
+
+`value`
+	(integer) saturation level in range of 0..100
+
+Mode string displays if desaturation is applied. The led shines with full
+color regardless of what value is set if the `mode` is `disabled`.
+Saturation level value represents percent so 0 is completely black-and-white
+and 100 is full color.
+
+Example
+```````
+
+Request::
+
+	GET /xled/v1/led/out/saturation HTTP/1.1
+	Host: 192.168.4.1
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 37
+	Content-Type: application/json
+
+	{"value":"100,"mode":"enabled","code":1000}
+
+Set saturation
+--------------
+
+Sets the saturation level.
+
+* For devices with firmware family "D" since version 2.3.5.
+* For devices with firmware family "F" since 2.4.2.
+* For devices with firmware family "G" since version 2.4.21.
+
+HTTP request
+````````````
+
+`POST /xled/v1/led/out/saturation`
+
+`X-Auth-Token`
+	Authentication token
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`mode`
+	(string) one of "enabled", "disabled"
+
+`type`
+	(string) either "A" for Absolute value or "R" for Relative value
+
+`value`
+	(integer) saturation level in range of 0..100 if type is "A", or change of level in range -100..100 if type is "R"
+
+When `mode` is "disabled" no desaturation is applied and the led works at full
+color. It is not necessary to submit all the parameters, basically it
+would work if only `value` or `mode` is supplied. `type` parameter can be
+omitted ("A" is the default). The saturation level value is in percent
+so 0 is completely black-and-white and maximum meaningful value is 100. Greater
+values doesn't seem to have any effect. 
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+Example
+```````
+
+Decrease the saturation level with 20%:
+
+Request::
+
+	POST /xled/v1/led/out/saturation HTTP/1.1
+	Host: 192.168.4.1
+	X-Auth-Token: 5jPe+ONhwUY=
+	Content-Type: application/json
+	Content-Length: 43
+
+	{"mode":"enabled","type":"R","value":-20}
 
 Response::
 
@@ -1832,6 +2022,8 @@ The response will be an object.
 Get list of movies
 ------------------
 
+Retrieve the identities and parameters of all uploaded movies.
+
 Available since firmware version 2.5.6.
 
 HTTP request
@@ -1902,6 +2094,11 @@ Response with empty list of movies::
 
 Delete movies
 -------------
+
+Remove all uploaded movies.
+
+Any existing playlist will be removed as well. This call only works if
+the device is not in movie or playlist mode.
 
 Available since firmware version 2.5.6.
 
@@ -1991,6 +2188,109 @@ The response will be an object.
 `code`
 	(integer), application return code.
 
+
+Get current movie
+-----------------
+
+Gets the id of the movie shown when in movie mode.
+
+Since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`GET /xled/v1/led/movies/current`
+
+`X-Auth-Token`
+	Authentication token
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+`id`
+	(integer), numeric id of movie, in range 0 .. 15
+
+`unique_id`
+	(string), UUID of movie.
+
+`name`
+	(string), name of movie.
+
+Example
+```````
+Request::
+
+	GET /xled/v1/led/movies/current HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 81
+	Content-Type: application/json
+
+	{"id":0,"unique_id":"00000000-0000-0000-0000-800000000000","name":"","code":1000}
+
+Set current movie
+-----------------
+
+Sets which movie to show when in movie mode.
+
+Since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`POST /xled/v1/led/movies/current`
+
+`X-Auth-Token`
+	Authentication token
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`id`
+	(int), id of movie, in range 0 .. 15.
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+Example
+```````
+
+Request::
+
+	POST /xled/v1/led/movies/current HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+	X-Auth-Token: 5jPe+ONhwUY=
+	Content-Length: 8
+
+	{"id":0}
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 13
+	Content-Type: application/json
+
+	{"code":1000}
 
 Initiate WiFi network scan
 --------------------------
@@ -2211,7 +2511,7 @@ Parameters as JSON object.
 	(string), optional encrypted password.
 
 `password`
-	(string), optional plaintext password. Since firmware version 2.5.25 (?).
+	(string), optional plaintext password. Since firmware version 2.4.25 (?).
 
 `enc`
 	(enum), optional type of encryption. See above in Get network status. Defaults to 0 if not part of the request. If a request has `enc` value 1, get will return 0 as well.
@@ -2501,6 +2801,8 @@ The response will be an object.
 Get current playlist entry
 --------------------------
 
+Gets which movie is currently played in playlist mode.
+
 Available since firmware version 2.5.6.
 
 HTTP request
@@ -2522,6 +2824,40 @@ The response will be an object.
 	(string), UUID
 `name`
 	(string)
+`code`
+	(integer), application return code.
+
+Set current playlist entry
+--------------------------
+
+Sets which movie to jump to when in playlist mode.
+
+When entering playlist mode, it always starts from the first entry in
+the playlist, so this call is only useful when already in playlist mode.
+
+Available since firmware version 2.5.6.
+
+HTTP request
+````````````
+
+`POST /xled/v1/led/playlist/current`
+
+`X-Auth-Token`
+	Authentication token
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+`id`
+	(int), id of movie to jump to, e.g. 0.
+
+Response
+````````
+
+The response will be an object.
+
 `code`
 	(integer), application return code.
 
