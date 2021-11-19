@@ -54,6 +54,7 @@ Endpoints seem to be organized into hierarchy by applications. Overview of the h
 	* `full`
 
   * `mode`
+  * `color`
   * `effects`
 
     * `current`
@@ -943,6 +944,7 @@ The response will be an object.
 Mode can be one of:
 
 * `off` - lights are turned off
+* `color` - lights show a static color
 * `demo` - demo mode, cycles through pre-defined effects
 * `effect` - plays a predefined effect
 * `movie` - plays an uploaded movie
@@ -1013,6 +1015,137 @@ Request::
 	Content-Length: 15
 
 	{"mode":"demo"}
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 13
+	Content-Type: application/json
+
+	{"code":1000}
+
+Get LED color
+-------------
+
+Gets the color shown when in color mode.
+
+Since firmware version 2.7.1 (?)
+
+HTTP request
+````````````
+
+`GET /xled/v1/led/color`
+
+`X-Auth-Token`
+	Authentication token
+
+Response
+````````
+
+The response will be an object.
+
+`hue`
+	(integer), hue component of HSV, in range 0..359
+
+`saturation`
+	(integer), saturation component of HSV, in range 0..255
+
+`value`
+	(integer), value component of HSV, in range 0..255
+
+`red`
+	(integer), red component of RGB, in range 0..255
+
+`green`
+	(integer), green component of RGB, in range 0..255
+
+`blue`
+	(integer), blue component of RGB, in range 0..255
+
+`code`
+	(integer), application return code.
+
+Example
+```````
+Request::
+
+	GET /xled/v1/led/color HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+	X-Auth-Token: 5jPe+ONhwUY=
+
+Response::
+
+	HTTP/1.1 200 Ok
+	Connection: close
+	Content-Length: 84
+	Content-Type: application/json
+
+	{"hue":56,"saturation":105,"value":255,"red":255,"green":248,"blue":150,"code":1000}
+
+Set LED color
+-------------
+
+Sets the color shown when in color mode.
+
+Since firmware version 2.7.1 (?)
+
+HTTP request
+````````````
+
+`POST /xled/v1/led/color`
+
+`X-Auth-Token`
+	Authentication token
+
+Parameters
+``````````
+
+Parameters as JSON object.
+
+Either the three HSV components:
+
+`hue`
+	(integer), hue component of HSV, in range 0..359
+
+`saturation`
+	(integer), saturation component of HSV, in range 0..255
+
+`value`
+	(integer), value component of HSV, in range 0..255
+
+Or the three RGB components:
+
+`red`
+	(integer), red component of RGB, in range 0..255
+
+`green`
+	(integer), green component of RGB, in range 0..255
+
+`blue`
+	(integer), blue component of RGB, in range 0..255
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
+Example
+```````
+
+Request::
+
+	POST /xled/v1/led/color HTTP/1.1
+	Host: 192.168.4.1
+	Content-Type: application/json
+	X-Auth-Token: 5jPe+ONhwUY=
+	Content-Length: 40
+
+	{"hue":300,"saturation":255,"value":255}
 
 Response::
 
@@ -2992,7 +3125,7 @@ The response will be an object.
 `music`
 	(object)
 
-`music`
+`filters`
 	Array of objects
 
 `group`
@@ -3000,6 +3133,9 @@ The response will be an object.
 
 `layout`
 	(object)
+
+`color`
+	(object) corresponds to response of Get LED color without `code`. Since firmware version 2.7.1 (?)
 
 `code`
 	(integer), application return code.
