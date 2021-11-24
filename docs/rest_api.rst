@@ -1030,7 +1030,7 @@ Get LED color
 
 Gets the color shown when in color mode.
 
-Since firmware version 2.7.1 (?)
+Since firmware version 2.7.1
 
 HTTP request
 ````````````
@@ -1089,7 +1089,7 @@ Set LED color
 
 Sets the color shown when in color mode.
 
-Since firmware version 2.7.1 (?)
+Since firmware version 2.7.1
 
 HTTP request
 ````````````
@@ -3135,7 +3135,7 @@ The response will be an object.
 	(object)
 
 `color`
-	(object) corresponds to response of Get LED color without `code`. Since firmware version 2.7.1 (?)
+	(object) corresponds to response of Get LED color without `code`. Since firmware version 2.7.1
 
 `code`
 	(integer), application return code.
