@@ -179,6 +179,7 @@ LED operating modes
 Hardware can operate in one of following modes:
 
 * `off` - turns off lights
+* `color` - shows a static color
 * `demo` - starts predefined sequence of effects that are changed after few seconds
 * `movie` - plays predefined or uploaded effect. If movie hasn't been set (yet) code 1104 is returned.
 * `rt` - receive effect in real time
