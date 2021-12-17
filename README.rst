@@ -82,6 +82,15 @@ There multiple clients, libraries or just small projects that can be used to con
 * `twinkly-animator`_ - Drawing and animation tools for Twinkly LED lights
 * Python class to interact with generation I device and IDA Pro loader of firmware binary in `Twinkly Twinkly Little Star by F-Secure LABS`_.
 
+Communities
+-----------
+
+There are multiple places where you can connect with others who are interested in Twinkly devices:
+
+* `Twinkly (unofficial users group) on Facebook`_ to share your installations, show your creations, ask questions, post some hacks. Anything Twinkly related goes.
+* `Discussions on GitHub in xled_plus project`_ with daily effects.
+* `Gitter chat xled-community`_ of `xled` project. Fairly small and quiet.
+
 .. _`Twinkly`: https://www.twinkly.com/
 .. _`Unofficial documentation`: https://xled-docs.readthedocs.io/
 .. _`Kickstarter project`: https://www.kickstarter.com/projects/twinkly/twinkly-smart-decoration-for-your-christmas
@@ -104,3 +113,6 @@ There multiple clients, libraries or just small projects that can be used to con
 .. _`thingzi-logic-twinkly`: https://www.npmjs.com/package/thingzi-logic-twinkly
 .. _`twinkly-animator`: https://github.com/sluggoman/twinkly-animator
 .. _`Twinkly Twinkly Little Star by F-Secure LABS`: https://labs.f-secure.com/blog/twinkly-twinkly-little-star/
+.. _`Gitter chat xled-community`: https://gitter.im/xled-community/chat
+.. _`Discussions on GitHub in xled_plus project`: https://github.com/Anders-Holst/xled_plus/discussions
+.. _`Twinkly (unofficial users group) on Facebook`: https://www.facebook.com/groups/twinklyusergroup
