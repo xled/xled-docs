@@ -57,8 +57,50 @@ License
 
 Documentation is available under MIT license.
 
+Client implementations
+----------------------
+
+There multiple clients, libraries or just small projects that can be used to control Twinkly devices:
+
+* `xled`_  - python library and command line interface
+* `xled_plus`_ - Addons to the XLED package, to create nice effects for Twinkly LED lights
+* `Twinkly integration in Home Assistant`_
+* SmartThings:
+
+  * `Twinkly integration in SmartThings by StevenJonSmith`_
+  * `Twinkly integration in SmartThings by Dameon87`_
+
+* `TwinklyTree Binding`_ for openHAB
+* `Twinkly HomeKit Hub for Mongoose OS`_ using `Twinkly library for Mongoose OS`_
+* `homebridge-twinkly` - unofficial Homebridge plugin
+* `TwinklyWPF`_ - .net 5 GUI and API library
+* `ioBroker.twinkly`_ - twinkly adapter for ioBroker to communicate with the Twinkly lights
+* `Twinkly Twinkly Little Star` - ttls helps you to make async requests to Twinkly LEDs. Includes CLI and some examples how to create both loadable movies and realtime sequences.
+* `Twinkly.vb for HomeSeer`_
+* `bpx`_ - BiblioPixel driver for the xled library
+* `thingzi-logic-twinkly`_ - Twinkly lights integration for node red
+* `twinkly-animator`_ - Drawing and animation tools for Twinkly LED lights
+* Python class to interact with generation I device and IDA Pro loader of firmware binary in `Twinkly Twinkly Little Star by F-Secure LABS`_.
+
 .. _`Twinkly`: https://www.twinkly.com/
 .. _`Unofficial documentation`: https://xled-docs.readthedocs.io/
 .. _`Kickstarter project`: https://www.kickstarter.com/projects/twinkly/twinkly-smart-decoration-for-your-christmas
 .. _`promised around Christmas 2016`: https://www.kickstarter.com/projects/twinkly/twinkly-smart-decoration-for-your-christmas/comments?cursor=15497325#comment-15497324
 .. _`API won't be available any time soon`: https://www.kickstarter.com/projects/twinkly/twinkly-smart-decoration-for-your-christmas/comments?cursor=14619713#comment-14619712
+.. _`xled`: https://pypi.org/project/xled/
+.. _`xled_plus`: https://pypi.org/project/xled-plus/
+.. _`Twinkly integration in Home Assistant`: https://www.home-assistant.io/integrations/twinkly/
+.. _`Twinkly integration in SmartThings by StevenJonSmith`: https://github.com/StevenJonSmith/SmartThings
+.. _`Twinkly integration in SmartThings by Dameon87`: https://github.com/Dameon87/SmartThings
+.. _`TwinklyTree Binding`: https://github.com/mvanhulsentop/openhab-addons/tree/twinklytree/bundles/org.openhab.binding.twinklytree
+.. _`Twinkly library for Mongoose OS`: https://github.com/d4rkmen/twinkly
+.. _`Twinkly HomeKit Hub for Mongoose OS`: https://github.com/d4rkmen/twinkly-homekit
+.. _`homebridge-twinkly`:  https://github.com/nschum/homebridge-twinkly
+.. _`TwinklyWPF`: https://github.com/MarkAlanJones/TwinklyWPF
+.. _`ioBroker.twinkly`: https://www.npmjs.com/package/iobroker.twinkly
+.. _`Twinkly Twinkly Little Star`: https://github.com/jschlyter/ttls
+.. _`Twinkly.vb for HomeSeer`: https://forums.homeseer.com/forum/developer-support/scripts-plug-ins-development-and-libraries/script-plug-in-library/1348314-twinkly-vb-christmas-tree-lights-with-predefined-and-custom-animations
+.. _`bpx`: https://github.com/rec/bpx
+.. _`thingzi-logic-twinkly`: https://www.npmjs.com/package/thingzi-logic-twinkly
+.. _`twinkly-animator`: https://github.com/sluggoman/twinkly-animator
+.. _`Twinkly Twinkly Little Star by F-Secure LABS`: https://labs.f-secure.com/blog/twinkly-twinkly-little-star/
