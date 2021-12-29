@@ -60,7 +60,7 @@ Documentation is available under MIT license.
 Client implementations
 ----------------------
 
-There multiple clients, libraries or just small projects that can be used to control Twinkly devices:
+There are multiple clients, libraries or just small projects that can be used to control Twinkly devices:
 
 * `xled`_  - python library and command line interface
 * `xled_plus`_ - Addons to the XLED package, to create nice effects for Twinkly LED lights
