@@ -96,7 +96,7 @@ Since firmware version 2.4.25 not only WiFi password but also SSID is encrypted 
 Discovery protocol
 ------------------
 
-Discovery protocol uses IPv4 packets to broadcast addresses over UDP from port 5555 and listens on port 5555 for replies.
+Discovery protocol uses IPv4 packets to broadcast addresses over UDP to port 5555 listens for replies.
 
 Discovery request message to find all Twinkly devices on the network:
 
