@@ -21,7 +21,7 @@ Each device has unique ID that consists of a prefix **Twinkly_** and 6 bytes wri
 
 * In generation II devices it is rightmost part of the device's MAC address in access point (AP) mode.
 
-Value can not be directly read by API but it is used in various places - e.g. in discovery packets.
+Value can not be directly read by API but it is used in various places - e.g. in discovery datagrams.
 
 Device name
 -----------
@@ -96,7 +96,7 @@ Since firmware version 2.4.25 not only WiFi password but also SSID is encrypted 
 Discovery protocol
 ------------------
 
-Discovery protocol uses IPv4 packets to broadcast addresses over UDP to port 5555 listens for replies.
+Discovery protocol uses IPv4 datagrams to broadcast addresses over UDP to port 5555 listens for replies.
 
 Discovery request message to find all Twinkly devices on the network:
 
@@ -116,7 +116,7 @@ Twinkly devices respond with message:
 Where are you protocol
 ----------------------
 
-Where are you protocol uses unicast IPv4 packets over UDP to port 5556.
+Where are you protocol uses unicast IPv4 datagrams over UDP to port 5556.
 
 Request message so far with unknown purpose:
 
@@ -250,20 +250,20 @@ Real time LED operating mode
 ----------------------------
 
 1. Application calls HTTP API to switch mode to rt
-2. Then UDP packets are sent to a port 7777 of device. Each packet contains a frame or its segment that is immediately displayed. See bellow for format of the packets.
-3. After some time without any UDP packets device switches back to movie mode.
+2. Then UDP datagrams are sent to a port 7777 of device. Each datagram contains a frame or its segment that is immediately displayed. See bellow for format of the datagrams.
+3. After some time without any UDP datagrams device switches back to movie mode.
 
-Real time LED UDP packet format
+Real time LED UDP datagram format
 -------------------------------
 
-Before packets are sent to a device application needs to login and verify authentication token. See above.
+Before datagrams are sent to a device application needs to login and verify authentication token. See above.
 
-UDP packet format depends on firmware version which implies device generation.
+UDP datagram format depends on firmware version which implies device generation.
 
 Version 1
 `````````
 
-This format is used in generation I devices. An UDP packet starts with a header:
+This format is used in generation I devices. An UDP datagram starts with a header:
 
 * 1 byte: version *\\x01* (byte with hex representation 0x01)
 * 8 bytes: byte representation of the authentication token - not encoded in base 64
@@ -274,7 +274,7 @@ Then follows a body in the frame format.
 Version 2
 `````````
 
-This format is used in generation II devices until firmware version 2.4.6 (including). An UDP packet starts with a header:
+This format is used in generation II devices until firmware version 2.4.6 (including). An UDP datagram starts with a header:
 
 * 1 byte: version *\\x02* (byte with hex representation 0x02)
 * 8 bytes: byte representation of the authentication token - not encoded in base 64
@@ -287,7 +287,7 @@ Version 3
 
 This format is used in generation II devices from firmware version 2.4.14.
 
-Frames are split into fragments with size up to 900 bytes. Each fragment is sent in an UDP packet that starts with a header:
+Frames are split into fragments with size up to 900 bytes. Each fragment is sent in an UDP datagram that starts with a header:
 
 * 1 byte: version *\\x03* (byte with hex representation 0x03)
 * 8 bytes: byte representation of the authentication token - not encoded in base 64
@@ -326,7 +326,7 @@ One device is master and other are slaves.
 
 Group name acts as a single device in the application.
 
-Master since firmware version 2.5.6 grouped with one slave in compat mode sends every 5 seconds broadcast packets from UDP port 7777 to UDP port 7777 with total length 50 bytes. Every time 3 packets of the same contents are sent.
+Master since firmware version 2.5.6 grouped with one slave in compat mode sends every 5 seconds broadcast datagrams from UDP port 7777 to UDP port 7777 with total length 50 bytes. Every time 3 datagrams of the same contents are sent.
 
 Header:
 
@@ -340,14 +340,14 @@ a) First triplet:
 * 2 bytes *\\x0101*
 * 4 bytes that seem to be based on group name
 * 3 bytes of unknown meaning
-* 4 bytes that seem to be constant for a device also used in the next packet
+* 4 bytes that seem to be constant for a device also used in the next datagram
 
 b) Second triplet:
 
 * 2 bytes *\\x0104*
 * 4 bytes that seem to be based on group name
 * 2 bytes of unknown meaning
-* 4 bytes that seem to be constant for a device also same as in previous packet
+* 4 bytes that seem to be constant for a device also same as in previous datagram
 
 c) Third or later:
 
