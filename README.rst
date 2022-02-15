@@ -82,6 +82,7 @@ to control Twinkly devices:
 * `thingzi-logic-twinkly`_ - Twinkly lights integration for node red
 * `twinkly-animator`_ - Drawing and animation tools for Twinkly LED lights
 * Python class to interact with generation I device and IDA Pro loader of firmware binary in `Twinkly Twinkly Little Star by F-Secure LABS`_.
+* `Artnet 2 Twinkly`_ - interface XLights to Twinkly on a PC. Emulates an artnet controller, and converts received commands into something Twinkly can understand.
 
 Communities
 -----------
@@ -118,3 +119,4 @@ in Twinkly devices:
 .. _`Gitter chat xled-community`: https://gitter.im/xled-community/chat
 .. _`Discussions on GitHub in xled_plus project`: https://github.com/Anders-Holst/xled_plus/discussions
 .. _`Twinkly (unofficial users group) on Facebook`: https://www.facebook.com/groups/twinklyusergroup
+.. _`Artnet 2 Twinkly`: https://www.artnet2twinkly.com/
