@@ -912,6 +912,25 @@ The response will be an object.
 `parsed_coordinates`
 	(integer)
 
+Delete layout
+----------
+
+HTTP request
+````````````
+
+`DELETE /xled/v1/led/layout/full`
+
+`X-Auth-Token`
+	Authentication token
+
+Response
+````````
+
+The response will be an object.
+
+`code`
+	(integer), application return code.
+
 Get LED operation mode
 -------------------------
 
