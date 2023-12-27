@@ -913,7 +913,7 @@ The response will be an object.
 	(integer)
 
 Delete layout
-----------
+-------------
 
 HTTP request
 ````````````
