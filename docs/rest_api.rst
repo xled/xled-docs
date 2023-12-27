@@ -148,6 +148,9 @@ The API may return application status as `code` value of JSON. Returned will not
 1105
 	Invalid argument key
 
+1106
+	Error - value too short? (e.g. `movies/full` does not have as many pixels as `frames_number * leds_per_frame`).
+
 1107
 	Ok?
 
