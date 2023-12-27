@@ -254,7 +254,7 @@ Real time LED operating mode
 3. After some time without any UDP datagrams device switches back to movie mode.
 
 Real time LED UDP datagram format
--------------------------------
+---------------------------------
 
 Before datagrams are sent to a device application needs to login and verify authentication token. See above.
 
